@@ -9,15 +9,10 @@ This is for personal interest, you are welcom to use the material but keep in mi
 Content: 
 
 PS1:
-
 1.1 Logistic regression
-
 1.2 Poisson regression and the exponential family
-
 1.3 Gaussian discriminant analysis
-
 1.4 Linear invariance of optimization algorithm
-
 1.5 Regression for denoising quasor spectra (a step forward of LWS)
 
 

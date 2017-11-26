@@ -16,7 +16,7 @@ PS1:
 
 1.3 Gaussian discriminant analysis
 
-1.4 Linear invariance of optimization algorithm
+1.4 Linear invariance of optimization algorithm (Newton's method)
 
 1.5 Regression for denoising quasor spectra (a step forward of LWS)
 

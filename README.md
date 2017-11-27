@@ -24,6 +24,18 @@ PS1:
 
 PS2:
 
+2.1 Logistic Regression: Training stability
+
+2.2 Model Calibration (GLM)
+
+2.3 Bayesian Logistic Regression and weight decay
+
+2.4 Constructing kernels (Support Vector Machine, Mercer's theorem)
+
+2.5 Kernelizing the Perceptron (Learning Theory, Kernels)
+
+2.6 Spam classication (SVM)
+
 PS3:
 
 PS4:

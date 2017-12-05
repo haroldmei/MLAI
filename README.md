@@ -26,7 +26,7 @@ PS2:
 
 2.1 Logistic Regression: Training stability
 
-2.2 Model Calibration (GLM)
+2.2 Model Calibration
 
 2.3 Bayesian Logistic Regression and weight decay
 

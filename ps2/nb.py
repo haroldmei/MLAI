@@ -40,6 +40,7 @@ def nb_test(matrix, state):
     ###################
     return output
 
+## return the top n indicative tokens in the token list
 def top_indicative(tokenlist, state, n):
     ss = state['post1']/state['post0']
     indexes = range(0, len(tokenlist))
@@ -60,10 +61,8 @@ def main():
 
     evaluate(output, testCategory)
 
-    ss = state['post1']/state['post0']
-    indexes = range(0, trainMatrix.shape[1])
-    ids = nlargest(3, indexes, key=lambda i: ss[i])
-    top3 = np.array([tokenlist[i] for i in ids])
+    top3 = top_indicative(tokenlist, state, 3)
+    print(top3)
     return
 
 if __name__ == '__main__':

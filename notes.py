@@ -37,3 +37,17 @@ while True:
 
 # raw_input function. Alright, switch to python 2.7
 age = raw_input()
+
+# function 'lambda', in the form of [param]:[return].
+from heapq import nlargest
+tags = [ ("python", 30), ("ruby", 25), ("c++", 50), ("lisp", 20) ]
+nlargest(2, tags, key=lambda e:e[1]) # Gives [ ("c++", 50), ("python", 30) ]
+
+# the nlargest index. use of 'enumerate'
+#for item in enumerate(["a", "b", "c"]):
+#    print item
+#
+#   (0, "a")
+#   (1, "b")
+#   (2, "c")
+nlargest(2, enumerate(seq), key=lambda x: x[1])

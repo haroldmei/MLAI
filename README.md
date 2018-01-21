@@ -28,7 +28,7 @@ PS3:
 3.5 K-means for compression  
 
 PS4:  
-4.1 Neural networks: MNIST image classification
+4.1 Neural networks: MNIST image classification  
 4.2 EM convergence  
 4.3 PCA (Principle Component Analysis)  
 4.4 ICA (Independent Component Analysis)  

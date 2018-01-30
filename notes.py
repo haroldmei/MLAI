@@ -51,3 +51,20 @@ nlargest(2, tags, key=lambda e:e[1]) # Gives [ ("c++", 50), ("python", 30) ]
 #   (1, "b")
 #   (2, "c")
 nlargest(2, enumerate(seq), key=lambda x: x[1])
+
+# Python Dictonaries
+a = {'a': 1, 'b':2}
+print a
+# access keys, values
+print a.keys()
+print a.values()
+
+#show for loop over all entries
+# option 1 using zip, this works also for iterating over any, other two lists
+for k,v in zip(a.keys(), a.values()):
+    print k,v
+
+# option 2 using the dictionary `iteritems()` function
+for k,v in a.iteritems():
+    print k,v
+

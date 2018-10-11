@@ -38,5 +38,6 @@ class LocallyWeightedLinearRegression(LinearModel):
         # *** END CODE HERE ***
 
     def predict(self, x):
+        """ predict """
         # *** START CODE HERE ***
         # *** END CODE HERE ***

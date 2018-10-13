@@ -27,16 +27,53 @@ def main(train_path, valid_path, test_path, pred_path):
 
     # *** START CODE HERE ***
     # Part (c): Train and test on true labels
-    x_train, t_train = util.load_dataset(train_path, 't', add_intercept=True)
-    lr = LogisticRegression()
-    lr.fit(x_train, t_train)
-    util.plot(x_train, t_train, lr.theta, pred_path + "_2c_train.png")
-    
-    x_train, t_train = util.load_dataset(train_path, 't', add_intercept=True)
+    # Make sure to save outputs to pred_path_c
 
+    # Answer to c:
+    # Train a logistic regression classifier and plot decision boundary on training set
+    x_train, t_train = util.load_dataset(train_path, 't', add_intercept=True)
+    lrc = LogisticRegression()
+    lrc.fit(x_train, t_train)
+    util.plot(x_train, t_train, lrc.theta, pred_path_c + "_train.png")
+    # Plot decision boundary on top of test set
+    x_test, t_test = util.load_dataset(test_path, 't', add_intercept=False)
+    util.plot(x_test, t_test, lrc.theta, pred_path_c + "_test.png")
+    # Use np.savetxt to save predictions on test set to pred_path_c
+    probs, _ = lrc.predict(x_test)
+    np.savetxt(pred_path_c, probs)
+    
     # Part (d): Train on y-labels and test on true labels
+    # Make sure to save outputs to pred_path_d
+
+    # answer to d:
+    _, y_train = util.load_dataset(train_path, add_intercept=True)
+    lrd = LogisticRegression()
+    lrd.fit(x_train, y_train)
+    util.plot(x_train, t_train, lrd.theta, pred_path_d + "_train.png")
+    # Plot decision boundary on top of test set
+    #x_test, y_test = util.load_dataset(test_path, add_intercept=False)
+    util.plot(x_test, t_test, lrd.theta, pred_path_d + "_test.png")
+    # Use np.savetxt to save predictions on test set to pred_path_d
+    probs, _ = lrd.predict(x_test)
+    np.savetxt(pred_path_d, probs)
+
+
     # Part (e): Apply correction factor using validation set and test on true labels
-    # Plot and use np.savetxt to save outputs to pred_path
+    # Plot and use np.savetxt to save outputs to pred_path_e
+
+    # Answer to e:
+    _, t_val = util.load_dataset(valid_path, 't', add_intercept=False)
+    _, y_val = util.load_dataset(valid_path, add_intercept=False)
+    alpha = np.sum(y_val) / np.sum(t_val)
+
+    probs = probs / alpha
+    np.savetxt(pred_path_e, probs)
+
+    #y_test_pred = (probs > 0.5) + 0
+    util.plot(x_test, t_test, lrd.theta,
+              pred_path_e + "_test_pred.png", 0.2)
+
+
     # *** END CODER HERE
 
 

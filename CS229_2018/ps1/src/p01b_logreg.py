@@ -31,7 +31,13 @@ def main(train_path, eval_path, pred_path):
 
 
 class LogisticRegression(LinearModel):
-    """Logistic regression with Newton's Method as the solver."""
+    """Logistic regression with Newton's Method as the solver.
+
+    Example usage:
+        > clf = LogisticRegression()
+        > clf.fit(x_train, y_train)
+        > clf.predict(x_eval)
+    """
 
     def fit(self, x, y):
         """Run Newton's Method to minimize J(theta) for logistic regression.
@@ -39,9 +45,6 @@ class LogisticRegression(LinearModel):
         Args:
             x: Training example inputs. Shape (m, n).
             y: Training example labels. Shape (m,).
-
-        Returns:
-            theta: Logistic regression model parameters, including intercept.
         """
         # *** START CODE HERE ***
         m, n = x.shape
@@ -64,22 +67,20 @@ class LogisticRegression(LinearModel):
 
             #test convergence
             if np.linalg.norm(prev_theta - self.theta) < 1e-5:
-                #print("Converged in %d iterations"%i)
+                print("Converged in %d iterations"%i)
                 break
 
         print('theta = ', self.theta)
         # *** END CODE HERE ***
 
     def predict(self, x):
-        """Make a prediction at a new point x given logistic
-        regression parameters theta. Input will not have an intercept term
-        (i.e. not necessarily x[0] = 1), but theta expects an intercept term.
+        """Make a prediction given new inputs x.
 
         Args:
-            x: New data point, NumPy array of shape (1, n).
+            x: Inputs of shape (m, n).
 
         Returns:
-            Predicted probability for input x.
+            Outputs of shape (m,).
         """
         # *** START CODE HERE ***
         new_x = util.add_intercept(x)

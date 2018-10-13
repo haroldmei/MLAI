@@ -5,7 +5,7 @@ from linear_model import LinearModel
 
 
 def main(train_path, eval_path, pred_path):
-    """Problem 1(d): Gaussian discriminant analysis (GDA)
+    """Problem 1(e): Gaussian discriminant analysis (GDA)
 
     Args:
         train_path: Path to CSV file containing dataset for training.
@@ -32,6 +32,14 @@ def main(train_path, eval_path, pred_path):
 
 
 class GDA(LinearModel):
+    """Gaussian Discriminant Analysis.
+
+    Example usage:
+        > clf = GDA()
+        > clf.fit(x_train, y_train)
+        > clf.predict(x_eval)
+    """
+
     def fit(self, x, y):
         """Fit a GDA model to training set given by x and y.
 
@@ -70,13 +78,13 @@ class GDA(LinearModel):
         # *** END CODE HERE ***
 
     def predict(self, x):
-        """Make a prediction at a new point x given linear coefficients theta.
+        """Make a prediction given new inputs x.
 
         Args:
-            x: New data point, NumPy array of shape (1, n).
+            x: Inputs of shape (m, n).
 
         Returns:
-            Predicted probability for input x.
+            Outputs of shape (m,).
         """
         # *** START CODE HERE ***
         new_x = util.add_intercept(x)

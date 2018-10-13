@@ -17,7 +17,7 @@ To recap, an exponential family distribution is one whose probability density
 can be represented
 %
 \begin{equation*}
-    p(y ; \eta) = b(y)\exp(\eta^TT(y) - a(\eta)),
+    p(y; \eta) = b(y)\exp(\eta^TT(y) - a(\eta)),
 \end{equation*}
 %
 where $\eta$ is the \emph{natural parameter} of the distribution. Moreover, in
@@ -30,10 +30,10 @@ Hessian) of the loss w.r.t the model parameters is Positive Semi-Definite (PSD)
 at all values of the model parameters. We will also show some nice properties
 of Exponential Family distributions as intermediate steps.
 
-For the sake of convenience we restrict ourselves to the scalar $n=1$ case.
-Assume $p(Y|X;\theta )\sim \text{ExponentialFamily}(\eta)$, where $\eta \in
-\mathbb{R}$ is a scalar, and $T(y) = y$. This makes the exponential family
-representation take the form
+For the sake of convenience we restrict ourselves to the case where $\eta$ is
+a scalar. Assume $p(Y|X;\theta )\sim \text{ExponentialFamily}(\eta)$, where
+$\eta \in\mathbb{R}$ is a scalar, and $T(y) = y$. This makes the exponential
+family representation take the form
 %
 \begin{equation*}
     p(y ; \eta) = b(y)\exp(\eta y - a(\eta)).

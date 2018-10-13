@@ -1,6 +1,3 @@
-import pickle
-
-
 class LinearModel(object):
     """Base class for linear models."""
 
@@ -26,48 +23,16 @@ class LinearModel(object):
         Args:
             x: Training example inputs. Shape (m, n).
             y: Training example labels. Shape (m,).
-
-        Returns:
-            theta: Linear model parameters, including intercept.
         """
         raise NotImplementedError('Subclass of LinearModel must implement fit method.')
 
     def predict(self, x):
-        """Make a prediction at a new point x given linear model
-        parameters theta. Input will not have an intercept term
-        (i.e. not necessarily x[0] = 1), but theta expects an intercept term.
+        """Make a prediction given new inputs x.
 
         Args:
-            x: New data point, NumPy array of shape (1, n).
+            x: Inputs of shape (m, n).
 
         Returns:
-            Predicted probability for input x.
+            Outputs of shape (m,).
         """
         raise NotImplementedError('Subclass of LinearModel must implement predict method.')
-
-    def save(self, save_path):
-        """Save model to disk.
-
-        Args:
-            save_path: Path for saving the model.
-        """
-        with open(save_path, 'wb') as pkl_fh:
-            pickle.dump(self, pkl_fh)
-
-    @staticmethod
-    def load(model_path):
-        """Load a LinearModel from a given path.
-
-        Args:
-            model_path: Path for loading the model.
-
-        Returns:
-            LinearModel object.
-        """
-        with open(model_path, 'rb') as pkl_fh:
-            obj = pickle.load(pkl_fh)
-
-        if not isinstance(obj, LinearModel):
-            raise ValueError('Not a LinearModel instance: {}'.format(model_path))
-
-        return obj

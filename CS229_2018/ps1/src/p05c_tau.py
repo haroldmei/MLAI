@@ -20,8 +20,49 @@ def main(tau_values, train_path, valid_path, test_path, pred_path):
 
     # *** START CODE HERE ***
     # Search tau_values for the best tau (lowest MSE on the validation set)
+    num_test = len(tau_values)
+    x_valid, y_valid = util.load_dataset(valid_path, add_intercept=True)
+    min_mse = 10    # use a large number as long as it's larger than max(y)
+    best_tau = tau_values[0]
+    for i in range(num_test):
+        # Fit a LWR model
+        clf = LocallyWeightedLinearRegression(tau_values[i])
+        clf.fit(x_train, y_train)
+
+        # Get MSE value on the validation set
+        y_pred = clf.predict(x_valid)
+        err = y_valid - y_pred
+        mse = np.mean(err * err)
+        plt.figure()
+        clf.plot(plt, x_train, y_train, x_valid, y_pred, "output/p05d_pred_%f.png" % tau_values[i])
+        print("PS5.d mean square error for %d is: %f" % (i, mse))
+        if mse < min_mse:
+            min_mse=mse
+            best_tau = tau_values[i]
+        
+    print("PS5.d min mse is: %f, best tau is %f" % (min_mse, best_tau))
+            
+
     # Fit a LWR model with the best tau value
+    best_lwr = LocallyWeightedLinearRegression(best_tau)
+    best_lwr.fit(x_train, y_train)
     # Run on the test set to get the MSE value
+    x_test, y_test = util.load_dataset(test_path, add_intercept=True)
+    y_pred = best_lwr.predict(x_test)
+    err = y_test - y_pred
+    mse_test = np.mean(err * err)
+    print("PS5.d mean square error is: %f" % mse_test)
+    # Save predictions to pred_path
+    np.savetxt(pred_path, y_pred)
     # Plot data
-    # Run on the test set, and use np.savetxt to save outputs to pred_path
+    plt.figure()
+    clf.plot(plt, x_train, y_train, x_test, y_pred, "output/p05d_test.png")
     # *** END CODE HERE ***
+
+#debug one by one
+if __name__ == '__main__':
+    main(tau_values=[3e-2, 5e-2, 1e-1, 5e-1, 1e0, 1e1],
+         train_path='../data/ds5_train.csv',
+         valid_path='../data/ds5_valid.csv',
+         test_path='../data/ds5_test.csv',
+         pred_path='output/p05c_pred.txt')

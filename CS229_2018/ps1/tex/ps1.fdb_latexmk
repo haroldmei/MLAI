@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1539531110 "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" "ps1.pdf" "ps1" 1539531111
+["pdflatex"] 1539531905 "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" "ps1.pdf" "ps1" 1539531906
   "../src/output/p01b_pred_1_txt_lr_valid.png" 1539530952 19885 1e7cd9d84447ddf9ac267abef29ea286 ""
   "../src/output/p01b_pred_2_txt_lr_valid.png" 1539530952 22230 954e18d5de880837d3313b68be56d522 ""
   "../src/output/p01e_pred_1_txt_gda_valid.png" 1539530953 22057 6eb84d60794ba272b739aa04903cd5a9 ""
@@ -62,11 +62,11 @@
   "04-glm-convexity/03-hessian-sol.tex" 1539518742 729 291ff56e79fee339c6133018b8211d8e ""
   "04-glm-convexity/03-hessian.tex" 1538795930 572 8e4c35928de741a383bd1e6f59ed2698 ""
   "05-weighted/00-main.tex" 1538547122 192 3e20fb43ca25093b5acb61e68b5b3f82 ""
-  "05-weighted/01-intro-sol.tex" 1539524819 1722 39cb9d60746aa07c5f690e494b0dc6c8 ""
+  "05-weighted/01-intro-sol.tex" 1539531905 1722 d16f53fc63153210690a360071af8953 ""
   "05-weighted/01-intro.tex" 1539520599 2369 85e75687ba88db8b218e42da8c4ceb93 ""
   "05-weighted/02-impl-sol.tex" 1539530059 297 da86ebc0f685847f080ee4651ca1f271 ""
   "05-weighted/02-impl.tex" 1538710846 916 ac1e632c490c454e225fd77683a6c86e ""
-  "05-weighted/03-tau-sol.tex" 1539531108 1169 247f2751540f814db10bc75cdecc8bb5 ""
+  "05-weighted/03-tau-sol.tex" 1539531124 1169 247f2751540f814db10bc75cdecc8bb5 ""
   "05-weighted/03-tau.tex" 1538710846 582 d5fb65e09e51652b7d7f956f28bf5143 ""
   "C:/Users/Harold/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1538287475 4161535 194f8e0c7e03ee6e8090715a92d2cca5 ""
   "C:/Users/Harold/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1539529556 83900 99161b983370f35003c35da3c3d29977 ""
@@ -147,7 +147,7 @@
   "C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/tex/latex/tools/verbatim.sty" 1525892514 7262 cf84171354dfa1855684c0946ff000f1 ""
   "C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" 1539525820 3419 4510df4295f465b644dfbb5d04f27d8e ""
-  "ps1.aux" 1539531111 1661 3b8e78b6d44ac2df1fb02aeae8f5b7ca ""
+  "ps1.aux" 1539531906 1661 3b8e78b6d44ac2df1fb02aeae8f5b7ca ""
   "ps1.tex" 1539525820 3419 4510df4295f465b644dfbb5d04f27d8e ""
   (generated)
   "ps1.log"

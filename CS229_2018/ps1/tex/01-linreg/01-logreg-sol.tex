@@ -1,2 +1,30 @@
 \begin{answer}
+
+The hessian derivation
+Take the derivative w.r.t. $\theta_j$,  $h'(x) = g'(\theta^T x) = g(\theta^T x)(1-g(\theta^T x) x_j$ for the jth component.
+\begin{eqnarray*}
+    \frac{\partial J}{\partial \theta_j}
+	&=& -\frac{1}{m} \sum_{i=1}^m \left(y^{(i)} \frac{h_{\theta}(x^{(i)}) (1-h_{\theta}(x^{(i)})} {h_{\theta}(x^{(i)}} x_j
+	+ (1 - y^{(i)}) \frac{-h_{\theta}(x^{(i)})  (1-h_{\theta}(x^{(i)}) } {h_{\theta}(x^{(i)}} x_j \right) \\
+	&=& -\frac{1}{m} \sum_{i=1}^m \left(y^{(i)}  (1-h_{\theta}(x^{(i)}) x_j
+	- (1 - y^{(i)}) h_{\theta}(x^{(i)}) x_j \right) \\
+	&=& -\frac{1}{m} \sum_{i=1}^m (y^{(i)} - h_{\theta}(x^{(i)})) x_j
+\end{eqnarray*}
+
+The Hessian is just the second order derivative of the cost. Observe the above $\frac{\partial J}{\partial \theta_j}$, 
+only the $ h_{\theta}(x^{(i)}) x_j$ part is relevant.
+\begin{eqnarray*}
+    \frac{\partial^2 J}{\partial \theta_j \theta_k}
+	&=& \frac{1}{m} \sum_{i=1}^m  h_{\theta}(x^{(i)})(1 -  h_{\theta}(x^{(i)})) x_j x_k \\
+	&=& H_{jk}
+\end{eqnarray*}
+The diagonals where $j = k$ are also generalized by $H_{jk}$.
+
+Proof of Hessian PSD
+For any vector $z$:
+\begin{eqnarray*}
+z^T H z 
+	&=& 
+\end{eqnarray*}
+
 \end{answer}

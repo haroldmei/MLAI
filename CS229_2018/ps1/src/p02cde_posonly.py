@@ -30,14 +30,15 @@ def main(train_path, valid_path, test_path, pred_path):
     # Make sure to save outputs to pred_path_c
 
     # Answer to c:
+    pred_path_c_plot = pred_path_c.replace('.', '_')
     # Train a logistic regression classifier and plot decision boundary on training set
     x_train, t_train = util.load_dataset(train_path, 't', add_intercept=True)
     lrc = LogisticRegression()
     lrc.fit(x_train, t_train)
-    util.plot(x_train, t_train, lrc.theta, pred_path_c + "_train.png")
+    util.plot(x_train, t_train, lrc.theta, pred_path_c_plot + "_train.png")
     # Plot decision boundary on top of test set
     x_test, t_test = util.load_dataset(test_path, 't', add_intercept=False)
-    util.plot(x_test, t_test, lrc.theta, pred_path_c + "_test.png")
+    util.plot(x_test, t_test, lrc.theta, pred_path_c_plot + "_test.png")
     # Use np.savetxt to save predictions on test set to pred_path_c
     probs, _ = lrc.predict(x_test)
     np.savetxt(pred_path_c, probs)
@@ -46,13 +47,14 @@ def main(train_path, valid_path, test_path, pred_path):
     # Make sure to save outputs to pred_path_d
 
     # answer to d:
+    pred_path_d_plot = pred_path_d.replace('.', '_')
     _, y_train = util.load_dataset(train_path, add_intercept=True)
     lrd = LogisticRegression()
     lrd.fit(x_train, y_train)
-    util.plot(x_train, t_train, lrd.theta, pred_path_d + "_train.png")
+    util.plot(x_train, t_train, lrd.theta, pred_path_d_plot + "_train.png")
     # Plot decision boundary on top of test set
     #x_test, y_test = util.load_dataset(test_path, add_intercept=False)
-    util.plot(x_test, t_test, lrd.theta, pred_path_d + "_test.png")
+    util.plot(x_test, t_test, lrd.theta, pred_path_d_plot + "_test.png")
     # Use np.savetxt to save predictions on test set to pred_path_d
     probs, _ = lrd.predict(x_test)
     np.savetxt(pred_path_d, probs)
@@ -70,8 +72,9 @@ def main(train_path, valid_path, test_path, pred_path):
     np.savetxt(pred_path_e, probs)
 
     #y_test_pred = (probs > 0.5) + 0
+    pred_path_e_plot = pred_path_e.replace('.', '_')
     util.plot(x_test, t_test, lrd.theta,
-              pred_path_e + "_test_pred.png", 0.2)
+              pred_path_e_plot + "_test_pred.png", 0.2)
 
 
     # *** END CODER HERE

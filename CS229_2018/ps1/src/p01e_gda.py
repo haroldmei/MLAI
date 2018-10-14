@@ -16,14 +16,15 @@ def main(train_path, eval_path, pred_path):
     x_train, y_train = util.load_dataset(train_path, add_intercept=False)
 
     # *** START CODE HERE ***
+    pred_path_plot = pred_path.replace('.', '_')
     # Train a GDA classifier
     gda = GDA()
     gda.fit(x_train, y_train)
-    util.plot(x_train, y_train, gda.theta, pred_path + "_gda_train.png")
+    util.plot(x_train, y_train, gda.theta, pred_path_plot + "_gda_train.png")
 
     # Plot decision boundary on validation set
     x_valid, y_valid = util.load_dataset(eval_path, add_intercept=False)
-    util.plot(x_valid, y_valid, gda.theta, pred_path + "_gda_valid.png")
+    util.plot(x_valid, y_valid, gda.theta, pred_path_plot + "_gda_valid.png")
 
     # Use np.savetxt to save outputs from validation set to pred_path
     probs,_ = gda.predict(x_valid)

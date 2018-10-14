@@ -15,14 +15,15 @@ def main(train_path, eval_path, pred_path):
     x_train, y_train = util.load_dataset(train_path, add_intercept=True)
 
     # *** START CODE HERE ***
+    pred_path_plot = pred_path.replace('.', '_')
     # Train a logistic regression classifier
     lr = LogisticRegression()
     lr.fit(x_train, y_train)
-    util.plot(x_train, y_train, lr.theta, pred_path + "_lr_train.png")
+    util.plot(x_train, y_train, lr.theta, pred_path_plot + "_lr_train.png")
 
     # Plot decision boundary on top of validation set set
     x_valid, y_valid = util.load_dataset(eval_path, add_intercept=False)
-    util.plot(x_valid, y_valid, lr.theta, pred_path + "_lr_valid.png")
+    util.plot(x_valid, y_valid, lr.theta, pred_path_plot + "_lr_valid.png")
 
     # Use np.savetxt to save predictions on eval set to pred_path
     probs,_ = lr.predict(x_valid)

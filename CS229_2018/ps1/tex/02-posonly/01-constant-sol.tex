@@ -1,2 +1,27 @@
 \begin{answer}
+
+PROOF: The model can be written as:
+\begin{eqnarray*}
+    t &\sim& Bernoulli(\phi_t) \\
+    y &\sim& Bernoulli(\phi_y)
+\end{eqnarray*}
+
+Given input $x^{(i)}$, the conditional marginal probability of $y^{(i)}$ given $t^{(i)}$ is
+\begin{eqnarray*}
+p(y^{(i)} = 1\mid x^{(i)}) 
+    &=& p(y^{(i)} = 1 \mid t^{(i)} = 1, x^{(i)}) p(t^{(i)} = 1\mid x^{(i)}) \\
+    &+& p(y^{(i)} = 1 \mid t^{(i)} = 0, x^{(i)}) p(t^{(i)} = 0\mid x^{(i)}) \\
+    &=& p(y^{(i)} = 1 \mid t^{(i)} = 1) p(t^{(i)} = 1\mid x^{(i)}) \\
+    &\Rightarrow& \frac{p(y^{(i)} = 1\mid x^{(i)}) } {p(t^{(i)} = 1\mid x^{(i)})} = p(y^{(i)} = 1 \mid t^{(i)} = 1)
+\end{eqnarray*}
+The last equality uses the conditional independence and the fact that when $t=0$, $y$ cannot be 1. The scale constant
+is given by:
+\begin{eqnarray*}
+\alpha 
+    &=& p(y^{(i)} = 1 \mid t^{(i)} = 1) \\
+    &=& \frac{p(t^{(i)} = 1 \mid y^{(i)} = 1) p(y^{(i)} = 1)}{p(t^{(i)} = 1)} \\
+    &=& \frac{p(y^{(i)} = 1)}{p(t^{(i)} = 1)} \\
+    &=& \frac{\phi_y}{\phi_t} 
+\end{eqnarray*}
+
 \end{answer}

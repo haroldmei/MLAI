@@ -1,2 +1,53 @@
 \begin{answer}
+
+The bernoulli pdf can be written as $p(y) = \phi^y (1-\phi)^{(1-y)}$, hence:
+\begin{eqnarray*}
+\ell(\phi, \mu_{0}, \mu_1, \Sigma) 
+	&=& \sum_{i=1}^m \log \phi^{y^{(i)}} (1-\phi)^{(1-y^{(i)})} \\
+	&+& \sum_{i=1,y^{(i)}=1}^m \left( -\frac{1}{2}(x^{(i)}-\mu_1)^T \Sigma^{-1} (x^{(i)}-\mu_1) + \log {\frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} }\right )\\
+	&+& \sum_{i=1,y^{(i)}=0}^m \left( -\frac{1}{2}(x^{(i)}-\mu_0)^T \Sigma^{-1} (x^{(i)}-\mu_0) + \log {\frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} }\right )\\
+	&=& \sum_{i=1}^m y^{(i)} \log \phi + \sum_{i=1}^m (1-y^{(i)}) \log (1-\phi) \\
+\end{eqnarray*}
+
+Gradient w.r.t. parameter $\phi$:
+\begin{eqnarray*}
+\frac{\partial \ell}{\partial \phi}
+	&=& \frac{\partial}{\partial \phi} \left (\sum_{i=1}^m y^{(i)} \log \phi + \sum_{i=1}^m (1-y^{(i)}) \log (1-\phi) \right)\\
+	&=& \frac{\sum_{i=1}^m y^{(i)}}{\log \phi} - \frac{\sum_{i=1}^m (1-y^{(i)})}{\log (1-\phi)} \\
+\end{eqnarray*}
+Set it to 0 vector:
+\begin{eqnarray*}
+	\frac{\sum_{i=1}^m y^{(i)}}{\log \phi} = \frac{m- \sum_{i=1}^m y^{(i)}} {\log (1-\phi)} \\
+	\Rightarrow \phi = \frac{1}{m} \sum_{i=1}^m 1\{y^{(i)} = 1\}
+\end{eqnarray*}
+
+Gradient w.r.t. parameter $\mu_1$, the same to $\mu_0$:
+\begin{eqnarray*}
+\frac{\partial \ell}{\partial \mu_1}
+	&=& \frac{\partial}{\partial \mu_1} \sum_{i=1,y^{(i)}=1}^m \left( -\frac{1}{2}(x^{(i)}-\mu_1)^T \Sigma^{-1} (x^{(i)}-\mu_1) 
+		+ \log {\frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} }\right ) \\
+	&=& -\sum_{i=1}^m 1\{y^{(i)}=1\}(x^{(i)}-\mu_1)^T \Sigma^{-1} \\
+\end{eqnarray*}
+The derivative w.r.t. $\mu_0$ is the same. Set these to 0 vector and get:
+\begin{eqnarray*}
+	\mu_0 = \frac{\sum_{i=1}^m 1\{y^{(i)} = 0\} x^{(i)}}{\sum_{i=1}^m 1\{y^{(i)} = 0\}} \\
+	\mu_1 = \frac{\sum_{i=1}^m 1\{y^{(i)} = 1\} x^{(i)}}{\sum_{i=1}^m 1\{y^{(i)} = 1\}}
+\end{eqnarray*}
+
+For the gradient w.r.t. the covariance matrix $\Sigma$, it is still a nxn matrix; 
+it has the similar steps of math work. Here we can use $\mu_{y^{(i)}}$ for both 0 and 1 classes. 
+\begin{eqnarray*}
+\frac{\partial \ell}{\partial \Sigma}
+	&=& \frac{\partial}{\partial \Sigma} \sum_{i=1}^m \left( -\frac{1}{2}(x^{(i)}-\mu_{y^{(i)}})^T \Sigma^{-1} (x^{(i)}-\mu_{y^{(i)}}) 
+		+ \log {\frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} }\right ) \\
+	&=& -\frac{\partial}{\partial \Sigma} \sum_{i=1}^m \left( \frac{1}{2}(x^{(i)}-\mu_{y^{(i)}})^T \Sigma^{-1} (x^{(i)}-\mu_{y^{(i)}}) 
+		+ \frac{1}{2} \log {|\Sigma|}\right ) \\
+	&=& \frac{1}{2} \left (\sum_{i=1}^m (x^{(i)}-\mu_{y^{(i)}})(x^{(i)}-\mu_{y^{(i)}})^T\Sigma^{-2} - m \Sigma^{-1} \right )
+\end{eqnarray*}
+
+Again set it to 0 matrix and right multiply by $\Sigma^2$, get $\Sigma$:
+\begin{eqnarray*}
+\Sigma &=& \frac{1}{m} \sum_{i=1}^m (x^{(i)} - \mu_{y^{(i)}}) (x^{(i)} - \mu_{y^{(i)}})^T
+\end{eqnarray*}
+
 \end{answer}

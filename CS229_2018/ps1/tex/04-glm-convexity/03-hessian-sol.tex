@@ -1,2 +1,25 @@
 \begin{answer}
+
+The negative log likelihood of the GLM pdf is:
+\begin{equation*}
+    \ell(\theta) = -\log p(y; \theta^T x) = -\log(b(y)) - \theta^T x y + a(\theta^T x)
+\end{equation*}
+
+The derivative w.r.t. $\theta_j$ is just given by:
+\begin{eqnarray*}
+\frac{\partial}{\partial \theta_j}\ell(\theta) 
+    &=& (a'(\theta^T x) - y) x_j \\
+\frac{\partial^2}{\partial \theta_j \theta_k}\ell(\theta) 
+    &=& a''(\theta^T x) x_j x_k \\
+    &=& \mathbb{V}(Y|X;\theta) x_j x_k \\
+    &\Rightarrow&   \\
+H_{jk}
+    &=& \mathbb{V}(Y|X;\theta) x_j x_k
+\end{eqnarray*}
+
+Hessian H is PSD in that for any given sample $x$ and vector $z$, 
+\begin{equation*}
+    z^T H z = \mathbb{V}(Y|X;\theta) (z^T x)^2 \ge 0.
+\end{equation*}
+
 \end{answer}

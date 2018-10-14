@@ -1,2 +1,22 @@
 \begin{answer}
+
+The following derivatives w.r.t. $\eta$ is obvious:
+\begin{eqnarray*}
+\frac{\partial}{\partial \eta} p(y;\eta)
+    &=& y b(y)\exp(\eta y -a(\eta)) - a'(\eta) b(y) \exp(\eta y - a(\eta)) \\
+    &=& y p - a'(\eta) p \\
+\end{eqnarray*}
+
+The equation implies: 
+\begin{eqnarray*}
+    y p(y;\eta) =\frac{\partial}{\partial \eta} p(y;\eta) + a'(\eta) p(y;\eta) \\
+\end{eqnarray*}
+
+Sum over y gives the expectation of Y given X is:
+\begin{eqnarray*}
+\mathbb{E}(Y|X;\eta)
+    &=& \int y p(y;\eta) dy \\
+    &=& \frac{\partial}{\partial \eta}\int p(y;\eta)dy + a'(\eta)\int p(y;\eta)dy \\
+    &=& a'(\eta)
+\end{eqnarray*}
 \end{answer}

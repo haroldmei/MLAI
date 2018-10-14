@@ -1,2 +1,20 @@
 \begin{answer}
+
+The log likelihood of an Poisson example is:
+
+\begin{eqnarray*}
+\ell(\lambda) 
+    &=& \log p(y) \\
+    &=& - \log(y!) + y\log \lambda - \lambda \\
+    &\Rightarrow& \\
+\frac{\partial \ell}{\partial \lambda_j}
+    &=& (\frac{y}{\exp(\theta^T x)}-1) \exp(\theta^T x) x_j \\
+    &=& (y - \exp(\theta^T x))x_j
+\end{eqnarray*}
+Here $h_{\theta}(x)=\exp (\theta^T x)$. 
+The update rule is just the same as all the GLM models:
+\begin{eqnarray*}
+    \theta_j := \theta_j + \alpha (y-h_{\theta}(x)) x_j
+\end{eqnarray*}
+
 \end{answer}

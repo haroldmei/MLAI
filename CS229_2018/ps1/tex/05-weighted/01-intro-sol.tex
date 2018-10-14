@@ -1,2 +1,56 @@
 \begin{answer}
+
+
+\begin{enumerate}
+\item The value of weight matrix W is given by:
+\begin{equation*}
+W = diag(w_1,w_2,...,w_m)/2
+\end{equation*}
+
+\item similar to linear regression, the gradient of the loss function is given by:
+\begin{eqnarray*}
+\nabla J(\theta) 
+    &=& \nabla (X\theta - {y})^T W (X\theta - {y}) \\
+    &=& \nabla tr(\theta^T X^T W X\theta - \theta^T X^T W y - y^T W X\theta + y^T W y) \\
+    &=& \nabla tr(\theta^T X^T W X\theta) - 2tr(X\theta^T W y) \\
+    &=& 2 X^T W X\theta - 2 X^T W y \\
+\end{eqnarray*}
+
+Set it to 0 and get the normal equation:
+\begin{equation*}
+    X^T W X\theta = X^T W y 
+\end{equation*}
+
+The value of $\theta$ that minimizes $J(\theta)$ is:
+\begin{equation*}
+    \theta = (X^T W X)^{-1} X^T W y 
+\end{equation*}
+
+
+\item PROOF:
+The joint probability of all samples is:
+\begin{eqnarray*}
+L(Y|X;\theta) 
+    &=& \prod_1^m p(y^{(i)} | x^{(i)} ; \theta) \\
+    &=& \prod_1^m \frac{1}{\sqrt{2\pi}\sigma^{(i)}} \exp\left(-
+    \frac{(y^{(i)} - \theta^Tx^{(i)})^2}{2(\sigma^{(i)})^2}\right)
+\end{eqnarray*}
+
+The log likelihood of the joint probability:
+\begin{eqnarray*}
+\ell(Y|X;\theta) 
+    &=& \sum_1^m \log p(y^{(i)} | x^{(i)} ; \theta) \\
+    &=& \sum_1^m \log \left(\frac{1}{\sqrt{2\pi}\sigma^{(i)}} \exp\left(-
+    \frac{(y^{(i)} - \theta^Tx^{(i)})^2}{2(\sigma^{(i)})^2}\right) \right) \\
+    &=& -\sum_1^m \frac{(y^{(i)} - \theta^Tx^{(i)})^2}{2(\sigma^{(i)})^2} - \log \sqrt{2\pi}\sigma^{(i)}
+\end{eqnarray*}
+
+Maximize the log likelihood is just minimize the loss function:
+\begin{equation*}
+	J(\theta) = \frac{1}{2} \sum_{i=1}^m w^{(i)}
+		\left(\theta^Tx^{(i)} - y^{(i)}\right)^2.
+\end{equation*}
+where $w^{(i)} = \frac{1}{(\delta^{(i)})^2}$
+
+\end{enumerate}
 \end{answer}

@@ -1,2 +1,18 @@
 \begin{answer}
+
+PROOF: according to the above results, 
+\begin{eqnarray*}
+\frac{p(y^{(i)} = 1\mid x^{(i)}) } {p(t^{(i)} = 1\mid x^{(i)})} 
+    &=& p(y^{(i)} = 1 \mid t^{(i)} = 1) \\
+    &=& \alpha \\
+\end{eqnarray*}
+This implies that:
+\begin{eqnarray*}
+h(x^{(i)}) 
+    &\approx& p(y^{(i)} = 1\mid x^{(i)}) \\
+    &\approx& \alpha p(t^{(i)} = 1\mid x^{(i)}) \\
+    &\approx& \alpha
+\end{eqnarray*}
+The last step uses the assumption that $p(t^{(i)} = 1\mid x^{(i)})\approx 1$ when
+$x^{(i)}\in V_{+}$.
 \end{answer}

@@ -1,2 +1,28 @@
 \begin{answer}
+
+Again it is obvious that:
+
+\begin{eqnarray*}
+\frac{\partial^2}{\partial \eta^2} p(y;\eta)
+    &=& y(y-a'(\eta)) b(y) \exp(\eta y-a(\eta))-ba''(\eta)\exp(\eta y-a(\eta)) \\
+    &-& a'(\eta)(y-a'(\eta))b(y)\exp(\eta y -a(\eta)) \\
+    &=& ((y-a'(\eta))^2-a''(\eta))p
+\end{eqnarray*}
+
+Now consider the variance of Y:
+\begin{eqnarray*}
+\mathbb{V}(Y)
+    &=& \mathbb{V}(Y-a'(\eta)) \\
+    &=& \mathbb{E}(Y-a'(\eta))^2 - \mathbb{E}^2(Y-a'(\eta)) \\
+    &=& \mathbb{E}(Y-a'(\eta))^2 \\
+    &=& \int (y-a'(\eta))^2 p(y;\eta)dy \\
+    &=& \frac{\partial^2}{\partial \eta^2} \int p(y;\eta)dy + a''(\eta) \int p(y;\eta)dy \\
+    &=& a''(\eta)
+\end{eqnarray*}
+The second to third step holds because $\mathbb{E}(Y-a'(\eta)) = 0$ as proved in (a).
+
+The 4th to 5th step is from the above derived $\frac{\partial^2}{\partial \eta^2} p(y;\eta)$ equation.
+
+Q.E.D.
+
 \end{answer}

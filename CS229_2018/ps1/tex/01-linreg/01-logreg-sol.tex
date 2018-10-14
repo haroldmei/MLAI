@@ -20,11 +20,20 @@ only the $ h_{\theta}(x^{(i)}) x_j$ part is relevant.
 \end{eqnarray*}
 The diagonals where $j = k$ are also generalized by $H_{jk}$.
 
-Proof of Hessian PSD
-For any vector $z$:
+Proof of Hessian's PSD.
+
+For any vector $z$, and any given sample $x^{(i)}$, 
+consider only $H^{(i)}_{jk}=h_{\theta}(x^{(i)})(1 -  h_{\theta}(x^{(i)})) x_j x_k$:
 \begin{eqnarray*}
-z^T H z 
-	&=& 
+z^T H^{(i)} z 
+	&=& h_{\theta}(x^{(i)})(1 -  h_{\theta}(x^{(i)})) \sum_{j=1}^n \sum_{k=1}^n z_j x_j x_k z_k \\
+	&=& h_{\theta}(x^{(i)})(1 -  h_{\theta}(x^{(i)})) (z^T x)^2 \\
+	&\ge& 0
 \end{eqnarray*}
+The last step is true because the sigmoid function can only be (0,1). So $H^{(i)}$ is PSD.
+
+The Hessian H is just the mean of all  $H^{(i)}$, so it is still a Hessian. 
+
+Proved.
 
 \end{answer}

@@ -34,13 +34,13 @@ def main(tau_values, train_path, valid_path, test_path, pred_path):
         err = y_valid - y_pred
         mse = np.mean(err * err)
         plt.figure()
-        clf.plot(plt, x_train, y_train, x_valid, y_pred, "output/p05d_pred_%f.png" % tau_values[i])
-        print("PS5.d mean square error for %d is: %f" % (i, mse))
+        clf.plot(plt, x_train, y_train, x_valid, y_pred, "output/p05c_pred_%d.png" % i)
+        print("PS5.c mean square error for tau=%f is: %f" % (tau_values[i], mse))
         if mse < min_mse:
             min_mse=mse
             best_tau = tau_values[i]
         
-    print("PS5.d min mse is: %f, best tau is %f" % (min_mse, best_tau))
+    print("PS5.c min mse is: %f, best tau is %f" % (min_mse, best_tau))
             
 
     # Fit a LWR model with the best tau value
@@ -51,12 +51,12 @@ def main(tau_values, train_path, valid_path, test_path, pred_path):
     y_pred = best_lwr.predict(x_test)
     err = y_test - y_pred
     mse_test = np.mean(err * err)
-    print("PS5.d mean square error is: %f" % mse_test)
+    print("PS5.c mean square error for test set is: %f" % mse_test)
     # Save predictions to pred_path
     np.savetxt(pred_path, y_pred)
     # Plot data
     plt.figure()
-    clf.plot(plt, x_train, y_train, x_test, y_pred, "output/p05d_test.png")
+    clf.plot(plt, x_train, y_train, x_test, y_pred, "output/p05c_test.png")
     # *** END CODE HERE ***
 
 #debug one by one

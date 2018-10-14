@@ -26,15 +26,15 @@ def main(tau, train_path, eval_path):
     y_pred = clf.predict(x_valid)
     err = y_valid - y_pred
     mse = np.mean(err * err)
-    print("PS5.c mean square error is: %f" % mse)
+    print("PS5.b mean square error is: %f" % mse)
     # Plot validation predictions on top of training set
     plt.figure()
-    clf.plot(plt, x_train, y_train, x_valid, y_pred, "lwr_pred.png")
+    clf.plot(plt, x_train, y_train, x_valid, y_pred, "output/p05b_lwr_pred.png")
 
     # No need to save predictions
     # Plot data
     plt.figure()
-    clf.plot(plt, x_train, y_train, x_valid, y_valid, "lwr_data.png")
+    clf.plot(plt, x_train, y_train, x_valid, y_valid, "output/p05b_lwr_data.png")
     # *** END CODE HERE ***
 
 

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1539683911 "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" "ps1.pdf" "ps1" 1539683912
+["pdflatex"] 1539684118 "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" "ps1.pdf" "ps1" 1539684119
   "../src/output/p01b_pred_1_txt_lr_valid.png" 1539680275 19885 1e7cd9d84447ddf9ac267abef29ea286 ""
   "../src/output/p01b_pred_2_txt_lr_valid.png" 1539680275 22230 954e18d5de880837d3313b68be56d522 ""
   "../src/output/p01e_pred_1_txt_gda_valid.png" 1539680275 22057 6eb84d60794ba272b739aa04903cd5a9 ""
@@ -35,7 +35,7 @@
   "01-linreg/06-plot-ds1.tex" 1538797132 514 86317088bc1292a65bc9bc96d7de3f18 ""
   "01-linreg/07-plot-ds2-sol.tex" 1539528382 504 92d2599af459c6b1c92c6bda136f9ae8 ""
   "01-linreg/07-plot-ds2.tex" 1538710846 247 be4c4e7d7963468f2df96aa486299699 ""
-  "01-linreg/08-extra-credit-sol.tex" 1539683909 986 fcf162685d0193355004222670f92fa3 ""
+  "01-linreg/08-extra-credit-sol.tex" 1539684119 993 327a62d0befa272e7d6239d0879cce11 ""
   "01-linreg/08-extra-credit.tex" 1539524400 294 de1fb930aae0ec38457b9841696d6a86 ""
   "02-posonly/00-main.tex" 1538547122 2455 2d9a06281bb6bead3a6203a2d6ff7960 ""
   "02-posonly/01-constant-sol.tex" 1539524452 1055 af924e6d5733f5a349bd8ae6efc68b28 ""
@@ -150,9 +150,9 @@
   "C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/tex/latex/tools/verbatim.sty" 1525892514 7262 cf84171354dfa1855684c0946ff000f1 ""
   "C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" 1539525820 3419 4510df4295f465b644dfbb5d04f27d8e ""
-  "ps1.aux" 1539683912 2030 4e0e6cb14b403691d314217d1f7e0a7a ""
+  "ps1.aux" 1539684119 2030 4e0e6cb14b403691d314217d1f7e0a7a ""
   "ps1.tex" 1539525820 3419 4510df4295f465b644dfbb5d04f27d8e ""
   (generated)
-  "ps1.log"
   "ps1.pdf"
+  "ps1.log"
   "ps1.aux"

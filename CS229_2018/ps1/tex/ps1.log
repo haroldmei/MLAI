@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.30)  16 OCT 2018 21:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.30)  16 OCT 2018 21:15
 entering extended mode
 **d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex
 (d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex
@@ -330,20 +330,20 @@ Package pdftex.def Info: ../src/output/p01e_pred_2_txt_gda_valid.png  used on in
 )) (01-linreg/08-extra-credit.tex [10
 
  <../src/output/p01b_pred_2_txt_lr_valid.png> <../src/output/p01e_pred_2_txt_gda_valid.png>] (01-linreg/08-extra-credit-sol.tex
-<../src/output/p01e_pred_1_txt_gda_valid_2.png, id=57, 462.528pt x 346.896pt>
-File: ../src/output/p01e_pred_1_txt_gda_valid_2.png Graphic file (type png)
-<use ../src/output/p01e_pred_1_txt_gda_valid_2.png>
-Package pdftex.def Info: ../src/output/p01e_pred_1_txt_gda_valid_2.png  used on input line 14.
+<../src/output/p01e_pred_1_txt_gda_valid_extra_2.png, id=57, 462.528pt x 346.896pt>
+File: ../src/output/p01e_pred_1_txt_gda_valid_extra_2.png Graphic file (type png)
+<use ../src/output/p01e_pred_1_txt_gda_valid_extra_2.png>
+Package pdftex.def Info: ../src/output/p01e_pred_1_txt_gda_valid_extra_2.png  used on input line 13.
 (pdftex.def)             Requested size: 250.36453pt x 187.77626pt.
-<../src/output/p01e_pred_1_txt_gda_valid_4.png, id=58, 462.528pt x 346.896pt>
-File: ../src/output/p01e_pred_1_txt_gda_valid_4.png Graphic file (type png)
-<use ../src/output/p01e_pred_1_txt_gda_valid_4.png>
-Package pdftex.def Info: ../src/output/p01e_pred_1_txt_gda_valid_4.png  used on input line 20.
+<../src/output/p01e_pred_1_txt_gda_valid_extra_4.png, id=58, 462.528pt x 346.896pt>
+File: ../src/output/p01e_pred_1_txt_gda_valid_extra_4.png Graphic file (type png)
+<use ../src/output/p01e_pred_1_txt_gda_valid_extra_4.png>
+Package pdftex.def Info: ../src/output/p01e_pred_1_txt_gda_valid_extra_4.png  used on input line 19.
 (pdftex.def)             Requested size: 250.36453pt x 187.77626pt.
-<../src/output/p01e_pred_1_txt_gda_valid_log.png, id=59, 462.528pt x 346.896pt>
-File: ../src/output/p01e_pred_1_txt_gda_valid_log.png Graphic file (type png)
-<use ../src/output/p01e_pred_1_txt_gda_valid_log.png>
-Package pdftex.def Info: ../src/output/p01e_pred_1_txt_gda_valid_log.png  used on input line 26.
+<../src/output/p01e_pred_1_txt_gda_valid_extra_log.png, id=59, 462.528pt x 346.896pt>
+File: ../src/output/p01e_pred_1_txt_gda_valid_extra_log.png Graphic file (type png)
+<use ../src/output/p01e_pred_1_txt_gda_valid_extra_log.png>
+Package pdftex.def Info: ../src/output/p01e_pred_1_txt_gda_valid_extra_log.png  used on input line 25.
 (pdftex.def)             Requested size: 250.36453pt x 187.77626pt.
 
 
@@ -351,7 +351,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ))) (02-posonly/00-main.tex [11
 
- <../src/output/p01e_pred_1_txt_gda_valid_2.png> <../src/output/p01e_pred_1_txt_gda_valid_4.png>] [12 <../src/output/p01e_pred_1_txt_gda_valid_log.png>] (02-posonly/01-constant.tex (02-posonly/01-constant-sol.tex [13
+ <../src/output/p01e_pred_1_txt_gda_valid_extra_2.png> <../src/output/p01e_pred_1_txt_gda_valid_extra_4.png>] [12 <../src/output/p01e_pred_1_txt_gda_valid_extra_log.png>] (02-posonly/01-constant.tex (02-posonly/01-constant-sol.tex [13
 
 ])) (02-posonly/02-estimate-alpha.tex [14] (02-posonly/02-estimate-alpha-sol.tex)) (02-posonly/03-train-t-labels.tex [15
 
@@ -474,14 +474,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
  <../src/output/p05c_pred_0.png>] [32 <../src/output/p05c_pred_1.png> <../src/output/p05c_pred_2.png>] [33 <../src/output/p05c_pred_3.png> <../src/output/p05c_pred_4.png>] [34 <../src/output/p05c_pred_5.png>] (ps1.aux) ) 
 Here is how much of TeX's memory you used:
  5737 strings out of 492973
- 93368 string characters out of 3126249
+ 93458 string characters out of 3126249
  154221 words of memory out of 3000000
  9339 multiletter control sequences out of 15000+200000
  7118 words of font info for 28 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,12n,39p,370b,564s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ps1.pdf (34 pages, 568490 bytes).
+Output written on ps1.pdf (34 pages, 568526 bytes).
 PDF statistics:
  210 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

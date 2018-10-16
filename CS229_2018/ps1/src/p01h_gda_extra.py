@@ -24,7 +24,7 @@ def main_extra(train_path, eval_path, pred_path):
     x_valid[:,1] = np.abs(x_valid[:,1]) ** 0.5
     gda = GDA()
     gda.fit(x_train, y_train)
-    util.plot(x_valid, y_valid, gda.theta, pred_path_plot + "_gda_valid_2.png")
+    util.plot(x_valid, y_valid, gda.theta, pred_path_plot + "_gda_valid_extra_2.png")
 
     # 4th root
     x_train, y_train = util.load_dataset(train_path, add_intercept=False)
@@ -33,7 +33,7 @@ def main_extra(train_path, eval_path, pred_path):
     x_valid[:,1] = np.abs(x_valid[:,1]) ** 0.25
     gda = GDA()
     gda.fit(x_train, y_train)
-    util.plot(x_valid, y_valid, gda.theta, pred_path_plot + "_gda_valid_4.png")
+    util.plot(x_valid, y_valid, gda.theta, pred_path_plot + "_gda_valid_extra_4.png")
 
     # log
     x_train, y_train = util.load_dataset(train_path, add_intercept=False)
@@ -42,7 +42,7 @@ def main_extra(train_path, eval_path, pred_path):
     x_valid[:,1] = np.log(x_valid[:,1])
     gda = GDA()
     gda.fit(x_train, y_train)
-    util.plot(x_valid, y_valid, gda.theta, pred_path_plot + "_gda_valid_log.png")
+    util.plot(x_valid, y_valid, gda.theta, pred_path_plot + "_gda_valid_extra_log.png")
     # *** END CODE HERE ***
 
 

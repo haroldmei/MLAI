@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1539686352 "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" "ps1.pdf" "ps1" 1539686353
+["pdflatex"] 1539687787 "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" "ps1.pdf" "ps1" 1539687788
   "../src/output/p01b_pred_1_txt_lr_valid.png" 1539680275 19885 1e7cd9d84447ddf9ac267abef29ea286 ""
   "../src/output/p01b_pred_2_txt_lr_valid.png" 1539680275 22230 954e18d5de880837d3313b68be56d522 ""
   "../src/output/p01e_pred_1_txt_gda_valid.png" 1539680275 22057 6eb84d60794ba272b739aa04903cd5a9 ""
@@ -21,7 +21,7 @@
   "00-instructions/01-general.tex" 1538547122 898 090b5f74f3e6b9746dee1101a059681c ""
   "00-instructions/02-submission.tex" 1538547122 725 593f0d20cf74df4cc79613dfe4d04fe6 ""
   "01-linreg/00-main.tex" 1538547122 1457 cae13380b130b09b2e910ee5d11fdbea ""
-  "01-linreg/01-logreg-sol.tex" 1539523890 1700 a560af21c7b33f7087bf15274cb36196 ""
+  "01-linreg/01-logreg-sol.tex" 1539687348 1700 a560af21c7b33f7087bf15274cb36196 ""
   "01-linreg/01-logreg.tex" 1538547122 1035 e455147c411ff122660e28858a916cc3 ""
   "01-linreg/02-solve-logreg-sol.tex" 1539523600 28 e3bce0cc248592e7dce011faba9b3634 ""
   "01-linreg/02-solve-logreg.tex" 1538710846 570 08d78ebbda8cf6ae132e230915cf192d ""
@@ -38,7 +38,7 @@
   "01-linreg/08-extra-credit-sol.tex" 1539684926 1038 9977be31edc7bda1b8b96887f2ed9816 ""
   "01-linreg/08-extra-credit.tex" 1539524400 294 de1fb930aae0ec38457b9841696d6a86 ""
   "02-posonly/00-main.tex" 1538547122 2455 2d9a06281bb6bead3a6203a2d6ff7960 ""
-  "02-posonly/01-constant-sol.tex" 1539524452 1055 af924e6d5733f5a349bd8ae6efc68b28 ""
+  "02-posonly/01-constant-sol.tex" 1539687787 1055 897f8b32acd185843c00fe0c5171a29e ""
   "02-posonly/01-constant.tex" 1538547122 662 3bc96a5bb8e60115512f4132aec54502 ""
   "02-posonly/02-estimate-alpha-sol.tex" 1539511718 512 210903934904842d4c397310f7d471b4 ""
   "02-posonly/02-estimate-alpha.tex" 1538710846 625 ceb49515cbbd73808abd98fce458080f ""
@@ -53,7 +53,7 @@
   "03-poisson/01-exponential.tex" 1538547122 383 da73b48647c10b087ac3999d8b2f54b3 ""
   "03-poisson/02-response-fn-sol.tex" 1539513384 327 9f98b6d59cbe11dcf13082bda272ae5e ""
   "03-poisson/02-response-fn.tex" 1538710846 344 906287231c0e9d7fcef0fde4b6d41b34 ""
-  "03-poisson/03-gd-update-sol.tex" 1539514252 540 845f854bb843dfb243ddab1e2ed6e58b ""
+  "03-poisson/03-gd-update-sol.tex" 1539687762 538 6e7fec87edb358cb361a1b564e8d2d32 ""
   "03-poisson/03-gd-update.tex" 1538710846 461 37730e2c48c262133abfca499174beee ""
   "03-poisson/04-regression-sol.tex" 1538796520 28 e3bce0cc248592e7dce011faba9b3634 ""
   "03-poisson/04-regression.tex" 1539514443 957 674a186f2194d828aba3bca940f9ffe3 ""
@@ -149,10 +149,10 @@
   "C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/tex/latex/setspace/setspace.sty" 1324294077 22913 a27d7908fc6f0385466454a966a316eb ""
   "C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/tex/latex/tools/verbatim.sty" 1525892514 7262 cf84171354dfa1855684c0946ff000f1 ""
   "C:/Users/Harold/AppData/Local/Programs/MiKTeX 2.9/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" 1539686353 3429 8ea41eddc7cb50c9c3182d4e87d90ebc ""
-  "ps1.aux" 1539686353 2030 4e0e6cb14b403691d314217d1f7e0a7a ""
-  "ps1.tex" 1539686353 3429 8ea41eddc7cb50c9c3182d4e87d90ebc ""
+  "d:/MachineLearning/courses/cs229ps/CS229_2018/ps1/tex/ps1.tex" 1539686354 3429 8ea41eddc7cb50c9c3182d4e87d90ebc ""
+  "ps1.aux" 1539687788 2030 4e0e6cb14b403691d314217d1f7e0a7a ""
+  "ps1.tex" 1539686354 3429 8ea41eddc7cb50c9c3182d4e87d90ebc ""
   (generated)
   "ps1.aux"
-  "ps1.log"
   "ps1.pdf"
+  "ps1.log"

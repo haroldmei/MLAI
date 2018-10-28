@@ -35,13 +35,19 @@ def predict(state, kernel, x_i):
     """
     # *** START CODE HERE ***
     X = np.array(state[0]).T
-
-    kernMatrix = np.array(state[3])
+    kern = state[3]
     #kernMatrix = X.T.dot(X)
-
-    X_theta = state[2]
-    beta = np.linalg.inv(kernMatrix).dot(X.T).dot(x_i)
-    inner = kernel(X_theta, beta)
+    
+    #num = len(state[0])
+    #kernMatrix = np.zeros([num,num])
+    #for i in range(num):
+    #    for j in range(num):
+    #        kernMatrix[i][j] = kernel(np.array(state[0][i]),np.array(state[0][j]))
+        
+    beta = np.linalg.solve(kern, X.T.dot(x_i))
+    
+    X_theta = np.array(state[2])
+    inner = beta.dot(X_theta)
     return sign(inner)
     # *** END CODE HERE ***
 
@@ -59,13 +65,6 @@ def update_state(state, kernel, learning_rate, x_i, y_i):
     # *** START CODE HERE ***
     # Append to the last column
     length = len(state[0])
-    index = 0 
-    while index < length:
-        kernEnt = kernel(x_i, state[0][index])
-        oldMargin = state[2][index] 
-        state[2][index] = oldMargin + learning_rate * (y_i - sign(oldMargin)) * kernEnt
-        state[3][index].append(kernEnt)
-        index = index + 1
 
     # add a new row
     state[0].append(x_i)
@@ -76,9 +75,18 @@ def update_state(state, kernel, learning_rate, x_i, y_i):
     while index < length + 1:
         kernEnt = kernel(state[0][index], x_i)
         oldMargin = state[2][length] 
-        state[2][length] = oldMargin + learning_rate * (state[1][index] - sign(oldMargin)) * kernEnt
+        state[2][length] = oldMargin + learning_rate * (state[1][index] - sign(state[2][index])) * kernEnt
         state[3][length].append(kernEnt)
         index = index + 1
+
+    index1 = 0 
+    while index1 < length:
+        kernEnt = kernel(x_i, state[0][index1])
+        oldMargin = state[2][index1] 
+        #state[2][index] = oldMargin + learning_rate * (y_i - sign(oldMargin)) * kernEnt
+        state[2][index1] = oldMargin + learning_rate * (y_i - sign(state[2][length])) * kernEnt
+        state[3][index1].append(kernEnt)
+        index1 = index1 + 1
     # *** END CODE HERE ***
 
 
@@ -134,6 +142,14 @@ def train_perceptron(kernel_name, kernel, learning_rate):
         update_state(state, kernel, learning_rate, x_i, y_i)
 
     test_x, test_y = util.load_csv('../data/ds5_train.csv')
+
+    result = []
+    for i in range(len(test_x)):
+        est_y = predict(state, kernel, test_x[i])
+        result.append((est_y==test_y[i])+0.)
+    
+    #print(test_y)
+    #print(np.array(result))
 
     plt.figure(figsize=(12, 8))
     util.plot_contour(lambda a: predict(state, kernel, a))

@@ -109,7 +109,7 @@ def plot_contour(predict_fn):
         for j in range(y.shape[1]):
             z[i, j] = predict_fn([x[i, j], y[i, j]])
 
-    plt.contourf(x, y, z, levels=1, colors=['orange', 'cyan'])
+    plt.contourf(x, y, z, levels=[-float('inf'), 0, float('inf')], colors=['orange', 'cyan'])
 
 def plot_points(x, y):
     """Plot some points where x are the coordinates and y is the label"""

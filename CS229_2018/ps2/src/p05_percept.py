@@ -5,30 +5,46 @@ import numpy as np
 
 import util
 
+
 def initial_state():
     """Return the initial state for the perceptron.
 
     This function computes and then returns the initial state of the perceptron.
-    Feel free to use any data type (dicts, lists, tuples, or custom classes) to contain the state of the perceptron.
+    Feel free to use any data type (dicts, lists, tuples, or custom classes) to
+    contain the state of the perceptron.
 
     """
 
     # *** START CODE HERE ***
+    return ([],[],[],[])
     # *** END CODE HERE ***
 
+
 def predict(state, kernel, x_i):
-    """Peform a prediction on a given instance x_i given the current state and the kernel.
+    """Peform a prediction on a given instance x_i given the current state
+    and the kernel.
 
     Args:
         state: The state returned from initial_state()
-        kernel: A binary function that takes two vectors as input and returns the result of a kernel
+        kernel: A binary function that takes two vectors as input and returns
+            the result of a kernel
         x_i: A vector containing the features for a single instance
     
     Returns:
         Returns the prediction (i.e 0 or 1)
     """
     # *** START CODE HERE ***
+    X = np.array(state[0]).T
+
+    kernMatrix = np.array(state[3])
+    #kernMatrix = X.T.dot(X)
+
+    X_theta = state[2]
+    beta = np.linalg.inv(kernMatrix).dot(X.T).dot(x_i)
+    inner = kernel(X_theta, beta)
+    return sign(inner)
     # *** END CODE HERE ***
+
 
 def update_state(state, kernel, learning_rate, x_i, y_i):
     """Updates the state of the perceptron.
@@ -41,7 +57,30 @@ def update_state(state, kernel, learning_rate, x_i, y_i):
         y_i: A 0 or 1 indicating the label for a single instance
     """
     # *** START CODE HERE ***
+    # Append to the last column
+    length = len(state[0])
+    index = 0 
+    while index < length:
+        kernEnt = kernel(x_i, state[0][index])
+        oldMargin = state[2][index] 
+        state[2][index] = oldMargin + learning_rate * (y_i - sign(oldMargin)) * kernEnt
+        state[3][index].append(kernEnt)
+        index = index + 1
+
+    # add a new row
+    state[0].append(x_i)
+    state[1].append(y_i)
+    state[2].append(0.0)
+    state[3].append([])
+    index = 0 
+    while index < length + 1:
+        kernEnt = kernel(state[0][index], x_i)
+        oldMargin = state[2][length] 
+        state[2][length] = oldMargin + learning_rate * (state[1][index] - sign(oldMargin)) * kernEnt
+        state[3][length].append(kernEnt)
+        index = index + 1
     # *** END CODE HERE ***
+
 
 def sign(a):
     """Gets the sign of a scalar input."""
@@ -49,6 +88,7 @@ def sign(a):
         return 1
     else:
         return 0
+
 
 def dot_kernel(a, b):
     """An implementation of a dot product kernel.
@@ -59,6 +99,7 @@ def dot_kernel(a, b):
     """
     return np.dot(a, b)
 
+
 def rbf_kernel(a, b, sigma=1):
     """An implementation of the radial basis function kernel.
 
@@ -67,24 +108,24 @@ def rbf_kernel(a, b, sigma=1):
         b: A vector
         sigma: The radius of the kernel
     """
-
     distance = (a - b).dot(a - b)
     scaled_distance = -distance / (2 * (sigma) ** 2)
     return math.exp(scaled_distance)
 
+
 def train_perceptron(kernel_name, kernel, learning_rate):
     """Train a perceptron with the given kernel.
 
-    This function trains a perceptron with a given kernel and then uses that perceptron to make predictions.
-    The output predictions are saved to src/output/p05_{kernel_name}_predictions.txt
-    The output plots are saved to src/output_{kernel_name}_output.pdf
+    This function trains a perceptron with a given kernel and then
+    uses that perceptron to make predictions.
+    The output predictions are saved to src/output/p05_{kernel_name}_predictions.txt.
+    The output plots are saved to src/output_{kernel_name}_output.pdf.
 
     Args:
-        kernel_name: The name of the kernel
-        kernel: The kernel function
-        learning_rate: The learning rate for training
+        kernel_name: The name of the kernel.
+        kernel: The kernel function.
+        learning_rate: The learning rate for training.
     """
-
     train_x, train_y = util.load_csv('../data/ds5_train.csv')
 
     state = initial_state()
@@ -103,9 +144,11 @@ def train_perceptron(kernel_name, kernel, learning_rate):
 
     np.savetxt('./output/p05_{}_predictions'.format(kernel_name), predict_y)
 
+
 def main():
     train_perceptron('dot', dot_kernel, 0.5)
     train_perceptron('rbf', rbf_kernel, 0.5)
+
 
 if __name__ == "__main__":
     main()

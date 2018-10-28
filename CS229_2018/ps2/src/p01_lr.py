@@ -16,7 +16,7 @@ def calc_grad(X, Y, theta):
 
 
 def logistic_regression(X, Y):
-    """Train a logistic regression model"""
+    """Train a logistic regression model."""
     m, n = X.shape
     theta = np.zeros(n)
     learning_rate = 10

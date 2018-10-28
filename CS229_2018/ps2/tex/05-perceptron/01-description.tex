@@ -27,9 +27,8 @@ taken care of.] Your description should specify:
   \emph{i.e.,} using the update rule corresponding to the feature mapping
   $\phi$:
   \begin{equation*}
-    \theta^{(i+1)} := \theta^{(i)}
-      + \alpha \mathbf{1}\{g({\theta^{(i)}}^T \phi(x^{(i + 1)})) y^{(i+1)}
-      < 0\} y^{(i+1)} \phi(x^{(i+1)}).
+  \theta^{(i+1)} :=
+	  \theta^{(i)} + \alpha (y^{(i+1)} - h_{\theta^{(i)}}(x^{(i+1)})) \phi(x^{(i+1)})
   \end{equation*}
 \end{enumerate}
 

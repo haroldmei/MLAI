@@ -5,6 +5,7 @@ import numpy as np
 import util
 import svm
 
+
 def get_words(message):
     """Get the normalized list of words from a message string.
 
@@ -20,7 +21,17 @@ def get_words(message):
     """
 
     # *** START CODE HERE ***
+    punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
+    PUNC = set(punctuation)
+    words = set()
+    message_list = message.lower().split(' ')
+    for c in message_list:
+        if c not in PUNC:
+            words.add(c)
+        
+    return list(words)
     # *** END CODE HERE ***
+
 
 def create_dictionary(messages):
     """Create a dictionary mapping words to integer indices.
@@ -39,7 +50,23 @@ def create_dictionary(messages):
     """
 
     # *** START CODE HERE ***
+    vocabulary = {}
+    for message in messages:
+        words = get_words(message)
+        for word in words:
+            if word not in vocabulary:
+                vocabulary[word] = 1
+            else:
+                vocabulary[word] = vocabulary[word] + 1
+    
+    dictionary = {}
+    for key, value in vocabulary.items():
+        if value >= 5:
+            dictionary[key] = len(dictionary)
+            
+    return dictionary
     # *** END CODE HERE ***
+
 
 def transform_text(messages, word_dictionary):
     """Transform a list of text messages into a numpy array for further processing.
@@ -59,7 +86,20 @@ def transform_text(messages, word_dictionary):
         A numpy array marking the words present in each message.
     """
     # *** START CODE HERE ***
+    num_msg = len(messages)
+    sz_vocabuliary = len(word_dictionary)
+    matrx = np.zeros([num_msg, sz_vocabuliary])
+    
+    # iterate through each msg
+    for i in range(num_msg):
+        words = get_words(messages[i])
+        for word in words:
+            if word in word_dictionary:
+                matrx[i][word_dictionary[word]] = matrx[i][word_dictionary[word]] + 1
+
+    return matrx
     # *** END CODE HERE ***
+
 
 def fit_naive_bayes_model(matrix, labels):
     """Fit a naive bayes model.
@@ -78,7 +118,18 @@ def fit_naive_bayes_model(matrix, labels):
     """
 
     # *** START CODE HERE ***
+    state = {}
+    N = matrix.shape[1]
+    ###################
+    state['prior'] = sum(1 if x == 1 else 0 for x in labels) / N
+    state['post1'] = (sum(a if b == 1 else 0 for a, b in zip(matrix, labels)) + 1) / \
+        (sum(sum(a) if b == 1 else 0 for a, b in zip(matrix, labels)) + N)
+    state['post0'] = (sum(a if b == 0 else 0 for a, b in zip(matrix, labels)) + 1) / \
+        (sum(sum(a) if b == 0 else 0 for a, b in zip(matrix, labels)) + N)
+    
+    return state
     # *** END CODE HERE ***
+
 
 def predict_from_naive_bayes_model(model, matrix):
     """Use a Naive Bayes model to compute predictions for a target matrix.
@@ -90,10 +141,21 @@ def predict_from_naive_bayes_model(model, matrix):
         model: A trained model from fit_naive_bayes_model
         matrix: A numpy array containing word counts
 
-    Returns: The trained model
+    Returns: A numpy array containg the predictions from the model
     """
     # *** START CODE HERE ***
+    output = np.zeros(matrix.shape[0])
+    state = model
+
+    prior1 = state['prior']
+    logsum1 = np.sum(np.log(state['post1']) * matrix, axis = 1)
+    logsum0 = np.sum(np.log(state['post0']) * matrix, axis = 1)
+    p1 = prior1 / (prior1 + np.exp(logsum0 - logsum1) * (1 - prior1))
+    output = np.array([1 if i > 0.5 else 0 for i in p1])
+
+    return output
     # *** END CODE HERE ***
+
 
 def get_top_five_naive_bayes_words(model, dictionary):
     """Compute the top five words that are most indicative of the spam (i.e positive) class.
@@ -108,7 +170,16 @@ def get_top_five_naive_bayes_words(model, dictionary):
     Returns: The top five most indicative words in sorted order with the most indicative first
     """
     # *** START CODE HERE ***
+    state = model
+    ss = state['post1']/state['post0']
+    ids = ss.argsort()[-5:][::-1]
+    top = []
+    for key,val in dictionary.items():
+        if val in ids:
+            top.append(key)
+    return top
     # *** END CODE HERE ***
+
 
 def compute_best_svm_radius(train_matrix, train_labels, val_matrix, val_labels, radius_to_consider):
     """Compute the optimal SVM radius using the provided training and evaluation datasets.
@@ -119,15 +190,25 @@ def compute_best_svm_radius(train_matrix, train_labels, val_matrix, val_labels, 
     Args:
         train_matrix: The word counts for the training data
         train_labels: The spma or not spam labels for the training data
-        eval_matrix: The word counts for the validation data
-        eval_labels: The spam or not spam labels for the validation data
+        val_matrix: The word counts for the validation data
+        val_labels: The spam or not spam labels for the validation data
         radius_to_consider: The radius values to consider
     
     Returns:
         The best radius which maximizes SVM accuracy.
     """
     # *** START CODE HERE ***
+    length = len(radius_to_consider)
+    correct_count = []
+    for i in range(length):
+        state = svm.svm_train(train_matrix, train_labels, radius_to_consider[i])
+        output = svm.svm_predict(state, val_matrix, radius_to_consider[i])
+        correct_count.append(np.sum((output==val_labels) + 0))
+
+    ids = np.argsort(correct_count)[-1:][::-1]
+    return radius_to_consider[ids[0]]
     # *** END CODE HERE ***
+
 
 def main():
     train_messages, train_labels = util.load_spam_dataset('../data/ds6_train.tsv')
@@ -172,6 +253,7 @@ def main():
     svm_accuracy = np.mean(svm_predictions == test_labels)
 
     print('The SVM model had an accuracy of {} on the testing set'.format(svm_accuracy, optimal_radius))
+
 
 if __name__ == "__main__":
     main()

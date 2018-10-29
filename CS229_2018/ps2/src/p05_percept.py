@@ -46,7 +46,7 @@ def predict(state, kernel, x_i):
         
     beta = np.linalg.solve(kern, X.T.dot(x_i))
     
-    X_theta = np.array(state[2])
+    X_theta = np.array(state[2]).T[-1]
     inner = beta.dot(X_theta)
     return sign(inner)
     # *** END CODE HERE ***
@@ -69,22 +69,22 @@ def update_state(state, kernel, learning_rate, x_i, y_i):
     # add a new row
     state[0].append(x_i)
     state[1].append(y_i)
-    state[2].append(0.0)
+    state[2].append([0.0])
     state[3].append([])
     index = 0 
     while index < length + 1:
         kernEnt = kernel(state[0][index], x_i)
-        oldMargin = state[2][length] 
-        state[2][length] = oldMargin + learning_rate * (state[1][index] - sign(state[2][index])) * kernEnt
+        oldMargin = state[2][length][index] 
+        state[2][length].append(oldMargin + learning_rate * (state[1][index] - sign(state[2][index][index])) * kernEnt)
         state[3][length].append(kernEnt)
         index = index + 1
 
     index1 = 0 
     while index1 < length:
         kernEnt = kernel(x_i, state[0][index1])
-        oldMargin = state[2][index1] 
+        oldMargin = state[2][index1][length] 
         #state[2][index] = oldMargin + learning_rate * (y_i - sign(oldMargin)) * kernEnt
-        state[2][index1] = oldMargin + learning_rate * (y_i - sign(state[2][length])) * kernEnt
+        state[2][index1].append(oldMargin + learning_rate * (y_i - sign(state[2][length][length])) * kernEnt)
         state[3][index1].append(kernEnt)
         index1 = index1 + 1
     # *** END CODE HERE ***

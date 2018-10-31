@@ -21,13 +21,13 @@ def get_words(message):
     """
 
     # *** START CODE HERE ***
-    punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
-    PUNC = set(punctuation)
+    #punctuation = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
+    #PUNC = set(punctuation)
     words = set()
     message_list = message.lower().split(' ')
     for c in message_list:
-        if c not in PUNC:
-            words.add(c)
+        #if c not in PUNC:
+        words.add(c)
         
     return list(words)
     # *** END CODE HERE ***

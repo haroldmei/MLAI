@@ -10,8 +10,8 @@ UNLABELED = -1  # Cluster label for unlabeled data points (do not change)
 
 def main(is_semi_supervised, trial_num):
     """Problem 3: EM for Gaussian Mixture Models (unsupervised and semi-supervised)"""
-    print('Running {} EM algorithm...'
-          .format('semi-supervised' if is_semi_supervised else 'unsupervised'))
+    #print('Running {} EM algorithm...'
+    #      .format('semi-supervised' if is_semi_supervised else 'unsupervised'))
 
     # Load dataset
     train_path = os.path.join('..', 'data', 'ds3_train.csv')
@@ -28,10 +28,25 @@ def main(is_semi_supervised, trial_num):
     # *** START CODE HERE ***
     # (1) Initialize mu and sigma by splitting the m data points uniformly at random
     # into K groups, then calculating the sample mean and covariance for each group
+    m,n = x.shape
+    mu = []
+    sigma = []
+    random_indexex = np.random.randint(0, K, m)
+    for i in range(K):
+        xi = x[random_indexex == i]
+        xi_mean = np.mean(xi, axis=0)
+        xi_delta = xi - xi_mean
+        xi_cov = xi_delta.T.dot(xi_delta)
+        mu.append(xi_mean)
+        sigma.append(xi_cov)
+
     # (2) Initialize phi to place equal probability on each Gaussian
     # phi should be a numpy array of shape (K,)
+    phi = np.ones(K)/K
+
     # (3) Initialize the w values to place equal probability on each Gaussian
     # w should be a numpy array of shape (m, K)
+    w = np.ones([m,K])/(m*K)
     # *** END CODE HERE ***
 
     if is_semi_supervised:
@@ -77,11 +92,39 @@ def run_em(x, w, phi, mu, sigma):
         pass  # Just a placeholder for the starter code
         # *** START CODE HERE
         # (1) E-step: Update your estimates in w
+        deltas = []
+        probs = []
+        num, = phi.shape
+        m,n = x.shape
+        for i in range(num):
+            delta = x - mu[i]
+            prob = np.array([np.exp(-delta[j].dot(np.linalg.inv(sigma[i])).dot(delta[j])) * phi[i] / np.linalg.det(sigma[i]) for j in range(m)])
+            deltas.append(delta)
+            probs.append(prob)
+
+        sum_probs = np.sum(probs, axis = 0)
+        w = np.array(probs / sum_probs).T
+        
         # (2) M-step: Update the model parameters phi, mu, and sigma
+        for i in range(num):
+            sum_x = x * w[:,i].reshape((m,1))
+            numerater = np.sum(sum_x,axis=0)
+            total_weight = np.sum(w[:,i])
+            mu[i] = numerater / total_weight
+            phi[i] = total_weight / m
+            
+            xi_delta = x - mu[i]
+            sum_sigma = xi_delta.T.dot(np.diag(w[:,i])).dot(xi_delta)
+            sigma[i] = sum_sigma / total_weight
+
         # (3) Compute the log-likelihood of the data to check for convergence.
         # By log-likelihood, we mean `ll = sum_x[log(sum_z[p(x|z) * p(z)])]`.
         # We define convergence by the first iteration where abs(ll - prev_ll) < eps.
         # Hint: For debugging, recall part (a). We showed that ll should be monotonically increasing.
+        prev_ll = ll
+        ll = np.sum(np.log(sum_probs/np.sqrt(2*np.pi)))
+        it = it + 1
+        print("run_em it=%d, ll=%f" % (it,ll))
         # *** END CODE HERE ***
 
     return w
@@ -119,10 +162,49 @@ def run_semi_supervised_em(x, x_tilde, z, w, phi, mu, sigma):
         pass  # Just a placeholder for the starter code
         # *** START CODE HERE ***
         # (1) E-step: Update your estimates in w
+        deltas = []
+        probs = []
+        num, = phi.shape
+        m,n = x.shape
+        m_tilde,_ = z.shape
+        for i in range(num):
+            delta = x - mu[i]
+            prob = np.array([np.exp(-delta[j].dot(np.linalg.inv(sigma[i])).dot(delta[j])) * phi[i] / np.linalg.det(sigma[i]) for j in range(m)])
+            deltas.append(delta)
+            probs.append(prob)
+
+        sum_probs = np.sum(probs, axis = 0)
+        w = np.array(probs / sum_probs).T
+
         # (2) M-step: Update the model parameters phi, mu, and sigma
+        zz = z.reshape(-1)  # change to 1-d array
+        zz=zz.astype(int)
+        for i in range(num):
+            sum_x = x * w[:,i].reshape((m,1))
+
+            numerater = np.sum(sum_x, axis=0) + alpha * np.sum(x_tilde[zz == i,:], axis=0)
+            total_weight = np.sum(w[:,i]) + alpha * np.sum(zz == i)
+
+            mu[i] = numerater / total_weight
+            phi[i] = total_weight / (m + alpha * m_tilde)
+            
+            xi_delta = x - mu[i]
+            x_tilde_delta = x_tilde - mu[i]
+            sum_sigma_tilde = x_tilde_delta.T.dot(np.diag(zz == i)).dot(x_tilde_delta)
+            sum_sigma = xi_delta.T.dot(np.diag(w[:,i])).dot(xi_delta) + alpha * sum_sigma_tilde
+            sigma[i] = sum_sigma / total_weight
+
         # (3) Compute the log-likelihood of the data to check for convergence.
         # Hint: Make sure to include alpha in your calculation of ll.
         # Hint: For debugging, recall part (a). We showed that ll should be monotonically increasing.
+        prev_ll = ll
+        ll_unsup = np.sum(np.log(sum_probs/np.sqrt(2 * np.pi)))
+        sum_sup_probs = np.array([np.exp(-(x_tilde[j] - mu[zz[j]]).dot(np.linalg.inv(sigma[zz[j]])).dot(x_tilde[j] - mu[zz[j]])) * phi[zz[j]] / np.linalg.det(sigma[zz[j]]) for j in range(m_tilde)])
+        ll_sup = alpha*np.sum(np.log(sum_sup_probs/np.sqrt(2 * np.pi)))
+        ll = ll_unsup + ll_sup
+        it = it + 1
+        print("run_semi_supervised_em it=%d, ll=%f" % (it,ll))
+
         # *** END CODE HERE ***
 
     return w
@@ -197,5 +279,5 @@ if __name__ == '__main__':
         # Once you've implemented the semi-supervised version,
         # uncomment the following line.
         # You do not need to add any other lines in this code block.
-        # main(with_supervision=True, trial_num=t)
+        main(is_semi_supervised=True, trial_num=t)
         # *** END CODE HERE ***

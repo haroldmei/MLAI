@@ -98,7 +98,10 @@ def run_em(x, w, phi, mu, sigma):
         m,n = x.shape
         for i in range(num):
             delta = x - mu[i]
-            prob = np.array([np.exp(-delta[j].dot(np.linalg.inv(sigma[i])).dot(delta[j])) * phi[i] / np.linalg.det(sigma[i]) for j in range(m)])
+            prob = np.array(
+                [np.exp(-0.5*delta[j].dot(np.linalg.inv(sigma[i])).dot(delta[j])) * phi[i] 
+                / np.sqrt(np.linalg.det(sigma[i])) for j in range(m)])
+
             deltas.append(delta)
             probs.append(prob)
 
@@ -122,9 +125,9 @@ def run_em(x, w, phi, mu, sigma):
         # We define convergence by the first iteration where abs(ll - prev_ll) < eps.
         # Hint: For debugging, recall part (a). We showed that ll should be monotonically increasing.
         prev_ll = ll
-        ll = np.sum(np.log(sum_probs/np.sqrt(2*np.pi)))
+        ll = np.sum(np.log(sum_probs/np.sqrt((2 * np.pi)**n)))
         it = it + 1
-        print("run_em it=%d, ll=%f" % (it,ll))
+        print("Unsupervised EM: converged in %d iterations, log-likelihood=%f" % (it,ll))
         # *** END CODE HERE ***
 
     return w
@@ -169,7 +172,10 @@ def run_semi_supervised_em(x, x_tilde, z, w, phi, mu, sigma):
         m_tilde,_ = z.shape
         for i in range(num):
             delta = x - mu[i]
-            prob = np.array([np.exp(-delta[j].dot(np.linalg.inv(sigma[i])).dot(delta[j])) * phi[i] / np.linalg.det(sigma[i]) for j in range(m)])
+            prob = np.array(
+                [np.exp(-0.5*delta[j].dot(np.linalg.inv(sigma[i])).dot(delta[j])) * phi[i] 
+                / np.sqrt(np.linalg.det(sigma[i])) for j in range(m)])
+
             deltas.append(delta)
             probs.append(prob)
 
@@ -198,12 +204,16 @@ def run_semi_supervised_em(x, x_tilde, z, w, phi, mu, sigma):
         # Hint: Make sure to include alpha in your calculation of ll.
         # Hint: For debugging, recall part (a). We showed that ll should be monotonically increasing.
         prev_ll = ll
-        ll_unsup = np.sum(np.log(sum_probs/np.sqrt(2 * np.pi)))
-        sum_sup_probs = np.array([np.exp(-(x_tilde[j] - mu[zz[j]]).dot(np.linalg.inv(sigma[zz[j]])).dot(x_tilde[j] - mu[zz[j]])) * phi[zz[j]] / np.linalg.det(sigma[zz[j]]) for j in range(m_tilde)])
-        ll_sup = alpha*np.sum(np.log(sum_sup_probs/np.sqrt(2 * np.pi)))
+        ll_unsup = np.sum(np.log(sum_probs/np.sqrt((2 * np.pi)**n)))
+        
+        sum_sup_probs = np.array(
+            [np.exp(-0.5*(x_tilde[j] - mu[zz[j]]).dot(np.linalg.inv(sigma[zz[j]])).dot(x_tilde[j] - mu[zz[j]])) * phi[zz[j]] 
+            / np.sqrt(np.linalg.det(sigma[zz[j]])) for j in range(m_tilde)])
+            
+        ll_sup = alpha*np.sum(np.log(sum_sup_probs/np.sqrt((2 * np.pi)**n)))
         ll = ll_unsup + ll_sup
         it = it + 1
-        print("run_semi_supervised_em it=%d, ll=%f" % (it,ll))
+        print("Semi-supervised EM: converged in %d iterations, log-likelihood=%f, ll_sup=%f, ll_unsup=%f" % (it,ll, ll_sup, ll_unsup))
 
         # *** END CODE HERE ***
 

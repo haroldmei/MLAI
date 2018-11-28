@@ -42,6 +42,9 @@ def backward_softmax(x, grad_outputs):
     """
     
     # *** START CODE HERE ***
+    yhat = forward_softmax(x)
+    dl_dyhat = yhat*(1-yhat)*grad_outputs
+    return dl_dyhat
     # *** END CODE HERE ***
 
 def forward_relu(x):
@@ -72,6 +75,10 @@ def backward_relu(x, grad_outputs):
         A numpy array of the same shape as x containing the gradients with respect to x.
     """
     # *** START CODE HERE ***
+    dl_dx = np.zeros(x.shape)
+    dl_dx[np.where(x >= 0)] = 1
+    dl_dx = dl_dx * grad_outputs
+    return dl_dx
     # *** END CODE HERE ***
 
 
@@ -158,6 +165,20 @@ def backward_convolution(conv_W, conv_b, data, output_grad):
     """
 
     # *** START CODE HERE ***
+    conv_channels, _, conv_width, conv_height = conv_W.shape
+    input_channels, input_width, input_height = data.shape
+    grad_x = np.zeros(data.shape)
+    grad_W = np.zeros(conv_W.shape)
+    grad_b = np.zeros(conv_channels)
+
+    for x in range(input_width - conv_width + 1):
+        for y in range(input_height - conv_height + 1):
+            for output_channel in range(conv_channels):
+                grad_x[:, x:(x + conv_width), y:(y + conv_height)] = grad_x[:, x:(x + conv_width), y:(y + conv_height)] + conv_W[output_channel,:,:,:] * output_grad[output_channel, x, y]
+                grad_W[output_channel,:,:,:] = grad_W[output_channel,:,:,:] + data[:, x:(x + conv_width), y:(y + conv_height)] * output_grad[output_channel, x, y]
+                grad_b[output_channel] = grad_b[output_channel] + output_grad[output_channel, x, y]
+
+    return (grad_W, grad_b, grad_x)
     # *** END CODE HERE ***
 
 def forward_max_pool(data, pool_width, pool_height):
@@ -203,6 +224,20 @@ def backward_max_pool(data, pool_width, pool_height, output_grad):
     """
 
     # *** START CODE HERE ***
+    input_channels, input_width, input_height = data.shape
+    grad = np.zeros((input_channels, input_width, input_height))
+    output_channels,_,_ = output_grad.shape
+
+    output = forward_max_pool(data, pool_width, pool_height)
+    for x in range(0, input_width, pool_width):
+        for y in range(0, input_height, pool_height):   
+            # could be multiple '1's, pick 1 of them randomly as suggested on piazza
+            # do it channel by channel, better ways?
+            for c in range(0, output_channels):
+                ones = (data[c, x : x + pool_width, y : y + pool_height] == output[c, x // pool_width, y // pool_height])
+                index = np.unravel_index(np.argmax(ones == True), ones.shape)
+                grad[c, x + index[0], y + index[1]] = output_grad[c, x // pool_width, y // pool_height]
+    return grad
     # *** END CODE HERE ***
 
 def forward_cross_entropy_loss(probabilities, labels):
@@ -240,6 +275,8 @@ def backward_cross_entropy_loss(probabilities, labels):
     """
 
     # *** START CODE HERE ***
+    dl_dyhat = -labels * (1/probabilities)
+    return dl_dyhat
     # *** END CODE HERE ***
 
 def forward_linear(weights, bias, data):
@@ -272,6 +309,16 @@ def backward_linear(weights, bias, data, output_grad):
     """
 
     # *** START CODE HERE ***
+    # o \in R^10, x \in R^50, w \in R^(50x10), b \in R^10
+    do_dx = weights.T
+    dl_dx = output_grad.T.dot(do_dx)
+
+    # R^(50x10)
+    do_dw = data
+    dl_dw = np.outer(do_dw, output_grad)
+
+    dl_db = output_grad
+    return (dl_dw, dl_db, dl_dx)
     # *** END CODE HERE ***
 
 
@@ -332,6 +379,38 @@ def backward_prop(data, labels, params):
             W1, W2, b1, and b2
     """
     # *** START CODE HERE ***
+    
+    W1 = params['W1']
+    b1 = params['b1']
+    W2 = params['W2']
+    b2 = params['b2']
+
+    first_convolution = forward_convolution(W1, b1, data)
+    first_max_pool = forward_max_pool(first_convolution, MAX_POOL_SIZE, MAX_POOL_SIZE)
+    first_after_relu = forward_relu(first_max_pool)
+
+    flattened = np.reshape(first_after_relu, (-1))
+   
+    logits = forward_linear(W2, b2, flattened)
+
+    y = forward_softmax(logits)
+    cost = forward_cross_entropy_loss(y, labels)
+
+    grad_ce = backward_cross_entropy_loss(y, labels)
+    grad_softmax = backward_softmax(logits, grad_ce)
+    grad_linear = backward_linear(W2, b2, flattened, grad_softmax)
+
+    grad_linear_restored = np.reshape(grad_linear[2], first_after_relu.shape)
+    grad_relu = backward_relu(first_max_pool, grad_linear_restored)
+    grad_pool = backward_max_pool(first_convolution, MAX_POOL_SIZE, MAX_POOL_SIZE, grad_relu)
+    grad_cnn = backward_convolution(W1, b1, data, grad_pool)
+
+    return {
+        'W1': grad_cnn[0],
+        'b1': grad_cnn[1],
+        'W2': grad_linear[0],
+        'b2': grad_linear[1]
+    }
     # *** END CODE HERE ***
 
 def forward_prop_batch(batch_data, batch_labels, params, forward_prop_func):
@@ -402,7 +481,7 @@ def nn_train(
         batch_data = train_data[batch * batch_size:(batch + 1) * batch_size, :, :, :]
         batch_labels = train_labels[batch * batch_size: (batch + 1) * batch_size, :]
 
-        if batch % 100 == 0:
+        if batch % 1 == 0:
             output, cost = forward_prop_batch(dev_data, dev_labels, params, forward_prop_func)
             cost_dev.append(sum(cost) / len(cost))
             accuracy_dev.append(compute_accuracy(output, dev_labels))

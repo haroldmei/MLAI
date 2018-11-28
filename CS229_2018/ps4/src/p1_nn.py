@@ -236,7 +236,7 @@ def backward_max_pool(data, pool_width, pool_height, output_grad):
             for c in range(0, output_channels):
                 ones = (data[c, x : x + pool_width, y : y + pool_height] == output[c, x // pool_width, y // pool_height])
                 index = np.unravel_index(np.argmax(ones == True), ones.shape)
-                grad[c, x + index[0], y + index[1]] = output_grad[c, x // pool_width, y // pool_height]
+                grad[c][x + index[0]][y + index[1]] = output_grad[c, x // pool_width, y // pool_height]
     return grad
     # *** END CODE HERE ***
 
@@ -405,6 +405,11 @@ def backward_prop(data, labels, params):
     grad_pool = backward_max_pool(first_convolution, MAX_POOL_SIZE, MAX_POOL_SIZE, grad_relu)
     grad_cnn = backward_convolution(W1, b1, data, grad_pool)
 
+    params['W1'] = grad_cnn[0]
+    params['b1'] = grad_cnn[1]
+    params['W2'] = grad_linear[0]
+    params['b2'] = grad_linear[1]
+
     return {
         'W1': grad_cnn[0],
         'b1': grad_cnn[1],
@@ -481,7 +486,7 @@ def nn_train(
         batch_data = train_data[batch * batch_size:(batch + 1) * batch_size, :, :, :]
         batch_labels = train_labels[batch * batch_size: (batch + 1) * batch_size, :]
 
-        if batch % 1 == 0:
+        if batch % 100 == 0:
             output, cost = forward_prop_batch(dev_data, dev_labels, params, forward_prop_func)
             cost_dev.append(sum(cost) / len(cost))
             accuracy_dev.append(compute_accuracy(output, dev_labels))
@@ -544,7 +549,7 @@ def run_train(all_data, all_labels, backward_prop_func):
     fig.savefig('output/train.pdf')
 
 def main():
-    np.random.seed(100)
+    #np.random.seed(100)
     train_data, train_labels = read_data('../data/images_train.csv', '../data/labels_train.csv')
     train_labels = one_hot_labels(train_labels)
     p = np.random.permutation(60000)

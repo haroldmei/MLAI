@@ -405,10 +405,10 @@ def backward_prop(data, labels, params):
     grad_pool = backward_max_pool(first_convolution, MAX_POOL_SIZE, MAX_POOL_SIZE, grad_relu)
     grad_cnn = backward_convolution(W1, b1, data, grad_pool)
 
-    params['W1'] = grad_cnn[0]
-    params['b1'] = grad_cnn[1]
-    params['W2'] = grad_linear[0]
-    params['b2'] = grad_linear[1]
+    #params['W1'] = grad_cnn[0]
+    #params['b1'] = grad_cnn[1]
+    #params['W2'] = grad_linear[0]
+    #params['b2'] = grad_linear[1]
 
     return {
         'W1': grad_cnn[0],

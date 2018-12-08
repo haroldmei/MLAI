@@ -1,6 +1,10 @@
 .ipynb_checkpoints
 .vscode
-.pyc
+*.pyc
+*.bmp
+*.wav
+*.csv
+*.docx
 ps2/MATRIX.TEST
 ps2/MATRIX.TRAIN
 ps2/MATRIX.TRAIN.100

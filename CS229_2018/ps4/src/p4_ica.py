@@ -19,6 +19,14 @@ def update_W(W, x, learning_rate):
     """
     
     # *** START CODE HERE ***
+    wx = W.dot(x)
+    pos = (wx > 0)
+    neg = (wx <= 0)
+    sig = np.zeros_like(wx, dtype=float)
+    sig[pos] = 1 / (1 + np.exp(-wx[pos]))
+    sig[neg] = np.exp(wx[neg]) / (1 + np.exp(wx[neg]))
+    propogate = np.matrix(1 - 2 * sig).T * np.matrix(x)
+    updated_W = np.array(W + learning_rate * (propogate + np.linalg.inv(W.T)))
     # *** END CODE HERE ***
 
     return updated_W
@@ -40,6 +48,7 @@ def unmix(X, W):
 
 
     # *** START CODE HERE ***
+    S = np.dot(X, W.T)
     # *** END CODE HERE ***
 
     return S
@@ -66,6 +75,7 @@ def unmixer(X):
     for lr in anneal:
         print(lr)
         rand = np.random.permutation(range(M))
+        totalcost = 0.0
         for i in rand:
             x = X[i]
             W = update_W(W, x, lr)

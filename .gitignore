@@ -5,6 +5,7 @@
 *.wav
 *.csv
 *.docx
+*.rar
 ps2/MATRIX.TEST
 ps2/MATRIX.TRAIN
 ps2/MATRIX.TRAIN.100

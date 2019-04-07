@@ -12,7 +12,7 @@ def findAlphabeticallyLastWord(text):
     You might find max() and list comprehensions handy here.
     """
     # BEGIN_YOUR_CODE (our solution is 1 line of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    return sorted(text.lower().split())[-1]
     # END_YOUR_CODE
 
 ############################################################
@@ -24,12 +24,11 @@ def euclideanDistance(loc1, loc2):
     are pairs of numbers (e.g., (3, 5)).
     """
     # BEGIN_YOUR_CODE (our solution is 1 line of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    return sum(list((x - y) ** 2 for x,y in zip(loc1, loc2))) ** 0.5
     # END_YOUR_CODE
 
 ############################################################
 # Problem 3c
-
 def mutateSentences(sentence):
     """
     Given a sentence (sequence of words), return a list of all "similar"
@@ -50,7 +49,27 @@ def mutateSentences(sentence):
                 (reordered versions of this list are allowed)
     """
     # BEGIN_YOUR_CODE (our solution is 20 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    l_words = sentence.split()
+    sent_len = len(l_words)
+    pairs = {}
+    for i in range(len(l_words) - 1):
+      if l_words[i] in pairs:
+        pairs[l_words[i]].append(l_words[i + 1])
+      else:
+        pairs[l_words[i]] = [l_words[i + 1]]
+    #
+    sentences = set()
+    def sentence(cur_word, cur_sentence, sentence_len, D, collection):
+      if sentence_len == len(cur_sentence) + 1:  
+          sentences.add(' '.join(cur_sentence + [cur_word]))
+      elif sentence_len > len(cur_sentence) + 1 and cur_word in D:
+          for next_word in D[cur_word]:
+              sentence(next_word, cur_sentence + [cur_word], sentence_len, D, sentences)   
+    #
+    for word in pairs:
+        sentence(word, [], sent_len, pairs, sentences)
+    #
+    return sentences
     # END_YOUR_CODE
 
 ############################################################
@@ -64,7 +83,7 @@ def sparseVectorDotProduct(v1, v2):
     This function will be useful later for linear classifiers.
     """
     # BEGIN_YOUR_CODE (our solution is 4 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    return sum(v1[comp] * v2[comp] for comp in (set(v1.keys()) & set(v2.keys())))
     # END_YOUR_CODE
 
 ############################################################
@@ -76,7 +95,10 @@ def incrementSparseVector(v1, scale, v2):
     This function will be useful later for linear classifiers.
     """
     # BEGIN_YOUR_CODE (our solution is 2 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    v = {}
+    for comp in (set(v1.keys()) | set(v2.keys())):
+      v[comp] = v1[comp] + scale * v2[comp] 
+    return v
     # END_YOUR_CODE
 
 ############################################################
@@ -89,7 +111,12 @@ def findSingletonWords(text):
     You might find it useful to use collections.defaultdict(int).
     """
     # BEGIN_YOUR_CODE (our solution is 4 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    itemcount = collections.Counter(text.lower().split())
+    result = set()
+    for word in itemcount:
+      if itemcount[word] == 1:
+        result.add(word)
+    return result
     # END_YOUR_CODE
 
 ############################################################

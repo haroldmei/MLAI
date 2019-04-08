@@ -59,16 +59,16 @@ def mutateSentences(sentence):
         pairs[l_words[i]] = [l_words[i + 1]]
     #
     sentences = set()
-    def sentence(cur_word, cur_sentence, sentence_len, D, collection):
-      if sentence_len == len(cur_sentence) + 1:  
-          sentences.add(' '.join(cur_sentence + [cur_word]))
-      elif sentence_len > len(cur_sentence) + 1 and cur_word in D:
-          for next_word in D[cur_word]:
-              sentence(next_word, cur_sentence + [cur_word], sentence_len, D, sentences)   
-    #
-    for word in pairs:
-        sentence(word, [], sent_len, pairs, sentences)
-    #
+    for cur_word in pairs.keys():
+      sentences.add(cur_word)
+    for i in range(sent_len - 1):
+      sentences1 = set()
+      for cur_word in sentences:
+        if cur_word.split()[-1] in pairs:
+          for cur_nbr in pairs[cur_word.split()[-1]]:
+            sentences1.add(' '.join([cur_word,cur_nbr]))
+      sentences = sentences1
+    #print(len(sentences))
     return sentences
     # END_YOUR_CODE
 
@@ -95,10 +95,8 @@ def incrementSparseVector(v1, scale, v2):
     This function will be useful later for linear classifiers.
     """
     # BEGIN_YOUR_CODE (our solution is 2 lines of code, but don't worry if you deviate from this)
-    v = {}
     for comp in (set(v1.keys()) | set(v2.keys())):
-      v[comp] = v1[comp] + scale * v2[comp] 
-    return v
+      v1[comp] = v1[comp] + scale * v2[comp] 
     # END_YOUR_CODE
 
 ############################################################
@@ -132,5 +130,20 @@ def computeLongestPalindromeLength(text):
     You should first define a recurrence before you start coding.
     """
     # BEGIN_YOUR_CODE (our solution is 19 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    #print(text)
+    length = len(text)
+    if length == 0: 
+      return 0
+    matrix = [[1 if i == j else (2 if i-j==1 and text[i]==text[j] else 1) for i in range(length)] for j in range(length)]
+    for i in range(2, length):
+      for j in range(length - i):
+        if text[j] == text[j + i]:
+          matrix[j][j+i] = 2 + matrix[j+1][j+i-1]
+        else:
+          if matrix[j+1][j+i] > matrix[j][j+i-1]:
+            matrix[j][j+i] = matrix[j+1][j+i]
+          else:
+            matrix[j][j+i] = matrix[j][j+i-1]
+    #print(matrix[0][length - 1])
+    return matrix[0][length - 1]
     # END_YOUR_CODE

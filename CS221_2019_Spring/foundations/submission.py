@@ -50,26 +50,27 @@ def mutateSentences(sentence):
     """
     # BEGIN_YOUR_CODE (our solution is 20 lines of code, but don't worry if you deviate from this)
     l_words = sentence.split()
-    sent_len = len(l_words)
+    length = len(l_words)
     pairs = {}
     for i in range(len(l_words) - 1):
       if l_words[i] in pairs:
         pairs[l_words[i]].append(l_words[i + 1])
       else:
         pairs[l_words[i]] = [l_words[i + 1]]
-    #
-    sentences = set()
+    # use a queue to do search
+    sentences = []
+    results = set()
     for cur_word in pairs.keys():
-      sentences.add(cur_word)
-    for i in range(sent_len - 1):
-      sentences1 = set()
-      for cur_word in sentences:
-        if cur_word.split()[-1] in pairs:
-          for cur_nbr in pairs[cur_word.split()[-1]]:
-            sentences1.add(' '.join([cur_word,cur_nbr]))
-      sentences = sentences1
-    #print(len(sentences))
-    return sentences
+      sentences.insert(0, [cur_word])
+    while len(sentences) > 0:
+      cur_word = sentences.pop()
+      if len(cur_word) == length:
+        results.add(' '.join(cur_word))
+        continue
+      if cur_word[-1] in pairs:
+        for cur_nbr in pairs[cur_word[-1]]:
+          sentences.insert(0, cur_word + [cur_nbr])
+    return results
     # END_YOUR_CODE
 
 ############################################################

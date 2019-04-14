@@ -22,7 +22,7 @@ def extractWordFeatures(x):
     Example: "I am what I am" --> {'I': 2, 'am': 2, 'what': 1}
     """
     # BEGIN_YOUR_CODE (our solution is 4 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    return collections.Counter(t.split())
     # END_YOUR_CODE
 
 ############################################################
@@ -43,7 +43,20 @@ def learnPredictor(trainExamples, testExamples, featureExtractor, numIters, eta)
     '''
     weights = {}  # feature => weight
     # BEGIN_YOUR_CODE (our solution is 12 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    numExamples = len(trainExamples)
+    for i in range(numIters):
+        phi_x = featureExtractor(trainExamples[i % numExamples][0])
+        y = trainExamples[i % numExamples][1]
+
+        # w.dot(phi_x)
+        score = sum(weights[comp] * phi_x[comp] for comp in (set(weights.keys()) & set(phi_x.keys())))
+        margin = score * y
+
+        if margin <= 1:
+            weights[comp] -= eta * phi_x[comp]*y
+            
+        if numIters % numExamples == 0:
+            print("Current loss ", max(0, 1 - margin))
     # END_YOUR_CODE
     return weights
 
@@ -62,9 +75,15 @@ def generateDataset(numExamples, weights):
     # y should be 1 or -1 as classified by the weight vector.
     def generateExample():
         # BEGIN_YOUR_CODE (our solution is 2 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        phi = {}
+        phi[comp] = random.randint(0,100) for comp in set(weights.keys())
+
+        score = sum(weights[comp] * phi[comp] for comp in (set(weights.keys()) & set(phi.keys())))
+        y = -1 if score < 0 else 1
+
         # END_YOUR_CODE
         return (phi, y)
+
     return [generateExample() for _ in range(numExamples)]
 
 ############################################################
@@ -79,7 +98,17 @@ def extractCharacterFeatures(n):
     '''
     def extract(x):
         # BEGIN_YOUR_CODE (our solution is 6 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        xx = x.replace(' ', '')
+        length = len(xx)
+        features = {}
+        for i in range(length - n):
+            cur = xx[i : i + n]
+            if cur in features:
+                features[cur] += 1
+            else:
+                features[cur] = 1
+            
+        return features
         # END_YOUR_CODE
     return extract
 
@@ -98,5 +127,14 @@ def kmeans(examples, K, maxIters):
             final reconstruction loss)
     '''
     # BEGIN_YOUR_CODE (our solution is 32 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    centroids = random.sample(examples, K)
+    for i in range(maxIters):
+        centers = centroids
+        norms = [np.sqrt(np.sum((centers[i] - X) ** 2, axis=1)) for 
+            i in range(0, len(centers))]
+        idxs = np.stack(norms).argmin(axis=0)
+        #recalc centroids
+        centroids = np.array([np.mean(X[np.where(idxs == i,True,False)], 
+            axis = 0).round() for i in range(n)])
+    
     # END_YOUR_CODE

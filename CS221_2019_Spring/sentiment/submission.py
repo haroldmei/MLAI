@@ -63,7 +63,7 @@ def learnPredictor(trainExamples, testExamples, featureExtractor, numIters, eta)
             if margin <= 1:
                 increment(weights, y*eta, phi_x)
             
-        print("Current loss ", max(0, 1 - margin), numIters)
+        #print("Current loss ", max(0, 1 - margin), numIters)
         numIters -= 1
     # END_YOUR_CODE
     return weights
@@ -134,54 +134,30 @@ def kmeans(examples, K, maxIters):
     # BEGIN_YOUR_CODE (our solution is 32 lines of code, but don't worry if you deviate from this)
     numExamples = len(examples)
     random.seed(42)
+
     centroids = [item.copy() for item in random.sample(examples, K)] # examples[0: K]
-    assignments = []
-    theTuples = []
     loss = 0
+    assignments = []
+    phiDotProducts = [dotProduct(examples[e], examples[e]) for e in range(numExamples)]
     for ii in range(maxIters):
-        norms = [[sum((centroids[i][comp] - examples[j][comp]) ** 2 for comp in (set(centroids[i].keys()) | set(examples[j].keys()))) for j in range(numExamples)] for i in range(K)]
-        
+        muDotProducts = [dotProduct(centroids[k], centroids[k]) for k in range(K)]
+        norms = [[phiDotProducts[j] + muDotProducts[i] - 2 * dotProduct(examples[j], centroids[i]) for j in range(numExamples)] for i in range(K)]
         theTuples = zip(*norms)
         assignments = [theTuples[i].index(min(theTuples[i])) for i in range(numExamples)]
+        loss_ = sum(min(theTuples[i]) for i in range(numExamples))
         idxs = [[j for j,x in enumerate(assignments) if x == i] for i in range(K)]
 
-        loss_ = sum(min(theTuples[i]) for i in range(numExamples))
         if abs(loss - loss_)/numExamples < 1e-6:
             break
         loss = loss_
 
         #recalc centroids
         for i in range(K):
-            if len(idxs[i]) > 0:
-                for comp in centroids[i].keys(): 
-                    total = sum(examples[j][comp] if comp in examples[j] else 0.0 for j in idxs[i]) + 0.0
-                    centroids[i][comp] = total / len(idxs[i]) 
+            total = Counter()
+            for j in idxs[i]:
+                increment(total, 1.0, examples[j])
+            for comp in total.keys(): 
+                centroids[i][comp] = total[comp] / len(idxs[i]) 
 
     return centroids, assignments, loss
     # END_YOUR_CODE
-
-
-def test4b3():
-    random.seed(42)
-    K = 6
-    bestCenters = None
-    bestAssignments = None
-    bestTotalCost = None
-    examples = generateClusteringExamples(numExamples=10000, numWordsPerTopic=3, numFillerWords=10000)
-    centers, assignments, totalCost = kmeans(examples, K, maxIters=100)
-
-test4b3()
-
-def test4b0():
-    random.seed(42)
-    x1 = {0:0, 1:0}
-    x2 = {0:0, 1:1}
-    x3 = {0:0, 1:2}
-    x4 = {0:0, 1:3}
-    x5 = {0:0, 1:4}
-    x6 = {0:0, 1:5}
-    x7 = {0:0, 1:0.5}
-    examples = [x1, x2, x3, x4, x5, x6, x7]
-    centers, assignments, totalCost = kmeans(examples, 2, maxIters=10)
-
-#test4b0()

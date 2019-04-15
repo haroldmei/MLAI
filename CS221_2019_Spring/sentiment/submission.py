@@ -22,7 +22,7 @@ def extractWordFeatures(x):
     Example: "I am what I am" --> {'I': 2, 'am': 2, 'what': 1}
     """
     # BEGIN_YOUR_CODE (our solution is 4 lines of code, but don't worry if you deviate from this)
-    return collections.Counter(t.split())
+    return collections.Counter(x.split())
     # END_YOUR_CODE
 
 ############################################################
@@ -34,29 +34,37 @@ def learnPredictor(trainExamples, testExamples, featureExtractor, numIters, eta)
     pairs), a |featureExtractor| to apply to x, and the number of iterations to
     train |numIters|, the step size |eta|, return the weight vector (sparse
     feature vector) learned.
-
     You should implement stochastic gradient descent.
-
     Note: only use the trainExamples for training!
     You should call evaluatePredictor() on both trainExamples and testExamples
     to see how you're doing as you learn after each iteration.
     '''
     weights = {}  # feature => weight
     # BEGIN_YOUR_CODE (our solution is 12 lines of code, but don't worry if you deviate from this)
+    # Preprocess it first
     numExamples = len(trainExamples)
-    for i in range(numIters):
+    X = []
+    Y = []
+    for i in range(numExamples):
         phi_x = featureExtractor(trainExamples[i % numExamples][0])
         y = trainExamples[i % numExamples][1]
+        X.append(phi_x)
+        Y.append(y)
 
-        # w.dot(phi_x)
-        score = sum(weights[comp] * phi_x[comp] for comp in (set(weights.keys()) & set(phi_x.keys())))
-        margin = score * y
+    while numIters > 0:
+        for i in range(numExamples):
+            phi_x = X[i]
+            y = Y[i]
 
-        if margin <= 1:
-            weights[comp] -= eta * phi_x[comp]*y
+            # w.dot(phi_x)
+            score = dotProduct(weights, phi_x)#sum(weights[comp] * phi_x[comp] for comp in set(phi_x.keys()))
+            margin = score * y
+
+            if margin <= 1:
+                increment(weights, y*eta, phi_x)
             
-        if numIters % numExamples == 0:
-            print("Current loss ", max(0, 1 - margin))
+        print("Current loss ", max(0, 1 - margin), numIters)
+        numIters -= 1
     # END_YOUR_CODE
     return weights
 
@@ -76,9 +84,9 @@ def generateDataset(numExamples, weights):
     def generateExample():
         # BEGIN_YOUR_CODE (our solution is 2 lines of code, but don't worry if you deviate from this)
         phi = {}
-        phi[comp] = random.randint(0,100) for comp in set(weights.keys())
+        for comp in set(weights.keys()): phi[comp] = random.randint(0,100)
 
-        score = sum(weights[comp] * phi[comp] for comp in (set(weights.keys()) & set(phi.keys())))
+        score = dotProduct(weights, phi)
         y = -1 if score < 0 else 1
 
         # END_YOUR_CODE
@@ -101,12 +109,9 @@ def extractCharacterFeatures(n):
         xx = x.replace(' ', '')
         length = len(xx)
         features = {}
-        for i in range(length - n):
+        for i in range(length - n + 1):
             cur = xx[i : i + n]
-            if cur in features:
-                features[cur] += 1
-            else:
-                features[cur] = 1
+            features[cur] = features[cur] + 1 if cur in features else 1
             
         return features
         # END_YOUR_CODE
@@ -127,14 +132,56 @@ def kmeans(examples, K, maxIters):
             final reconstruction loss)
     '''
     # BEGIN_YOUR_CODE (our solution is 32 lines of code, but don't worry if you deviate from this)
-    centroids = random.sample(examples, K)
-    for i in range(maxIters):
-        centers = centroids
-        norms = [np.sqrt(np.sum((centers[i] - X) ** 2, axis=1)) for 
-            i in range(0, len(centers))]
-        idxs = np.stack(norms).argmin(axis=0)
+    numExamples = len(examples)
+    random.seed(42)
+    centroids = [item.copy() for item in random.sample(examples, K)] # examples[0: K]
+    assignments = []
+    theTuples = []
+    loss = 0
+    for ii in range(maxIters):
+        norms = [[sum((centroids[i][comp] - examples[j][comp]) ** 2 for comp in (set(centroids[i].keys()) | set(examples[j].keys()))) for j in range(numExamples)] for i in range(K)]
+        
+        theTuples = zip(*norms)
+        assignments = [theTuples[i].index(min(theTuples[i])) for i in range(numExamples)]
+        idxs = [[j for j,x in enumerate(assignments) if x == i] for i in range(K)]
+
+        loss_ = sum(min(theTuples[i]) for i in range(numExamples))
+        if abs(loss - loss_)/numExamples < 1e-6:
+            break
+        loss = loss_
+
         #recalc centroids
-        centroids = np.array([np.mean(X[np.where(idxs == i,True,False)], 
-            axis = 0).round() for i in range(n)])
-    
+        for i in range(K):
+            if len(idxs[i]) > 0:
+                for comp in centroids[i].keys(): 
+                    total = sum(examples[j][comp] if comp in examples[j] else 0.0 for j in idxs[i]) + 0.0
+                    centroids[i][comp] = total / len(idxs[i]) 
+
+    return centroids, assignments, loss
     # END_YOUR_CODE
+
+
+def test4b3():
+    random.seed(42)
+    K = 6
+    bestCenters = None
+    bestAssignments = None
+    bestTotalCost = None
+    examples = generateClusteringExamples(numExamples=10000, numWordsPerTopic=3, numFillerWords=10000)
+    centers, assignments, totalCost = kmeans(examples, K, maxIters=100)
+
+test4b3()
+
+def test4b0():
+    random.seed(42)
+    x1 = {0:0, 1:0}
+    x2 = {0:0, 1:1}
+    x3 = {0:0, 1:2}
+    x4 = {0:0, 1:3}
+    x5 = {0:0, 1:4}
+    x6 = {0:0, 1:5}
+    x7 = {0:0, 1:0.5}
+    examples = [x1, x2, x3, x4, x5, x6, x7]
+    centers, assignments, totalCost = kmeans(examples, 2, maxIters=10)
+
+#test4b0()

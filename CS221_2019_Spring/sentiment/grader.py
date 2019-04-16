@@ -118,7 +118,18 @@ def test3e1():
 grader.addHiddenPart('3e-1-hidden', test3e1, maxSeconds=1, description="test feature extraction on repeated character n-grams")
 
 ### 3f
-
+#def test3f():
+#    trainExamples = readExamples('polarity.train')
+#    devExamples = readExamples('polarity.dev')
+#    #for i in range(1,10):
+#    featureExtractor = submission.extractCharacterFeatures(5)
+#    weights = submission.learnPredictor(trainExamples, devExamples, featureExtractor, numIters=20, eta=0.01)
+#    outputWeights(weights, 'weights')
+#    outputErrorAnalysis(devExamples, featureExtractor, weights, 'error-analysis')  # Use this to debug
+#    trainError = evaluatePredictor(trainExamples, lambda(x) : (1 if dotProduct(featureExtractor(x), weights) >= 0 else -1))
+#    devError = evaluatePredictor(devExamples, lambda(x) : (1 if dotProduct(featureExtractor(x), weights) >= 0 else -1))
+#    print "%d-gram: train error = %5f, dev error = %5f" % (5,trainError, devError)
+#grader.addBasicPart('3f', test3f, maxPoints=2, maxSeconds=8, description="test classifier on real polarity dev dataset")
 grader.addManualPart('3f', maxPoints=3, description='explain value of n-grams')
 
 ############################################################

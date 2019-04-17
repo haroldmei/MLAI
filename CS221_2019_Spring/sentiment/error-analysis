@@ -869,7 +869,7 @@ fact                          1 * 0.02 = 0.02
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
 fiction                       1 * -0.05 = -0.05
-=== o ótimo esforço do diretor acaba sendo frustrado pelo roteiro , que , depois de levar um bom tempo para colocar a trama em andamento , perde-se de vez a partir do instante em que os estranhos acontecimentos são explicados .
+=== o ï¿½timo esforï¿½o do diretor acaba sendo frustrado pelo roteiro , que , depois de levar um bom tempo para colocar a trama em andamento , perde-se de vez a partir do instante em que os estranhos acontecimentos sï¿½o explicados .
 Truth: -1, Prediction: 1 [WRONG]
 de                            2 * 0.17 = 0.34
 em                            2 * 0.14 = 0.28
@@ -881,7 +881,7 @@ vez                           1 * 0.08 = 0.08
 diretor                       1 * 0.04 = 0.04
 partir                        1 * 0.03 = 0.03
 os                            1 * 0.03 = 0.03
-são                           1 * 0 = 0
+sï¿½o                           1 * 0 = 0
 instante                      1 * 0 = 0
 estranhos                     1 * 0 = 0
 sendo                         1 * 0 = 0
@@ -896,8 +896,8 @@ tempo                         1 * 0 = 0
 perde-se                      1 * 0 = 0
 andamento                     1 * 0 = 0
 depois                        1 * 0 = 0
-ótimo                         1 * 0 = 0
-esforço                       1 * 0 = 0
+ï¿½timo                         1 * 0 = 0
+esforï¿½o                       1 * 0 = 0
 levar                         1 * 0 = 0
 bom                           1 * 0 = 0
 acontecimentos                1 * 0 = 0
@@ -1275,7 +1275,7 @@ director                      1 * -0.1 = -0.1
 that                          1 * -0.1 = -0.1
 mayhem                        1 * -0.22 = -0.22
 create                        1 * -0.53 = -0.53
-=== stephen earnhart's documentary is a decomposition of healthy eccentric inspiration and ambition – wearing a cloak of unsentimental , straightforward text – when it's really an exercise in gross romanticization of the delusional personality type .
+=== stephen earnhart's documentary is a decomposition of healthy eccentric inspiration and ambition ï¿½ wearing a cloak of unsentimental , straightforward text ï¿½ when it's really an exercise in gross romanticization of the delusional personality type .
 Truth: -1, Prediction: -1 [CORRECT]
 of                            3 * 0.11 = 0.33
 unsentimental                 1 * 0.26 = 0.26
@@ -1308,7 +1308,7 @@ eccentric                     1 * -0.31 = -0.31
 when                          1 * -0.33 = -0.33
 really                        1 * -0.56 = -0.56
 exercise                      1 * -0.57 = -0.57
-–                             2 * -0.32 = -0.64
+ï¿½                             2 * -0.32 = -0.64
 === real women have curves doesn't offer any easy answers .
 Truth: 1, Prediction: 1 [CORRECT]
 easy                          1 * 0.36 = 0.36
@@ -1534,23 +1534,23 @@ episode                       1 * -0.07 = -0.07
 patched                       1 * -0.08 = -0.08
 feel                          1 * -0.1 = -0.1
 elements                      1 * -0.12 = -0.12
-=== graças às interações entre seus personagens , o filme torna-se não apenas uma história divertida sobre uma curiosa perseguição , mas também um belo estudo de personagens .
+=== graï¿½as ï¿½s interaï¿½ï¿½es entre seus personagens , o filme torna-se nï¿½o apenas uma histï¿½ria divertida sobre uma curiosa perseguiï¿½ï¿½o , mas tambï¿½m um belo estudo de personagens .
 Truth: 1, Prediction: -1 [WRONG]
 de                            1 * 0.17 = 0.17
 uma                           2 * 0.07 = 0.14
 o                             1 * 0.13 = 0.13
-também                        1 * 0.07 = 0.07
+tambï¿½m                        1 * 0.07 = 0.07
 ,                             2 * 0.03 = 0.06
 sobre                         1 * 0.03 = 0.03
-graças                        1 * 0 = 0
-perseguição                   1 * 0 = 0
-história                      1 * 0 = 0
+graï¿½as                        1 * 0 = 0
+perseguiï¿½ï¿½o                   1 * 0 = 0
+histï¿½ria                      1 * 0 = 0
 divertida                     1 * 0 = 0
 torna-se                      1 * 0 = 0
 seus                          1 * 0 = 0
 curiosa                       1 * 0 = 0
-às                            1 * 0 = 0
-interações                    1 * 0 = 0
+ï¿½s                            1 * 0 = 0
+interaï¿½ï¿½es                    1 * 0 = 0
 entre                         1 * 0 = 0
 estudo                        1 * 0 = 0
 personagens                   2 * 0 = 0
@@ -1558,7 +1558,7 @@ personagens                   2 * 0 = 0
 belo                          1 * -0.06 = -0.06
 filme                         1 * -0.06 = -0.06
 apenas                        1 * -0.07 = -0.07
-não                           1 * -0.14 = -0.14
+nï¿½o                           1 * -0.14 = -0.14
 mas                           1 * -0.18 = -0.18
 um                            1 * -0.31 = -0.31
 === ice cube holds the film together with an engaging and warm performance . . .
@@ -2918,7 +2918,7 @@ to                            2 * -0.11 = -0.22
 the                           3 * -0.08 = -0.24
 minutes                       1 * -0.3 = -0.3
 me                            1 * -0.31 = -0.31
-=== apart from its own considerable achievement , metropolis confirms tezuka's status as both the primary visual influence on the animé tradition and its defining philosophical conscience .
+=== apart from its own considerable achievement , metropolis confirms tezuka's status as both the primary visual influence on the animï¿½ tradition and its defining philosophical conscience .
 Truth: 1, Prediction: 1 [CORRECT]
 metropolis                    1 * 0.38 = 0.38
 tradition                     1 * 0.38 = 0.38
@@ -2935,7 +2935,7 @@ confirms                      1 * 0 = 0
 conscience                    1 * 0 = 0
 defining                      1 * 0 = 0
 tezuka's                      1 * 0 = 0
-animé                         1 * 0 = 0
+animï¿½                         1 * 0 = 0
 .                             1 * -0.03 = -0.03
 on                            1 * -0.05 = -0.05
 influence                     1 * -0.09 = -0.09
@@ -3103,14 +3103,14 @@ which                         1 * -0.16 = -0.16
 movie                         1 * -0.19 = -0.19
 point                         1 * -0.32 = -0.32
 ending                        1 * -0.43 = -0.43
-=== vereté has a whip-smart sense of narrative bluffs .
+=== veretï¿½ has a whip-smart sense of narrative bluffs .
 Truth: 1, Prediction: 1 [CORRECT]
 has                           1 * 0.28 = 0.28
 sense                         1 * 0.14 = 0.14
 of                            1 * 0.11 = 0.11
 narrative                     1 * 0.08 = 0.08
 whip-smart                    1 * 0 = 0
-vereté                        1 * 0 = 0
+veretï¿½                        1 * 0 = 0
 bluffs                        1 * 0 = 0
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
@@ -3196,12 +3196,12 @@ attempts                      1 * -0.17 = -0.17
 despite                       1 * -0.18 = -0.18
 anyone                        1 * -0.2 = -0.2
 find                          1 * -0.55 = -0.55
-=== más sarcástica , divertida y demencial que su predecesora , es un buen ejemplo de lo que es el cine de entretenimiento puro y sin complejos .
+=== mï¿½s sarcï¿½stica , divertida y demencial que su predecesora , es un buen ejemplo de lo que es el cine de entretenimiento puro y sin complejos .
 Truth: 1, Prediction: 1 [CORRECT]
 y                             2 * 0.22 = 0.44
 de                            2 * 0.17 = 0.34
 un                            1 * 0.09 = 0.09
-más                           1 * 0.08 = 0.08
+mï¿½s                           1 * 0.08 = 0.08
 sin                           1 * 0.06 = 0.06
 ,                             2 * 0.03 = 0.06
 ejemplo                       1 * 0 = 0
@@ -3211,7 +3211,7 @@ puro                          1 * 0 = 0
 demencial                     1 * 0 = 0
 complejos                     1 * 0 = 0
 entretenimiento               1 * 0 = 0
-sarcástica                    1 * 0 = 0
+sarcï¿½stica                    1 * 0 = 0
 predecesora                   1 * 0 = 0
 buen                          1 * 0 = 0
 .                             1 * -0.03 = -0.03
@@ -5391,13 +5391,13 @@ a                             1 * -0.03 = -0.03
 you've                        1 * -0.1 = -0.1
 out                           1 * -0.13 = -0.13
 late                          1 * -0.14 = -0.14
-=== es triste tener que decirles que lo único grato de la cinta es el cuerpo desnudo de la heather . . .
+=== es triste tener que decirles que lo ï¿½nico grato de la cinta es el cuerpo desnudo de la heather . . .
 Truth: -1, Prediction: -1 [CORRECT]
 la                            2 * 0.21 = 0.42
 de                            2 * 0.17 = 0.34
 triste                        1 * 0.04 = 0.04
 cinta                         1 * 3.46944695195e-18 = 3.46944695195e-18
-único                         1 * 0 = 0
+ï¿½nico                         1 * 0 = 0
 desnudo                       1 * 0 = 0
 heather                       1 * 0 = 0
 tener                         1 * 0 = 0
@@ -6064,7 +6064,7 @@ the                           1 * -0.08 = -0.08
 motivated                     1 * -0.08 = -0.08
 got                           1 * -0.24 = -0.24
 as                            2 * -0.22 = -0.44
-=== contando com uma premissa curiosa , o filme mergulha o espectador em um clima de forte suspense , culminando em um desfecho que certamente fica na memória .
+=== contando com uma premissa curiosa , o filme mergulha o espectador em um clima de forte suspense , culminando em um desfecho que certamente fica na memï¿½ria .
 Truth: 1, Prediction: -1 [WRONG]
 em                            2 * 0.14 = 0.28
 o                             2 * 0.13 = 0.26
@@ -6072,7 +6072,7 @@ de                            1 * 0.17 = 0.17
 uma                           1 * 0.07 = 0.07
 ,                             2 * 0.03 = 0.06
 com                           1 * 0.01 = 0.01
-memória                       1 * 0 = 0
+memï¿½ria                       1 * 0 = 0
 mergulha                      1 * 0 = 0
 contando                      1 * 0 = 0
 na                            1 * 0 = 0
@@ -6234,7 +6234,7 @@ something                     1 * -0.16 = -0.16
 there's                       1 * -0.18 = -0.18
 across                        1 * -0.2 = -0.2
 whale                         1 * -0.29 = -0.29
-=== …the maudlin way its story unfolds suggests a director fighting against the urge to sensationalize his material .
+=== ï¿½the maudlin way its story unfolds suggests a director fighting against the urge to sensationalize his material .
 Truth: -1, Prediction: -1 [CORRECT]
 way                           1 * 0.36 = 0.36
 suggests                      1 * 0.23 = 0.23
@@ -6251,10 +6251,10 @@ the                           1 * -0.08 = -0.08
 director                      1 * -0.1 = -0.1
 to                            1 * -0.11 = -0.11
 his                           1 * -0.15 = -0.15
-…the                          1 * -0.16 = -0.16
+ï¿½the                          1 * -0.16 = -0.16
 material                      1 * -0.17 = -0.17
 fighting                      1 * -0.26 = -0.26
-=== en sí mismo el rey león es un espectáculo digno de contemplarse en cine , dvd o en su soberbio montaje teatral ; pero el hacerlo en la pantalla imax es una experiencia colosal .
+=== en sï¿½ mismo el rey leï¿½n es un espectï¿½culo digno de contemplarse en cine , dvd o en su soberbio montaje teatral ; pero el hacerlo en la pantalla imax es una experiencia colosal .
 Truth: 1, Prediction: -1 [WRONG]
 imax                          1 * 0.57 = 0.57
 la                            1 * 0.21 = 0.21
@@ -6264,11 +6264,11 @@ un                            1 * 0.09 = 0.09
 ,                             1 * 0.03 = 0.03
 soberbio                      1 * 0 = 0
 pantalla                      1 * 0 = 0
-león                          1 * 0 = 0
+leï¿½n                          1 * 0 = 0
 hacerlo                       1 * 0 = 0
 rey                           1 * 0 = 0
 teatral                       1 * 0 = 0
-espectáculo                   1 * 0 = 0
+espectï¿½culo                   1 * 0 = 0
 cine                          1 * 0 = 0
 pero                          1 * 0 = 0
 contemplarse                  1 * 0 = 0
@@ -6276,7 +6276,7 @@ montaje                       1 * 0 = 0
 experiencia                   1 * 0 = 0
 colosal                       1 * 0 = 0
 digno                         1 * 0 = 0
-sí                            1 * 0 = 0
+sï¿½                            1 * 0 = 0
 mismo                         1 * 0 = 0
 .                             1 * -0.03 = -0.03
 una                           1 * -0.05 = -0.05
@@ -6411,13 +6411,13 @@ as                            1 * -0.22 = -0.22
 serve                         1 * -0.27 = -0.27
 however                       1 * -0.32 = -0.32
 too                           1 * -0.68 = -0.68
-=== traffics in the kind of prechewed racial clichés that have already been through the corporate stand-up-comedy mill .
+=== traffics in the kind of prechewed racial clichï¿½s that have already been through the corporate stand-up-comedy mill .
 Truth: -1, Prediction: -1 [CORRECT]
 mill                          1 * 0.16 = 0.16
 of                            1 * 0.11 = 0.11
 kind                          1 * 0.05 = 0.05
 corporate                     1 * 0.03 = 0.03
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 traffics                      1 * 0 = 0
 prechewed                     1 * 0 = 0
 stand-up-comedy               1 * 0 = 0
@@ -6684,7 +6684,7 @@ less                          1 * -0.26 = -0.26
 by                            1 * -0.28 = -0.28
 people                        1 * -0.35 = -0.35
 college                       1 * -0.4 = -0.4
-=== a moving and solidly entertaining comedy/drama that should bolster director and co-writer juan josé campanella's reputation in the united states .
+=== a moving and solidly entertaining comedy/drama that should bolster director and co-writer juan josï¿½ campanella's reputation in the united states .
 Truth: 1, Prediction: 1 [CORRECT]
 moving                        1 * 0.7 = 0.7
 entertaining                  1 * 0.52 = 0.52
@@ -6692,7 +6692,7 @@ and                           2 * 0.1 = 0.2
 co-writer                     1 * 0.01 = 0.01
 bolster                       1 * 0 = 0
 juan                          1 * 0 = 0
-josé                          1 * 0 = 0
+josï¿½                          1 * 0 = 0
 reputation                    1 * 0 = 0
 campanella's                  1 * 0 = 0
 a                             1 * -0.03 = -0.03
@@ -8605,7 +8605,7 @@ any                           1 * -0.12 = -0.12
 movie                         1 * -0.19 = -0.19
 seem                          1 * -0.21 = -0.21
 hard                          1 * -0.23 = -0.23
-=== more mature than fatal attraction , more complete than indecent proposal and more relevant than 9 ½ weeks , unfaithful is at once intimate and universal cinema .
+=== more mature than fatal attraction , more complete than indecent proposal and more relevant than 9 ï¿½ weeks , unfaithful is at once intimate and universal cinema .
 Truth: 1, Prediction: 1 [CORRECT]
 cinema                        1 * 0.73 = 0.73
 intimate                      1 * 0.45 = 0.45
@@ -8617,7 +8617,7 @@ is                            1 * 0.06 = 0.06
 ,                             2 * 0.03 = 0.06
 9                             1 * 0.01 = 0.01
 indecent                      1 * 0 = 0
-½                             1 * 0 = 0
+ï¿½                             1 * 0 = 0
 proposal                      1 * 0 = 0
 .                             1 * -0.03 = -0.03
 once                          1 * -0.05 = -0.05
@@ -9854,7 +9854,7 @@ to                            1 * -0.11 = -0.11
 2                             1 * -0.12 = -0.12
 little                        1 * -0.32 = -0.32
 largely                       1 * -0.67 = -0.67
-=== with its paint fights , motorized scooter chases and dewy-eyed sentiment , it's a pretty listless collection of kid-movie clichés .
+=== with its paint fights , motorized scooter chases and dewy-eyed sentiment , it's a pretty listless collection of kid-movie clichï¿½s .
 Truth: -1, Prediction: -1 [CORRECT]
 it's                          1 * 0.2 = 0.2
 with                          1 * 0.15 = 0.15
@@ -9862,7 +9862,7 @@ of                            1 * 0.11 = 0.11
 and                           1 * 0.1 = 0.1
 fights                        1 * 0.06 = 0.06
 ,                             2 * 0.03 = 0.06
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 scooter                       1 * 0 = 0
 kid-movie                     1 * 0 = 0
 dewy-eyed                     1 * 0 = 0
@@ -10953,12 +10953,12 @@ to                            2 * -0.11 = -0.22
 the                           3 * -0.08 = -0.24
 heard                         1 * -0.27 = -0.27
 suffers                       1 * -0.77 = -0.77
-=== a collage of clichés and a dim echo of allusions to other films .
+=== a collage of clichï¿½s and a dim echo of allusions to other films .
 Truth: -1, Prediction: 1 [WRONG]
 of                            2 * 0.11 = 0.22
 films                         1 * 0.17 = 0.17
 and                           1 * 0.1 = 0.1
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 dim                           1 * 0 = 0
 collage                       1 * 0 = 0
 echo                          1 * 0 = 0
@@ -10987,7 +10987,7 @@ brains                        1 * -0.16 = -0.16
 all                           1 * -0.18 = -0.18
 place                         2 * -0.16 = -0.32
 no                            1 * -0.36 = -0.36
-=== without non-stop techno or the existential overtones of a kieslowski morality tale , maelström is just another winter sleepers .
+=== without non-stop techno or the existential overtones of a kieslowski morality tale , maelstrï¿½m is just another winter sleepers .
 Truth: -1, Prediction: -1 [CORRECT]
 existential                   1 * 0.36 = 0.36
 tale                          1 * 0.33 = 0.33
@@ -10997,7 +10997,7 @@ is                            1 * 0.06 = 0.06
 ,                             1 * 0.03 = 0.03
 sleepers                      1 * 0 = 0
 non-stop                      1 * 0 = 0
-maelström                     1 * 0 = 0
+maelstrï¿½m                     1 * 0 = 0
 winter                        1 * 0 = 0
 kieslowski                    1 * 0 = 0
 overtones                     1 * 0 = 0
@@ -11338,11 +11338,11 @@ the                           1 * -0.08 = -0.08
 out                           1 * -0.13 = -0.13
 mystery                       1 * -0.35 = -0.35
 exercise                      1 * -0.57 = -0.57
-=== absurdities and clichés accumulate like lint in a fat man's navel .
+=== absurdities and clichï¿½s accumulate like lint in a fat man's navel .
 Truth: -1, Prediction: 1 [WRONG]
 man's                         1 * 0.57 = 0.57
 and                           1 * 0.1 = 0.1
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 navel                         1 * 0 = 0
 lint                          1 * 0 = 0
 accumulate                    1 * 0 = 0
@@ -11352,12 +11352,12 @@ in                            1 * -0.05 = -0.05
 like                          1 * -0.07 = -0.07
 fat                           1 * -0.1 = -0.1
 absurdities                   1 * -0.14 = -0.14
-=== it appears to have been modeled on the worst revenge-of-the-nerds clichés the filmmakers could dredge up .
+=== it appears to have been modeled on the worst revenge-of-the-nerds clichï¿½s the filmmakers could dredge up .
 Truth: -1, Prediction: -1 [CORRECT]
 it                            1 * 0.2 = 0.2
 could                         1 * 0.13 = 0.13
 appears                       1 * 0.11 = 0.11
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 dredge                        1 * 0 = 0
 revenge-of-the-nerds          1 * 0 = 0
 modeled                       1 * 0 = 0
@@ -12053,9 +12053,9 @@ feel                          2 * -0.1 = -0.2
 takes                         1 * -0.25 = -0.25
 so                            1 * -0.26 = -0.26
 characters                    1 * -0.26 = -0.26
-=== you walk out of the good girl with mixed emotions — disapproval of justine combined with a tinge of understanding for her actions .
+=== you walk out of the good girl with mixed emotions ï¿½ disapproval of justine combined with a tinge of understanding for her actions .
 Truth: 1, Prediction: 1 [CORRECT]
-—                             1 * 0.48 = 0.48
+ï¿½                             1 * 0.48 = 0.48
 girl                          1 * 0.46 = 0.46
 of                            3 * 0.11 = 0.33
 with                          2 * 0.15 = 0.3
@@ -12149,7 +12149,7 @@ awakening                     1 * 0 = 0
 satire                        1 * -0.06 = -0.06
 childhood                     1 * -0.13 = -0.13
 uneven                        1 * -0.28 = -0.28
-=== the great pity is that those responsible didn't cut their losses – and ours – and retitle it the adventures of direct-to-video nash , and send it to its proper home .
+=== the great pity is that those responsible didn't cut their losses ï¿½ and ours ï¿½ and retitle it the adventures of direct-to-video nash , and send it to its proper home .
 Truth: -1, Prediction: 1 [WRONG]
 it                            2 * 0.2 = 0.4
 and                           3 * 0.1 = 0.3
@@ -12177,7 +12177,7 @@ to                            1 * -0.11 = -0.11
 adventures                    1 * -0.12 = -0.12
 the                           2 * -0.08 = -0.16
 didn't                        1 * -0.19 = -0.19
-–                             2 * -0.32 = -0.64
+ï¿½                             2 * -0.32 = -0.64
 === on the right track to something that's creepy and effective . . . it's just going to take more than a man in a bullwinkle costume to get there .
 Truth: -1, Prediction: 1 [WRONG]
 effective                     1 * 0.52 = 0.52
@@ -13160,7 +13160,7 @@ candid                        1 * 0 = 0
 methamphetamines              1 * 0 = 0
 .                             1 * -0.03 = -0.03
 on                            1 * -0.05 = -0.05
-=== what full frontal lacks in thematic coherence it largely makes up for as loosey-goosey , experimental entertainment . still , i'm not quite sure what the point is…
+=== what full frontal lacks in thematic coherence it largely makes up for as loosey-goosey , experimental entertainment . still , i'm not quite sure what the point isï¿½
 Truth: 1, Prediction: -1 [WRONG]
 still                         1 * 0.7 = 0.7
 it                            1 * 0.2 = 0.2
@@ -13169,7 +13169,7 @@ entertainment                 1 * 0.1 = 0.1
 full                          1 * 0.02 = 0.02
 makes                         1 * 0.02 = 0.02
 frontal                       1 * 3.46944695195e-18 = 3.46944695195e-18
-is…                           1 * 0 = 0
+isï¿½                           1 * 0 = 0
 loosey-goosey                 1 * 0 = 0
 for                           1 * -0.01 = -0.01
 what                          2 * -0.01 = -0.02
@@ -13499,7 +13499,7 @@ and                           1 * 0.1 = 0.1
 craft                         1 * 0.05 = 0.05
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
-=== nair stuffs the film with dancing , henna , ornamentation , and group song , but her narrative clichés and telegraphed episodes smell of old soap opera .
+=== nair stuffs the film with dancing , henna , ornamentation , and group song , but her narrative clichï¿½s and telegraphed episodes smell of old soap opera .
 Truth: -1, Prediction: 1 [WRONG]
 film                          1 * 0.39 = 0.39
 dancing                       1 * 0.37 = 0.37
@@ -13511,7 +13511,7 @@ with                          1 * 0.15 = 0.15
 of                            1 * 0.11 = 0.11
 nair                          1 * 0.09 = 0.09
 narrative                     1 * 0.08 = 0.08
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 stuffs                        1 * 0 = 0
 henna                         1 * 0 = 0
 smell                         1 * 0 = 0
@@ -14125,9 +14125,9 @@ the                           1 * -0.08 = -0.08
 ryan                          1 * -0.15 = -0.15
 as                            1 * -0.22 = -0.22
 word                          1 * -0.22 = -0.22
-=== our culture is headed down the toilet with the ferocity of a frozen burrito after an all-night tequila bender — and i know this because i've seen 'jackass : the movie . '
+=== our culture is headed down the toilet with the ferocity of a frozen burrito after an all-night tequila bender ï¿½ and i know this because i've seen 'jackass : the movie . '
 Truth: -1, Prediction: 1 [WRONG]
-—                             1 * 0.48 = 0.48
+ï¿½                             1 * 0.48 = 0.48
 culture                       1 * 0.44 = 0.44
 our                           1 * 0.27 = 0.27
 know                          1 * 0.22 = 0.22
@@ -15130,7 +15130,7 @@ head                          1 * -0.22 = -0.22
 went                          1 * -0.28 = -0.28
 or                            1 * -0.33 = -0.33
 low                           1 * -0.44 = -0.44
-=== the only entertainment you'll derive from this choppy and sloppy affair will be from unintentional giggles – several of them .
+=== the only entertainment you'll derive from this choppy and sloppy affair will be from unintentional giggles ï¿½ several of them .
 Truth: -1, Prediction: -1 [CORRECT]
 from                          2 * 0.22 = 0.44
 you'll                        1 * 0.34 = 0.34
@@ -15147,7 +15147,7 @@ giggles                       1 * -0.05 = -0.05
 this                          1 * -0.07 = -0.07
 the                           1 * -0.08 = -0.08
 several                       1 * -0.17 = -0.17
-–                             1 * -0.32 = -0.32
+ï¿½                             1 * -0.32 = -0.32
 affair                        1 * -0.39 = -0.39
 sloppy                        1 * -0.41 = -0.41
 choppy                        1 * -0.41 = -0.41
@@ -15858,7 +15858,7 @@ this                          1 * -0.07 = -0.07
 that                          1 * -0.1 = -0.1
 movie                         1 * -0.19 = -0.19
 its                           3 * -0.07 = -0.21
-=== …passable enough for a shoot-out in the o . k . court house of life type of flick . strictly middle of the road .
+=== ï¿½passable enough for a shoot-out in the o . k . court house of life type of flick . strictly middle of the road .
 Truth: -1, Prediction: 1 [WRONG]
 road                          1 * 0.48 = 0.48
 of                            3 * 0.11 = 0.33
@@ -15866,7 +15866,7 @@ life                          1 * 0.31 = 0.31
 o                             1 * 0.13 = 0.13
 court                         1 * 0 = 0
 shoot-out                     1 * 0 = 0
-…passable                     1 * 0 = 0
+ï¿½passable                     1 * 0 = 0
 house                         1 * -3.46944695195e-18 = -3.46944695195e-18
 type                          1 * -0.01 = -0.01
 for                           1 * -0.01 = -0.01
@@ -16331,19 +16331,19 @@ rob                           1 * -0.13 = -0.13
 riot                          1 * -0.16 = -0.16
 then                          1 * -0.23 = -0.23
 schneider                     1 * -0.28 = -0.28
-=== un thriller manqué qui tombe sur les nerfs presque dès la première image .
+=== un thriller manquï¿½ qui tombe sur les nerfs presque dï¿½s la premiï¿½re image .
 Truth: -1, Prediction: 1 [WRONG]
 la                            1 * 0.21 = 0.21
 image                         1 * 0.17 = 0.17
 un                            1 * 0.09 = 0.09
-manqué                        1 * 0 = 0
+manquï¿½                        1 * 0 = 0
 les                           1 * 0 = 0
 nerfs                         1 * 0 = 0
-première                      1 * 0 = 0
+premiï¿½re                      1 * 0 = 0
 sur                           1 * 0 = 0
 qui                           1 * 0 = 0
 tombe                         1 * 0 = 0
-dès                           1 * 0 = 0
+dï¿½s                           1 * 0 = 0
 presque                       1 * 0 = 0
 .                             1 * -0.03 = -0.03
 thriller                      1 * -0.04 = -0.04
@@ -17542,7 +17542,7 @@ thought-provoking             1 * 0.34 = 0.34
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
 picture                       1 * -0.15 = -0.15
-=== heartwarming here relies less on forced air than on petter næss' delicate , clever direction . . . and a wonderful , imaginative script by axel hellstenius .
+=== heartwarming here relies less on forced air than on petter nï¿½ss' delicate , clever direction . . . and a wonderful , imaginative script by axel hellstenius .
 Truth: 1, Prediction: -1 [WRONG]
 wonderful                     1 * 0.65 = 0.65
 delicate                      1 * 0.35 = 0.35
@@ -17550,7 +17550,7 @@ heartwarming                  1 * 0.3 = 0.3
 and                           1 * 0.1 = 0.1
 ,                             2 * 0.03 = 0.06
 clever                        1 * 0.05 = 0.05
-næss'                         1 * 0 = 0
+nï¿½ss'                         1 * 0 = 0
 axel                          1 * 0 = 0
 petter                        1 * 0 = 0
 hellstenius                   1 * 0 = 0
@@ -21081,7 +21081,7 @@ trifle                        1 * -0.12 = -0.12
 smiles                        1 * -0.24 = -0.24
 juvenile                      1 * -0.28 = -0.28
 laughs                        1 * -0.51 = -0.51
-=== the château would have been benefited from a sharper , cleaner script before it went in front of the camera . not to mention a sharper , cleaner camera lens .
+=== the chï¿½teau would have been benefited from a sharper , cleaner script before it went in front of the camera . not to mention a sharper , cleaner camera lens .
 Truth: -1, Prediction: -1 [CORRECT]
 from                          1 * 0.22 = 0.22
 benefited                     1 * 0.2 = 0.2
@@ -21093,7 +21093,7 @@ of                            1 * 0.11 = 0.11
 ,                             2 * 0.03 = 0.06
 cleaner                       2 * 0 = 0
 sharper                       2 * 0 = 0
-château                       1 * 0 = 0
+chï¿½teau                       1 * 0 = 0
 lens                          1 * 0 = 0
 been                          1 * -0.02 = -0.02
 in                            1 * -0.05 = -0.05
@@ -22615,9 +22615,9 @@ mystery                       1 * -0.35 = -0.35
 enigma                        2 * -0.2 = -0.4
 looks                         1 * -0.52 = -0.52
 fails                         1 * -0.94 = -0.94
-=== tambor and clayburgh make an appealing couple — he's understated and sardonic , she's appealingly manic and energetic . both deserve better .
+=== tambor and clayburgh make an appealing couple ï¿½ he's understated and sardonic , she's appealingly manic and energetic . both deserve better .
 Truth: -1, Prediction: 1 [WRONG]
-—                             1 * 0.48 = 0.48
+ï¿½                             1 * 0.48 = 0.48
 energetic                     1 * 0.41 = 0.41
 make                          1 * 0.35 = 0.35
 appealing                     1 * 0.34 = 0.34
@@ -22825,7 +22825,7 @@ this                          1 * -0.07 = -0.07
 any                           1 * -0.12 = -0.12
 don't                         1 * -0.15 = -0.15
 cliches                       1 * -0.81 = -0.81
-=== in a normal screen process , these bromides would be barely enough to sustain an interstitial program on the discovery channel . but in imax 3-d , the clichés disappear into the vertiginous perspectives opened up by the photography .
+=== in a normal screen process , these bromides would be barely enough to sustain an interstitial program on the discovery channel . but in imax 3-d , the clichï¿½s disappear into the vertiginous perspectives opened up by the photography .
 Truth: 1, Prediction: -1 [WRONG]
 imax                          1 * 0.57 = 0.57
 these                         1 * 0.27 = 0.27
@@ -22837,7 +22837,7 @@ perspectives                  1 * 0.08 = 0.08
 screen                        1 * 0.05 = 0.05
 sustain                       1 * 0.04 = 0.04
 3-d                           1 * 0.04 = 0.04
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 normal                        1 * 0.02 = 0.02
 vertiginous                   1 * 0 = 0
 opened                        1 * 0 = 0
@@ -23381,14 +23381,14 @@ this                          1 * -0.07 = -0.07
 unwatchable                   1 * -0.2 = -0.2
 thing                         1 * -0.24 = -0.24
 virtually                     1 * -0.36 = -0.36
-=== stale and clichéd to a fault .
+=== stale and clichï¿½d to a fault .
 Truth: -1, Prediction: -1 [CORRECT]
 and                           1 * 0.1 = 0.1
 fault                         1 * 0 = 0
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
 to                            1 * -0.11 = -0.11
-clichéd                       1 * -0.21 = -0.21
+clichï¿½d                       1 * -0.21 = -0.21
 stale                         1 * -0.61 = -0.61
 === after making several adaptations of other writers' work , armenian-canadian director atom egoyan broached an original treatment of a deeply personal subject .
 Truth: 1, Prediction: 1 [CORRECT]
@@ -23821,7 +23821,7 @@ attract                       1 * -0.11 = -0.11
 quality                       1 * -0.19 = -0.19
 audiences                     1 * -0.2 = -0.2
 that                          2 * -0.1 = -0.2
-=== not at all clear what it's trying to say and even if it were – i doubt it would be all that interesting .
+=== not at all clear what it's trying to say and even if it were ï¿½ i doubt it would be all that interesting .
 Truth: -1, Prediction: -1 [CORRECT]
 it                            2 * 0.2 = 0.4
 if                            1 * 0.27 = 0.27
@@ -23842,7 +23842,7 @@ that                          1 * -0.1 = -0.1
 to                            1 * -0.11 = -0.11
 not                           1 * -0.15 = -0.15
 clear                         1 * -0.19 = -0.19
-–                             1 * -0.32 = -0.32
+ï¿½                             1 * -0.32 = -0.32
 were                          1 * -0.35 = -0.35
 all                           2 * -0.18 = -0.36
 === there's plenty of style in guillermo del toro's sequel to the 1998 hit but why do we need 117 minutes to tell a tale that simply can't sustain more than 90 minutes .
@@ -24030,7 +24030,7 @@ this                          1 * -0.07 = -0.07
 the                           1 * -0.08 = -0.08
 not                           1 * -0.15 = -0.15
 single                        1 * -0.54 = -0.54
-=== 'carente de imaginación , mal dirigida , peor actuada y sin un ápice de romance , es una verdadera pérdida de tiempo y dinero'
+=== 'carente de imaginaciï¿½n , mal dirigida , peor actuada y sin un ï¿½pice de romance , es una verdadera pï¿½rdida de tiempo y dinero'
 Truth: -1, Prediction: 1 [WRONG]
 de                            3 * 0.17 = 0.51
 y                             2 * 0.22 = 0.44
@@ -24040,13 +24040,13 @@ sin                           1 * 0.06 = 0.06
 tiempo                        1 * 0 = 0
 'carente                      1 * 0 = 0
 peor                          1 * 0 = 0
-imaginación                   1 * 0 = 0
+imaginaciï¿½n                   1 * 0 = 0
 verdadera                     1 * 0 = 0
 dinero'                       1 * 0 = 0
 dirigida                      1 * 0 = 0
-pérdida                       1 * 0 = 0
+pï¿½rdida                       1 * 0 = 0
 actuada                       1 * 0 = 0
-ápice                         1 * 0 = 0
+ï¿½pice                         1 * 0 = 0
 mal                           1 * 0 = 0
 una                           1 * -0.05 = -0.05
 es                            1 * -0.19 = -0.19
@@ -24528,13 +24528,13 @@ in                            1 * -0.05 = -0.05
 actor                         1 * -0.09 = -0.09
 sham                          1 * -0.13 = -0.13
 exercise                      1 * -0.57 = -0.57
-=== 'estupendamente actuada , sumamente emotiva y profundamente humana , es una experiencia fílmica imposible de olvidar'
+=== 'estupendamente actuada , sumamente emotiva y profundamente humana , es una experiencia fï¿½lmica imposible de olvidar'
 Truth: 1, Prediction: 1 [CORRECT]
 y                             1 * 0.22 = 0.22
 de                            1 * 0.17 = 0.17
 ,                             2 * 0.03 = 0.06
 imposible                     1 * 0 = 0
-fílmica                       1 * 0 = 0
+fï¿½lmica                       1 * 0 = 0
 experiencia                   1 * 0 = 0
 emotiva                       1 * 0 = 0
 olvidar'                      1 * 0 = 0
@@ -24756,7 +24756,7 @@ talents                       1 * -0.03 = -0.03
 its                           1 * -0.07 = -0.07
 the                           2 * -0.08 = -0.16
 mile                          1 * -0.35 = -0.35
-=== gaghan . . . has thrown every suspenseful cliché in the book at this nonsensical story .
+=== gaghan . . . has thrown every suspenseful clichï¿½ in the book at this nonsensical story .
 Truth: -1, Prediction: -1 [CORRECT]
 has                           1 * 0.28 = 0.28
 story                         1 * 0.14 = 0.14
@@ -24771,7 +24771,7 @@ the                           1 * -0.08 = -0.08
 gaghan                        1 * -0.09 = -0.09
 .                             4 * -0.03 = -0.12
 every                         1 * -0.26 = -0.26
-cliché                        1 * -0.5 = -0.5
+clichï¿½                        1 * -0.5 = -0.5
 === from its nauseating spinning credits sequence to a very talented but underutilized supporting cast , bartleby squanders as much as it gives out .
 Truth: -1, Prediction: -1 [CORRECT]
 from                          1 * 0.22 = 0.22
@@ -25461,7 +25461,7 @@ every                         1 * -0.26 = -0.26
 i'm                           1 * -0.31 = -0.31
 unless                        1 * -0.46 = -0.46
 person                        1 * -0.53 = -0.53
-=== the trials of henry kissinger is a remarkable piece of filmmaking … because you get it .
+=== the trials of henry kissinger is a remarkable piece of filmmaking ï¿½ because you get it .
 Truth: 1, Prediction: 1 [CORRECT]
 filmmaking                    1 * 0.43 = 0.43
 remarkable                    1 * 0.41 = 0.41
@@ -25472,7 +25472,7 @@ it                            1 * 0.2 = 0.2
 because                       1 * 0.19 = 0.19
 is                            1 * 0.06 = 0.06
 trials                        1 * 0.05 = 0.05
-…                             1 * 0 = 0
+ï¿½                             1 * 0 = 0
 kissinger                     1 * -0.02 = -0.02
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
@@ -26578,7 +26578,7 @@ general                       1 * -0.02 = -0.02
 in                            2 * -0.05 = -0.1
 anyone                        1 * -0.2 = -0.2
 theatrical                    1 * -0.2 = -0.2
-=== el peso de un líquido incoloro , el peso del líquido vital , del amor como elemento de vida , y de muerte . . .
+=== el peso de un lï¿½quido incoloro , el peso del lï¿½quido vital , del amor como elemento de vida , y de muerte . . .
 Truth: 1, Prediction: 1 [CORRECT]
 de                            3 * 0.17 = 0.51
 y                             1 * 0.22 = 0.22
@@ -26590,7 +26590,7 @@ muerte                        1 * 0 = 0
 incoloro                      1 * 0 = 0
 vida                          1 * 0 = 0
 peso                          2 * 0 = 0
-líquido                       2 * 0 = 0
+lï¿½quido                       2 * 0 = 0
 elemento                      1 * 0 = 0
 .                             3 * -0.03 = -0.09
 del                           2 * -0.07 = -0.14
@@ -27299,10 +27299,10 @@ elsewhere                     1 * -0.39 = -0.39
 looks                         1 * -0.52 = -0.52
 obvious                       1 * -0.59 = -0.59
 instead                       1 * -0.62 = -0.62
-=== . . . has about 3/4th the fun of its spry 2001 predecessor — but it's a rushed , slapdash , sequel-for-the-sake- of-a-sequel with less than half the plot and ingenuity .
+=== . . . has about 3/4th the fun of its spry 2001 predecessor ï¿½ but it's a rushed , slapdash , sequel-for-the-sake- of-a-sequel with less than half the plot and ingenuity .
 Truth: -1, Prediction: 1 [WRONG]
 fun                           1 * 0.55 = 0.55
-—                             1 * 0.48 = 0.48
+ï¿½                             1 * 0.48 = 0.48
 has                           1 * 0.28 = 0.28
 it's                          1 * 0.2 = 0.2
 with                          1 * 0.15 = 0.15
@@ -28105,7 +28105,7 @@ that                          1 * -0.1 = -0.1
 show                          1 * -0.11 = -0.11
 .                             4 * -0.03 = -0.12
 horror                        1 * -0.25 = -0.25
-=== sheridan seems terrified of the book's irreverent energy , and scotches most of its élan , humor , bile , and irony .
+=== sheridan seems terrified of the book's irreverent energy , and scotches most of its ï¿½lan , humor , bile , and irony .
 Truth: -1, Prediction: 1 [WRONG]
 energy                        1 * 0.39 = 0.39
 most                          1 * 0.24 = 0.24
@@ -28116,7 +28116,7 @@ irony                         1 * 0.11 = 0.11
 bile                          1 * 0.08 = 0.08
 book's                        1 * 0.05 = 0.05
 sheridan                      1 * 0 = 0
-élan                          1 * 0 = 0
+ï¿½lan                          1 * 0 = 0
 scotches                      1 * 0 = 0
 terrified                     1 * 0 = 0
 irreverent                    1 * 0 = 0
@@ -28876,7 +28876,7 @@ performer                     1 * -0.18 = -0.18
 half-baked                    1 * -0.2 = -0.2
 routine                       1 * -0.45 = -0.45
 doesn't                       1 * -0.52 = -0.52
-=== . . . a light , yet engrossing piece . lux , now in her eighties , does a great combination act as narrator , jewish grandmother and subject – taking us through a film that is part biography , part entertainment and part history .
+=== . . . a light , yet engrossing piece . lux , now in her eighties , does a great combination act as narrator , jewish grandmother and subject ï¿½ taking us through a film that is part biography , part entertainment and part history .
 Truth: 1, Prediction: 1 [CORRECT]
 history                       1 * 0.79 = 0.79
 does                          1 * 0.61 = 0.61
@@ -28910,7 +28910,7 @@ subject                       1 * -0.21 = -0.21
 as                            1 * -0.22 = -0.22
 now                           1 * -0.25 = -0.25
 light                         1 * -0.28 = -0.28
-–                             1 * -0.32 = -0.32
+ï¿½                             1 * -0.32 = -0.32
 === there are some movies that hit you from the first scene and you know it's going to be a trip . igby goes down is one of those movies .
 Truth: 1, Prediction: 1 [CORRECT]
 movies                        2 * 0.35 = 0.7
@@ -29431,14 +29431,14 @@ a                             1 * -0.03 = -0.03
 this                          1 * -0.07 = -0.07
 movie                         1 * -0.19 = -0.19
 bad                           1 * -0.87 = -0.87
-=== the story really has no place to go since simone is not real—she can't provide any conflict .
+=== the story really has no place to go since simone is not realï¿½she can't provide any conflict .
 Truth: -1, Prediction: -1 [CORRECT]
 has                           1 * 0.28 = 0.28
 conflict                      1 * 0.27 = 0.27
 story                         1 * 0.14 = 0.14
 since                         1 * 0.12 = 0.12
 is                            1 * 0.06 = 0.06
-real—she                      1 * 0 = 0
+realï¿½she                      1 * 0 = 0
 .                             1 * -0.03 = -0.03
 the                           1 * -0.08 = -0.08
 to                            1 * -0.11 = -0.11
@@ -31048,7 +31048,7 @@ sits                          1 * -0.07 = -0.07
 the                           1 * -0.08 = -0.08
 should                        1 * -0.1 = -0.1
 place                         1 * -0.16 = -0.16
-=== with elements cribbed from lang's metropolis , welles' kane , and eisenstein's potemkin , the true wonder of rintarô's metropolis is the number of lasting images all its own .
+=== with elements cribbed from lang's metropolis , welles' kane , and eisenstein's potemkin , the true wonder of rintarï¿½'s metropolis is the number of lasting images all its own .
 Truth: 1, Prediction: 1 [CORRECT]
 metropolis                    2 * 0.38 = 0.76
 images                        1 * 0.34 = 0.34
@@ -31064,7 +31064,7 @@ kane                          1 * 0 = 0
 potemkin                      1 * 0 = 0
 cribbed                       1 * 0 = 0
 lang's                        1 * 0 = 0
-rintarô's                     1 * 0 = 0
+rintarï¿½'s                     1 * 0 = 0
 welles'                       1 * 0 = 0
 lasting                       1 * 0 = 0
 .                             1 * -0.03 = -0.03
@@ -32492,7 +32492,7 @@ seeming                       1 * -0.03 = -0.03
 once                          1 * -0.05 = -0.05
 the                           2 * -0.08 = -0.16
 script                        1 * -0.2 = -0.2
-=== much of the digitally altered footage appears jagged , as if filmed directly from a television monitor , while the extensive use of stock footage quickly becomes a tiresome cliché .
+=== much of the digitally altered footage appears jagged , as if filmed directly from a television monitor , while the extensive use of stock footage quickly becomes a tiresome clichï¿½ .
 Truth: -1, Prediction: -1 [CORRECT]
 if                            1 * 0.27 = 0.27
 from                          1 * 0.22 = 0.22
@@ -32519,7 +32519,7 @@ as                            1 * -0.22 = -0.22
 tiresome                      1 * -0.29 = -0.29
 footage                       2 * -0.21 = -0.42
 becomes                       1 * -0.5 = -0.5
-cliché                        1 * -0.5 = -0.5
+clichï¿½                        1 * -0.5 = -0.5
 === while this one gets off with a good natured warning , future lizard endeavors will need to adhere more closely to the laws of laughter
 Truth: -1, Prediction: -1 [CORRECT]
 good                          1 * 0.29 = 0.29
@@ -33567,7 +33567,7 @@ a                             1 * -0.03 = -0.03
 the                           1 * -0.08 = -0.08
 don't                         1 * -0.15 = -0.15
 unless                        1 * -0.46 = -0.46
-=== schütte's dramatic snapshot of the artist three days before his death offers an interesting bit of speculation as to the issues brecht faced as his life drew to a close .
+=== schï¿½tte's dramatic snapshot of the artist three days before his death offers an interesting bit of speculation as to the issues brecht faced as his life drew to a close .
 Truth: 1, Prediction: 1 [CORRECT]
 artist                        1 * 0.7 = 0.7
 issues                        1 * 0.37 = 0.37
@@ -33578,7 +33578,7 @@ offers                        1 * 0.21 = 0.21
 an                            1 * 0.18 = 0.18
 days                          1 * 0.11 = 0.11
 brecht                        1 * 0.02 = 0.02
-schütte's                     1 * 0 = 0
+schï¿½tte's                     1 * 0 = 0
 speculation                   1 * 0 = 0
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
@@ -34036,9 +34036,9 @@ to                            1 * -0.11 = -0.11
 comedian                      1 * -0.13 = -0.13
 his                           1 * -0.15 = -0.15
 lawrence                      1 * -0.35 = -0.35
-=== in the end , the film is less the cheap thriller you'd expect than it is a fairly revealing study of its two main characters — damaged-goods people whose orbits will inevitably and dangerously collide .
+=== in the end , the film is less the cheap thriller you'd expect than it is a fairly revealing study of its two main characters ï¿½ damaged-goods people whose orbits will inevitably and dangerously collide .
 Truth: 1, Prediction: 1 [CORRECT]
-—                             1 * 0.48 = 0.48
+ï¿½                             1 * 0.48 = 0.48
 study                         1 * 0.47 = 0.47
 film                          1 * 0.39 = 0.39
 it                            1 * 0.2 = 0.2
@@ -35263,7 +35263,7 @@ unconditional                 1 * 0 = 0
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
 the                           1 * -0.08 = -0.08
-=== complex , affecting and uniquely almodóvar , the film evokes strong emotions and pushes viewers to question their deepest notions of moral right and wrong .
+=== complex , affecting and uniquely almodï¿½var , the film evokes strong emotions and pushes viewers to question their deepest notions of moral right and wrong .
 Truth: 1, Prediction: 1 [CORRECT]
 complex                       1 * 0.66 = 0.66
 strong                        1 * 0.42 = 0.42
@@ -35281,7 +35281,7 @@ of                            1 * 0.11 = 0.11
 viewers                       1 * 0.08 = 0.08
 ,                             2 * 0.03 = 0.06
 deepest                       1 * 0.03 = 0.03
-almodóvar                     1 * 0 = 0
+almodï¿½var                     1 * 0 = 0
 notions                       1 * 0 = 0
 .                             1 * -0.03 = -0.03
 the                           1 * -0.08 = -0.08
@@ -36520,7 +36520,7 @@ the                           2 * -0.08 = -0.16
 rollerball                    1 * -0.2 = -0.2
 john                          1 * -0.52 = -0.52
 except                        1 * -0.54 = -0.54
-=== 'es en verdad una pena que mandoki esté realizando cintas tan malas desde hace algún tiempo , pues talento tiene , pero quién sabe dónde lo tiene escondido . '
+=== 'es en verdad una pena que mandoki estï¿½ realizando cintas tan malas desde hace algï¿½n tiempo , pues talento tiene , pero quiï¿½n sabe dï¿½nde lo tiene escondido . '
 Truth: -1, Prediction: -1 [CORRECT]
 tiene                         2 * 0.06 = 0.12
 ,                             2 * 0.03 = 0.06
@@ -36528,16 +36528,16 @@ tan                           1 * 0.05 = 0.05
 pues                          1 * 3.46944695195e-18 = 3.46944695195e-18
 'es                           1 * 0 = 0
 mandoki                       1 * 0 = 0
-esté                          1 * 0 = 0
+estï¿½                          1 * 0 = 0
 verdad                        1 * 0 = 0
-dónde                         1 * 0 = 0
+dï¿½nde                         1 * 0 = 0
 hace                          1 * 0 = 0
 cintas                        1 * 0 = 0
-algún                         1 * 0 = 0
+algï¿½n                         1 * 0 = 0
 pero                          1 * 0 = 0
 pena                          1 * 0 = 0
 tiempo                        1 * 0 = 0
-quién                         1 * 0 = 0
+quiï¿½n                         1 * 0 = 0
 malas                         1 * 0 = 0
 realizando                    1 * 0 = 0
 escondido                     1 * 0 = 0
@@ -36550,7 +36550,7 @@ en                            1 * -0.06 = -0.06
 talento                       1 * -0.06 = -0.06
 '                             1 * -0.13 = -0.13
 lo                            1 * -0.15 = -0.15
-=== la cinta comienza intentando ser un drama , rápidamente se transforma en una comedia y termina por ser una parodia absolutamente predecible
+=== la cinta comienza intentando ser un drama , rï¿½pidamente se transforma en una comedia y termina por ser una parodia absolutamente predecible
 Truth: -1, Prediction: 1 [WRONG]
 y                             1 * 0.22 = 0.22
 la                            1 * 0.21 = 0.21
@@ -36569,7 +36569,7 @@ predecible                    1 * 0 = 0
 absolutamente                 1 * 0 = 0
 termina                       1 * 0 = 0
 parodia                       1 * 0 = 0
-rápidamente                   1 * 0 = 0
+rï¿½pidamente                   1 * 0 = 0
 en                            1 * -0.06 = -0.06
 una                           2 * -0.05 = -0.1
 === a riveting story well told .
@@ -36654,14 +36654,14 @@ see                           1 * 0.1 = 0.1
 and                           1 * 0.1 = 0.1
 .                             1 * -0.03 = -0.03
 go                            1 * -0.23 = -0.23
-=== from blushing to gushing---imamura squirts the screen in ‘warm water under a red bridge'
+=== from blushing to gushing---imamura squirts the screen in ï¿½warm water under a red bridge'
 Truth: 1, Prediction: -1 [WRONG]
 from                          1 * 0.22 = 0.22
 red                           1 * 0.16 = 0.16
 screen                        1 * 0.05 = 0.05
 squirts                       1 * 0 = 0
 blushing                      1 * 0 = 0
-‘warm                         1 * 0 = 0
+ï¿½warm                         1 * 0 = 0
 bridge'                       1 * 0 = 0
 gushing---imamura             1 * 0 = 0
 under                         1 * -0.01 = -0.01
@@ -39580,7 +39580,7 @@ like                          1 * -0.07 = -0.07
 environment                   1 * -0.19 = -0.19
 so                            1 * -0.26 = -0.26
 buried                        1 * -0.27 = -0.27
-=== it isn't that stealing harvard is a horrible movie—if only it were that grand a failure ! it's just that it's so not-at-all-good . and i expect much more from a talent as outstanding as director bruce mcculloch .
+=== it isn't that stealing harvard is a horrible movieï¿½if only it were that grand a failure ! it's just that it's so not-at-all-good . and i expect much more from a talent as outstanding as director bruce mcculloch .
 Truth: -1, Prediction: -1 [CORRECT]
 it's                          2 * 0.2 = 0.4
 it                            2 * 0.2 = 0.4
@@ -39592,7 +39592,7 @@ outstanding                   1 * 0.09 = 0.09
 is                            1 * 0.06 = 0.06
 much                          1 * 0.05 = 0.05
 i                             1 * 0.03 = 0.03
-movie—if                      1 * 0 = 0
+movieï¿½if                      1 * 0 = 0
 not-at-all-good               1 * 0 = 0
 mcculloch                     1 * 0 = 0
 talent                        1 * -3.46944695195e-18 = -3.46944695195e-18
@@ -40413,7 +40413,7 @@ appetite                      1 * -0.07 = -0.07
 not                           1 * -0.15 = -0.15
 little                        1 * -0.32 = -0.32
 to                            3 * -0.11 = -0.33
-=== a gob of drivel so sickly sweet , even the eager consumers of moore's pasteurized ditties will retch it up like rancid crème brûlée .
+=== a gob of drivel so sickly sweet , even the eager consumers of moore's pasteurized ditties will retch it up like rancid crï¿½me brï¿½lï¿½e .
 Truth: -1, Prediction: 1 [WRONG]
 sweet                         1 * 0.57 = 0.57
 of                            2 * 0.11 = 0.22
@@ -40428,8 +40428,8 @@ consumers                     1 * 0 = 0
 eager                         1 * 0 = 0
 gob                           1 * 0 = 0
 ditties                       1 * 0 = 0
-crème                         1 * 0 = 0
-brûlée                        1 * 0 = 0
+crï¿½me                         1 * 0 = 0
+brï¿½lï¿½e                        1 * 0 = 0
 rancid                        1 * 0 = 0
 pasteurized                   1 * 0 = 0
 a                             1 * -0.03 = -0.03
@@ -43827,14 +43827,14 @@ don't                         2 * -0.15 = -0.3
 ;                             1 * -0.34 = -0.34
 affair                        1 * -0.39 = -0.39
 message                       1 * -0.48 = -0.48
-=== starts out ballsy and stylish but fails to keep it up and settles into clichés .
+=== starts out ballsy and stylish but fails to keep it up and settles into clichï¿½s .
 Truth: -1, Prediction: -1 [CORRECT]
 keep                          1 * 0.56 = 0.56
 stylish                       1 * 0.33 = 0.33
 into                          1 * 0.24 = 0.24
 and                           2 * 0.1 = 0.2
 it                            1 * 0.2 = 0.2
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 ballsy                        1 * 0 = 0
 .                             1 * -0.03 = -0.03
 but                           1 * -0.07 = -0.07
@@ -44053,9 +44053,9 @@ things                        1 * -0.18 = -0.18
 thrills                       1 * -0.2 = -0.2
 or                            1 * -0.33 = -0.33
 laughs                        1 * -0.51 = -0.51
-=== the film's lack of personality permeates all its aspects — from the tv movie-esque , affected child acting to the dullest irish pub scenes ever filmed .
+=== the film's lack of personality permeates all its aspects ï¿½ from the tv movie-esque , affected child acting to the dullest irish pub scenes ever filmed .
 Truth: -1, Prediction: -1 [CORRECT]
-—                             1 * 0.48 = 0.48
+ï¿½                             1 * 0.48 = 0.48
 ever                          1 * 0.29 = 0.29
 from                          1 * 0.22 = 0.22
 filmed                        1 * 0.22 = 0.22
@@ -44641,7 +44641,7 @@ go                            1 * -0.23 = -0.23
 similar                       1 * -0.32 = -0.32
 rent                          1 * -0.54 = -0.54
 instead                       1 * -0.62 = -0.62
-=== i can't remember the last time i saw an audience laugh so much during a movie , but there's only one problem…it's supposed to be a drama .
+=== i can't remember the last time i saw an audience laugh so much during a movie , but there's only one problemï¿½it's supposed to be a drama .
 Truth: -1, Prediction: -1 [CORRECT]
 time                          1 * 0.31 = 0.31
 remember                      1 * 0.2 = 0.2
@@ -44652,7 +44652,7 @@ i                             2 * 0.03 = 0.06
 much                          1 * 0.05 = 0.05
 saw                           1 * 0.05 = 0.05
 ,                             1 * 0.03 = 0.03
-problem…it's                  1 * 0 = 0
+problemï¿½it's                  1 * 0 = 0
 .                             1 * -0.03 = -0.03
 one                           1 * -0.03 = -0.03
 be                            1 * -0.04 = -0.04
@@ -45344,21 +45344,21 @@ movie                         1 * -0.19 = -0.19
 running                       1 * -0.24 = -0.24
 minutes                       1 * -0.3 = -0.3
 happen                        1 * -0.36 = -0.36
-=== 'almodóvar logra un filme entrañable , lleno de compasión , comprensión , amor , amistad , esperanza y humanidad que es sencillamente inolvidable . '
+=== 'almodï¿½var logra un filme entraï¿½able , lleno de compasiï¿½n , comprensiï¿½n , amor , amistad , esperanza y humanidad que es sencillamente inolvidable . '
 Truth: 1, Prediction: 1 [CORRECT]
 y                             1 * 0.22 = 0.22
 de                            1 * 0.17 = 0.17
 ,                             5 * 0.03 = 0.15
 un                            1 * 0.09 = 0.09
 amor                          1 * 0.03 = 0.03
-compasión                     1 * 0 = 0
+compasiï¿½n                     1 * 0 = 0
 lleno                         1 * 0 = 0
 logra                         1 * 0 = 0
 esperanza                     1 * 0 = 0
 sencillamente                 1 * 0 = 0
-entrañable                    1 * 0 = 0
-comprensión                   1 * 0 = 0
-'almodóvar                    1 * 0 = 0
+entraï¿½able                    1 * 0 = 0
+comprensiï¿½n                   1 * 0 = 0
+'almodï¿½var                    1 * 0 = 0
 amistad                       1 * 0 = 0
 inolvidable                   1 * 0 = 0
 humanidad                     1 * 0 = 0
@@ -46217,7 +46217,7 @@ the                           3 * -0.08 = -0.24
 so                            1 * -0.26 = -0.26
 another                       1 * -0.27 = -0.27
 same                          1 * -0.34 = -0.34
-=== if hill isn't quite his generation's don siegel ( or robert aldrich ) , it's because there's no discernible feeling beneath the chest hair ; it's all bluster and cliché .
+=== if hill isn't quite his generation's don siegel ( or robert aldrich ) , it's because there's no discernible feeling beneath the chest hair ; it's all bluster and clichï¿½ .
 Truth: -1, Prediction: -1 [CORRECT]
 it's                          2 * 0.2 = 0.4
 if                            1 * 0.27 = 0.27
@@ -46248,7 +46248,7 @@ quite                         1 * -0.33 = -0.33
 ;                             1 * -0.34 = -0.34
 no                            1 * -0.36 = -0.36
 isn't                         1 * -0.44 = -0.44
-cliché                        1 * -0.5 = -0.5
+clichï¿½                        1 * -0.5 = -0.5
 === one feels the dimming of a certain ambition , but in its place a sweetness , clarity and emotional openness that recalls the classics of early italian neorealism .
 Truth: 1, Prediction: -1 [WRONG]
 openness                      1 * 0.44 = 0.44
@@ -48636,13 +48636,13 @@ told                          1 * -0.27 = -0.27
 by                            1 * -0.28 = -0.28
 people                        1 * -0.35 = -0.35
 were                          1 * -0.35 = -0.35
-=== how do you spell cliché ?
+=== how do you spell clichï¿½ ?
 Truth: -1, Prediction: -1 [CORRECT]
 you                           1 * 0.23 = 0.23
 do                            1 * 0.05 = 0.05
 how                           1 * -0.13 = -0.13
 spell                         1 * -0.37 = -0.37
-cliché                        1 * -0.5 = -0.5
+clichï¿½                        1 * -0.5 = -0.5
 ?                             1 * -0.53 = -0.53
 === an overly familiar scenario is made fresh by an intelligent screenplay and gripping performances in this low-budget , video-shot , debut indie effort .
 Truth: 1, Prediction: 1 [CORRECT]
@@ -49478,13 +49478,13 @@ about                         1 * -0.1 = -0.1
 just                          1 * -0.12 = -0.12
 was                           1 * -0.43 = -0.43
 as                            3 * -0.22 = -0.66
-=== …an adorably whimsical comedy that deserves more than a passing twinkle .
+=== ï¿½an adorably whimsical comedy that deserves more than a passing twinkle .
 Truth: 1, Prediction: -1 [WRONG]
 deserves                      1 * 0.13 = 0.13
 passing                       1 * 0.09 = 0.09
 twinkle                       1 * 0.08 = 0.08
 adorably                      1 * 0 = 0
-…an                           1 * 0 = 0
+ï¿½an                           1 * 0 = 0
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
 than                          1 * -0.04 = -0.04
@@ -49789,12 +49789,12 @@ charlie                       1 * -0.18 = -0.18
 completely                    1 * -0.18 = -0.18
 quality                       1 * -0.19 = -0.19
 star                          1 * -0.53 = -0.53
-=== plays like john le carré with a couple of burnt-out cylinders .
+=== plays like john le carrï¿½ with a couple of burnt-out cylinders .
 Truth: -1, Prediction: -1 [CORRECT]
 with                          1 * 0.15 = 0.15
 of                            1 * 0.11 = 0.11
 le                            1 * 0 = 0
-carré                         1 * 0 = 0
+carrï¿½                         1 * 0 = 0
 burnt-out                     1 * 0 = 0
 cylinders                     1 * 0 = 0
 a                             1 * -0.03 = -0.03
@@ -51465,7 +51465,7 @@ techno-tripe                  1 * 0 = 0
 .                             1 * -0.03 = -0.03
 predictably                   1 * -0.17 = -0.17
 soulless                      1 * -0.17 = -0.17
-=== an overstylized , puréed mélange of sex , psychology , drugs and philosophy . sometimes entertaining , sometimes indulgent -- but never less than pure wankery .
+=== an overstylized , purï¿½ed mï¿½lange of sex , psychology , drugs and philosophy . sometimes entertaining , sometimes indulgent -- but never less than pure wankery .
 Truth: -1, Prediction: 1 [WRONG]
 entertaining                  1 * 0.52 = 0.52
 sometimes                     2 * 0.25 = 0.5
@@ -51479,8 +51479,8 @@ and                           1 * 0.1 = 0.1
 --                            1 * 0.1 = 0.1
 philosophy                    1 * 0.03 = 0.03
 wankery                       1 * 0 = 0
-puréed                        1 * 0 = 0
-mélange                       1 * 0 = 0
+purï¿½ed                        1 * 0 = 0
+mï¿½lange                       1 * 0 = 0
 overstylized                  1 * 0 = 0
 indulgent                     1 * -3.46944695195e-18 = -3.46944695195e-18
 than                          1 * -0.04 = -0.04
@@ -51511,11 +51511,11 @@ bogdanovich                   1 * -0.11 = -0.11
 period                        1 * -0.14 = -0.14
 only                          1 * -0.57 = -0.57
 pretty                        1 * -0.57 = -0.57
-=== contrived pastiche of caper clichés .
+=== contrived pastiche of caper clichï¿½s .
 Truth: -1, Prediction: -1 [CORRECT]
 of                            1 * 0.11 = 0.11
 pastiche                      1 * 0.08 = 0.08
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 caper                         1 * 0.0 = 0.0
 .                             1 * -0.03 = -0.03
 contrived                     1 * -0.51 = -0.51
@@ -51924,7 +51924,7 @@ just                          1 * -0.12 = -0.12
 not                           1 * -0.15 = -0.15
 too                           1 * -0.68 = -0.68
 bad                           1 * -0.87 = -0.87
-=== the film has a few cute ideas and several modest chuckles but it isn't exactly kiddie-friendly… alas , santa is more ho-hum than ho-ho-ho and the snowman ( who never gets to play that flute ) has all the charm of a meltdown .
+=== the film has a few cute ideas and several modest chuckles but it isn't exactly kiddie-friendlyï¿½ alas , santa is more ho-hum than ho-ho-ho and the snowman ( who never gets to play that flute ) has all the charm of a meltdown .
 Truth: -1, Prediction: -1 [CORRECT]
 has                           2 * 0.28 = 0.56
 play                          1 * 0.43 = 0.43
@@ -51942,7 +51942,7 @@ cute                          1 * 3.46944695195e-18 = 3.46944695195e-18
 meltdown                      1 * 0 = 0
 ho-ho-ho                      1 * 0 = 0
 flute                         1 * 0 = 0
-kiddie-friendly…              1 * 0 = 0
+kiddie-friendlyï¿½              1 * 0 = 0
 .                             1 * -0.03 = -0.03
 than                          1 * -0.04 = -0.04
 a                             2 * -0.03 = -0.06
@@ -52225,7 +52225,7 @@ go                            1 * -0.23 = -0.23
 there                         1 * -0.25 = -0.25
 between                       1 * -0.48 = -0.48
 stupid                        1 * -0.9 = -0.9
-=== y tu mamá también is hilariously , gloriously alive , and quite often hotter than georgia asphalt .
+=== y tu mamï¿½ tambiï¿½n is hilariously , gloriously alive , and quite often hotter than georgia asphalt .
 Truth: 1, Prediction: 1 [CORRECT]
 alive                         1 * 0.26 = 0.26
 gloriously                    1 * 0.22 = 0.22
@@ -52234,9 +52234,9 @@ often                         1 * 0.14 = 0.14
 and                           1 * 0.1 = 0.1
 is                            1 * 0.06 = 0.06
 ,                             2 * 0.03 = 0.06
-también                       1 * 0.02 = 0.02
+tambiï¿½n                       1 * 0.02 = 0.02
 tu                            1 * 0.02 = 0.02
-mamá                          1 * 0.02 = 0.02
+mamï¿½                          1 * 0.02 = 0.02
 asphalt                       1 * 0.01 = 0.01
 hotter                        1 * 0 = 0
 hilariously                   1 * 0 = 0
@@ -54700,14 +54700,14 @@ retooling                     1 * -0.14 = -0.14
 across                        1 * -0.2 = -0.2
 as                            1 * -0.22 = -0.22
 weak                          1 * -0.25 = -0.25
-=== 'the château is never quite able to overcome the cultural moat surrounding its ludicrous and contrived plot . '
+=== 'the chï¿½teau is never quite able to overcome the cultural moat surrounding its ludicrous and contrived plot . '
 Truth: -1, Prediction: -1 [CORRECT]
 ludicrous                     1 * 0.19 = 0.19
 overcome                      1 * 0.18 = 0.18
 and                           1 * 0.1 = 0.1
 is                            1 * 0.06 = 0.06
 surrounding                   1 * 0.03 = 0.03
-château                       1 * 0 = 0
+chï¿½teau                       1 * 0 = 0
 moat                          1 * 0 = 0
 .                             1 * -0.03 = -0.03
 cultural                      1 * -0.05 = -0.05
@@ -54811,7 +54811,7 @@ the                           3 * -0.08 = -0.24
 characters                    1 * -0.26 = -0.26
 relationship                  1 * -0.31 = -0.31
 between                       1 * -0.48 = -0.48
-=== so clichéd that , at one point , they literally upset an apple cart .
+=== so clichï¿½d that , at one point , they literally upset an apple cart .
 Truth: -1, Prediction: -1 [CORRECT]
 an                            1 * 0.18 = 0.18
 at                            1 * 0.06 = 0.06
@@ -54823,7 +54823,7 @@ cart                          1 * 0 = 0
 one                           1 * -0.03 = -0.03
 that                          1 * -0.1 = -0.1
 they                          1 * -0.14 = -0.14
-clichéd                       1 * -0.21 = -0.21
+clichï¿½d                       1 * -0.21 = -0.21
 so                            1 * -0.26 = -0.26
 literally                     1 * -0.26 = -0.26
 point                         1 * -0.32 = -0.32
@@ -56565,26 +56565,26 @@ more                          1 * -0.19 = -0.19
 have                          1 * -0.19 = -0.19
 less                          1 * -0.26 = -0.26
 little                        2 * -0.32 = -0.64
-=== y tu mamá también es un buen filme gracias a lo poco convencional de su narrativa , y es quizá el proyecto más arriesgado en la carrera de alfonso cuarón
+=== y tu mamï¿½ tambiï¿½n es un buen filme gracias a lo poco convencional de su narrativa , y es quizï¿½ el proyecto mï¿½s arriesgado en la carrera de alfonso cuarï¿½n
 Truth: 1, Prediction: 1 [CORRECT]
 y                             2 * 0.22 = 0.44
 de                            2 * 0.17 = 0.34
 la                            1 * 0.21 = 0.21
 un                            1 * 0.09 = 0.09
-más                           1 * 0.08 = 0.08
+mï¿½s                           1 * 0.08 = 0.08
 ,                             1 * 0.03 = 0.03
-también                       1 * 0.02 = 0.02
+tambiï¿½n                       1 * 0.02 = 0.02
 tu                            1 * 0.02 = 0.02
-mamá                          1 * 0.02 = 0.02
+mamï¿½                          1 * 0.02 = 0.02
 alfonso                       1 * 0 = 0
-quizá                         1 * 0 = 0
+quizï¿½                         1 * 0 = 0
 poco                          1 * 0 = 0
 narrativa                     1 * 0 = 0
 carrera                       1 * 0 = 0
 arriesgado                    1 * 0 = 0
 gracias                       1 * 0 = 0
 convencional                  1 * 0 = 0
-cuarón                        1 * 0 = 0
+cuarï¿½n                        1 * 0 = 0
 proyecto                      1 * 0 = 0
 buen                          1 * 0 = 0
 a                             1 * -0.03 = -0.03
@@ -56893,7 +56893,7 @@ movie                         1 * -0.19 = -0.19
 there                         1 * -0.25 = -0.25
 before                        1 * -0.38 = -0.38
 nothing                       1 * -0.43 = -0.43
-=== it's as if solondz had two ideas for two movies , couldn't really figure out how to flesh either out , so he just slopped ‘em together here .
+=== it's as if solondz had two ideas for two movies , couldn't really figure out how to flesh either out , so he just slopped ï¿½em together here .
 Truth: -1, Prediction: -1 [CORRECT]
 together                      1 * 0.47 = 0.47
 movies                        1 * 0.35 = 0.35
@@ -56906,7 +56906,7 @@ couldn't                      1 * 0.08 = 0.08
 either                        1 * 0.03 = 0.03
 solondz                       1 * 0.03 = 0.03
 flesh                         1 * 0 = 0
-‘em                           1 * 0 = 0
+ï¿½em                           1 * 0 = 0
 slopped                       1 * 0 = 0
 for                           1 * -0.01 = -0.01
 .                             1 * -0.03 = -0.03
@@ -57702,7 +57702,7 @@ to                            1 * -0.11 = -0.11
 material                      1 * -0.17 = -0.17
 as                            1 * -0.22 = -0.22
 between                       1 * -0.48 = -0.48
-=== a incompetência de marcus adams como roteirista só é superada por sua péssima direção .
+=== a incompetï¿½ncia de marcus adams como roteirista sï¿½ ï¿½ superada por sua pï¿½ssima direï¿½ï¿½o .
 Truth: -1, Prediction: -1 [CORRECT]
 de                            1 * 0.17 = 0.17
 por                           1 * 0.06 = 0.06
@@ -57710,15 +57710,15 @@ sua                           1 * 0.04 = 0.04
 como                          1 * 0.04 = 0.04
 roteirista                    1 * 0 = 0
 superada                      1 * 0 = 0
-péssima                       1 * 0 = 0
-incompetência                 1 * 0 = 0
-direção                       1 * 0 = 0
+pï¿½ssima                       1 * 0 = 0
+incompetï¿½ncia                 1 * 0 = 0
+direï¿½ï¿½o                       1 * 0 = 0
 a                             1 * -0.03 = -0.03
 .                             1 * -0.03 = -0.03
 marcus                        1 * -0.03 = -0.03
 adams                         1 * -0.07 = -0.07
-só                            1 * -0.12 = -0.12
-é                             1 * -0.14 = -0.14
+sï¿½                            1 * -0.12 = -0.12
+ï¿½                             1 * -0.14 = -0.14
 === the movie has a script ( by paul pender ) made of wood , and it's relentlessly folksy , a procession of stagy set pieces stacked with binary oppositions .
 Truth: -1, Prediction: -1 [CORRECT]
 has                           1 * 0.28 = 0.28
@@ -59225,7 +59225,7 @@ master                        1 * -0.08 = -0.08
 himself                       1 * -0.08 = -0.08
 .                             4 * -0.03 = -0.12
 his                           1 * -0.15 = -0.15
-=== 'compleja e intelectualmente retadora , el ladrón de orquídeas es uno de esos filmes que vale la pena ver precisamente por su originalidad . '
+=== 'compleja e intelectualmente retadora , el ladrï¿½n de orquï¿½deas es uno de esos filmes que vale la pena ver precisamente por su originalidad . '
 Truth: 1, Prediction: 1 [CORRECT]
 e                             1 * 0.35 = 0.35
 de                            2 * 0.17 = 0.34
@@ -59237,9 +59237,9 @@ por                           1 * 0.06 = 0.06
 esos                          1 * 0 = 0
 precisamente                  1 * 0 = 0
 filmes                        1 * 0 = 0
-ladrón                        1 * 0 = 0
+ladrï¿½n                        1 * 0 = 0
 'compleja                     1 * 0 = 0
-orquídeas                     1 * 0 = 0
+orquï¿½deas                     1 * 0 = 0
 retadora                      1 * 0 = 0
 vale                          1 * 0 = 0
 intelectualmente              1 * 0 = 0
@@ -60469,7 +60469,7 @@ on                            1 * -0.05 = -0.05
 this                          1 * -0.07 = -0.07
 don't                         1 * -0.15 = -0.15
 pile                          1 * -0.3 = -0.3
-=== twist open the ouzo ! it's time to let your hair down – greek style . a vibrant whirlwind of love , family and all that goes with it , my big fat greek wedding is a non-stop funny feast of warmth , colour and cringe .
+=== twist open the ouzo ! it's time to let your hair down ï¿½ greek style . a vibrant whirlwind of love , family and all that goes with it , my big fat greek wedding is a non-stop funny feast of warmth , colour and cringe .
 Truth: 1, Prediction: 1 [CORRECT]
 funny                         1 * 0.39 = 0.39
 warmth                        1 * 0.39 = 0.39
@@ -60509,7 +60509,7 @@ twist                         1 * -0.13 = -0.13
 all                           1 * -0.18 = -0.18
 let                           1 * -0.26 = -0.26
 goes                          1 * -0.27 = -0.27
-–                             1 * -0.32 = -0.32
+ï¿½                             1 * -0.32 = -0.32
 down                          1 * -0.48 = -0.48
 === witty , touching and well paced .
 Truth: 1, Prediction: 1 [CORRECT]
@@ -60821,7 +60821,7 @@ dialogue                      1 * -0.65 = -0.65
 silly                         1 * -0.69 = -0.69
 nearly                        1 * -0.73 = -0.73
 star                          2 * -0.53 = -1.06
-=== exquisitely acted and masterfully if preciously interwoven… [the film] addresses in a fascinating , intelligent manner the intermingling of race , politics and local commerce .
+=== exquisitely acted and masterfully if preciously interwovenï¿½ [the film] addresses in a fascinating , intelligent manner the intermingling of race , politics and local commerce .
 Truth: 1, Prediction: 1 [CORRECT]
 masterfully                   1 * 0.34 = 0.34
 if                            1 * 0.27 = 0.27
@@ -60839,7 +60839,7 @@ acted                         1 * 0.07 = 0.07
 ,                             2 * 0.03 = 0.06
 manner                        1 * 0.03 = 0.03
 film]                         1 * 0.03 = 0.03
-interwoven…                   1 * 0 = 0
+interwovenï¿½                   1 * 0 = 0
 preciously                    1 * 0 = 0
 intermingling                 1 * 0 = 0
 a                             1 * -0.03 = -0.03
@@ -61463,13 +61463,13 @@ ritchie                       1 * -0.13 = -0.13
 tiresome                      1 * -0.29 = -0.29
 social                        1 * -0.31 = -0.31
 writer-director               1 * -0.32 = -0.32
-=== es divertida , visualmente espectacular y muy entretenida . simple y sencillamente te sorprenderá .
+=== es divertida , visualmente espectacular y muy entretenida . simple y sencillamente te sorprenderï¿½ .
 Truth: 1, Prediction: 1 [CORRECT]
 y                             2 * 0.22 = 0.44
 ,                             1 * 0.03 = 0.03
 sencillamente                 1 * 0 = 0
 entretenida                   1 * 0 = 0
-sorprenderá                   1 * 0 = 0
+sorprenderï¿½                   1 * 0 = 0
 muy                           1 * 0 = 0
 divertida                     1 * 0 = 0
 visualmente                   1 * 0 = 0
@@ -63291,7 +63291,7 @@ lacey                         1 * 0 = 0
 this                          1 * -0.07 = -0.07
 to                            1 * -0.11 = -0.11
 allegiance                    1 * -0.15 = -0.15
-=== a well paced and satisfying little drama that deserved better than a ‘direct-to-video' release .
+=== a well paced and satisfying little drama that deserved better than a ï¿½direct-to-video' release .
 Truth: 1, Prediction: -1 [WRONG]
 satisfying                    1 * 0.33 = 0.33
 drama                         1 * 0.1 = 0.1
@@ -63300,7 +63300,7 @@ better                        1 * 0.08 = 0.08
 well                          1 * 0.06 = 0.06
 deserved                      1 * 0.03 = 0.03
 paced                         1 * 0.02 = 0.02
-‘direct-to-video'             1 * 0 = 0
+ï¿½direct-to-video'             1 * 0 = 0
 .                             1 * -0.03 = -0.03
 than                          1 * -0.04 = -0.04
 a                             2 * -0.03 = -0.06
@@ -65246,7 +65246,7 @@ looks                         1 * -0.52 = -0.52
 series                        1 * -0.53 = -0.53
 violence                      1 * -0.65 = -0.65
 bad                           1 * -0.87 = -0.87
-=== a fascinating glimpse into an insular world that gives the lie to many clichés and showcases a group of dedicated artists .
+=== a fascinating glimpse into an insular world that gives the lie to many clichï¿½s and showcases a group of dedicated artists .
 Truth: 1, Prediction: 1 [CORRECT]
 world                         1 * 0.85 = 0.85
 into                          1 * 0.24 = 0.24
@@ -65261,7 +65261,7 @@ and                           1 * 0.1 = 0.1
 many                          1 * 0.09 = 0.09
 showcases                     1 * 0.05 = 0.05
 artists                       1 * 0.02 = 0.02
-clichés                       1 * 0.02 = 0.02
+clichï¿½s                       1 * 0.02 = 0.02
 insular                       1 * 0 = 0
 .                             1 * -0.03 = -0.03
 a                             2 * -0.03 = -0.06
@@ -66141,7 +66141,7 @@ peerlessly                    1 * 0 = 0
 unsettling                    1 * -0.01 = -0.01
 .                             1 * -0.03 = -0.03
 almost                        1 * -0.3 = -0.3
-=== gran historia sobre el amor , la familia , la lealtad y la traición que seguramente se convertirá en un nuevo clásico del género .
+=== gran historia sobre el amor , la familia , la lealtad y la traiciï¿½n que seguramente se convertirï¿½ en un nuevo clï¿½sico del gï¿½nero .
 Truth: 1, Prediction: 1 [CORRECT]
 la                            3 * 0.21 = 0.63
 y                             1 * 0.22 = 0.22
@@ -66152,10 +66152,10 @@ historia                      1 * 0.05 = 0.05
 sobre                         1 * 0.03 = 0.03
 amor                          1 * 0.03 = 0.03
 seguramente                   1 * 0 = 0
-traición                      1 * 0 = 0
-clásico                       1 * 0 = 0
-convertirá                    1 * 0 = 0
-género                        1 * 0 = 0
+traiciï¿½n                      1 * 0 = 0
+clï¿½sico                       1 * 0 = 0
+convertirï¿½                    1 * 0 = 0
+gï¿½nero                        1 * 0 = 0
 familia                       1 * 0 = 0
 lealtad                       1 * 0 = 0
 nuevo                         1 * 0 = 0
@@ -66236,7 +66236,7 @@ not                           1 * -0.15 = -0.15
 something                     1 * -0.16 = -0.16
 to                            2 * -0.11 = -0.22
 bag                           1 * -0.28 = -0.28
-=== [næs] directed the stage version of elling , and gets fine performances from his two leads who originated the characters on stage .
+=== [nï¿½s] directed the stage version of elling , and gets fine performances from his two leads who originated the characters on stage .
 Truth: 1, Prediction: 1 [CORRECT]
 performances                  1 * 0.87 = 0.87
 fine                          1 * 0.33 = 0.33
@@ -66251,7 +66251,7 @@ and                           1 * 0.1 = 0.1
 elling                        1 * 0.05 = 0.05
 ,                             1 * 0.03 = 0.03
 originated                    1 * 0 = 0
-[næs]                         1 * 0 = 0
+[nï¿½s]                         1 * 0 = 0
 two                           1 * -0.02 = -0.02
 .                             1 * -0.03 = -0.03
 on                            1 * -0.05 = -0.05
@@ -66404,7 +66404,7 @@ completely                    1 * -0.18 = -0.18
 cold                          1 * -0.21 = -0.21
 as                            2 * -0.22 = -0.44
 awful                         1 * -0.74 = -0.74
-=== her film is like a beautiful food entrée that isn't heated properly , so that it ends up a bit cold and relatively flavorless .
+=== her film is like a beautiful food entrï¿½e that isn't heated properly , so that it ends up a bit cold and relatively flavorless .
 Truth: -1, Prediction: -1 [CORRECT]
 beautiful                     1 * 0.54 = 0.54
 film                          1 * 0.39 = 0.39
@@ -66415,7 +66415,7 @@ and                           1 * 0.1 = 0.1
 is                            1 * 0.06 = 0.06
 ,                             1 * 0.03 = 0.03
 heated                        1 * 0 = 0
-entrée                        1 * 0 = 0
+entrï¿½e                        1 * 0 = 0
 relatively                    1 * -0.02 = -0.02
 .                             1 * -0.03 = -0.03
 food                          1 * -0.03 = -0.03
@@ -67745,7 +67745,7 @@ how                           1 * -0.13 = -0.13
 all                           1 * -0.18 = -0.18
 rather                        1 * -0.21 = -0.21
 superficial                   1 * -0.62 = -0.62
-=== audrey tatou has a knack for picking roles that magnify her outrageous charm , and in this literate french comedy , she's as morning-glory exuberant as she was in amélie .
+=== audrey tatou has a knack for picking roles that magnify her outrageous charm , and in this literate french comedy , she's as morning-glory exuberant as she was in amï¿½lie .
 Truth: 1, Prediction: 1 [CORRECT]
 charm                         1 * 0.41 = 0.41
 literate                      1 * 0.28 = 0.28
@@ -67770,7 +67770,7 @@ this                          1 * -0.07 = -0.07
 comedy                        1 * -0.09 = -0.09
 in                            2 * -0.05 = -0.1
 that                          1 * -0.1 = -0.1
-amélie                        1 * -0.14 = -0.14
+amï¿½lie                        1 * -0.14 = -0.14
 audrey                        1 * -0.16 = -0.16
 she's                         1 * -0.17 = -0.17
 was                           1 * -0.43 = -0.43
@@ -70516,13 +70516,13 @@ his                           1 * -0.15 = -0.15
 something                     1 * -0.16 = -0.16
 compared                      1 * -0.2 = -0.2
 series                        1 * -0.53 = -0.53
-=== we started to wonder if … some unpaid intern had just typed 'chris rock , ' 'anthony hopkins' and 'terrorists' into some univac-like script machine .
+=== we started to wonder if ï¿½ some unpaid intern had just typed 'chris rock , ' 'anthony hopkins' and 'terrorists' into some univac-like script machine .
 Truth: -1, Prediction: -1 [CORRECT]
 if                            1 * 0.27 = 0.27
 into                          1 * 0.24 = 0.24
 and                           1 * 0.1 = 0.1
 ,                             1 * 0.03 = 0.03
-…                             1 * 0 = 0
+ï¿½                             1 * 0 = 0
 hopkins'                      1 * 0 = 0
 'chris                        1 * 0 = 0
 'terrorists'                  1 * 0 = 0
@@ -70767,7 +70767,7 @@ Truth: 1, Prediction: -1 [WRONG]
 documentary                   1 * 0.2 = 0.2
 .                             1 * -0.03 = -0.03
 exciting                      1 * -0.19 = -0.19
-=== handled correctly , wilde's play is a masterpiece of elegant wit and artifice . here , alas , it collapses like an overcooked soufflé .
+=== handled correctly , wilde's play is a masterpiece of elegant wit and artifice . here , alas , it collapses like an overcooked soufflï¿½ .
 Truth: -1, Prediction: 1 [WRONG]
 play                          1 * 0.43 = 0.43
 masterpiece                   1 * 0.4 = 0.4
@@ -70781,7 +70781,7 @@ and                           1 * 0.1 = 0.1
 ,                             3 * 0.03 = 0.09
 is                            1 * 0.06 = 0.06
 collapses                     1 * 3.46944695195e-18 = 3.46944695195e-18
-soufflé                       1 * 0 = 0
+soufflï¿½                       1 * 0 = 0
 handled                       1 * 0.0 = 0.0
 correctly                     1 * 0 = 0
 overcooked                    1 * 0 = 0
@@ -72361,7 +72361,7 @@ that                          1 * -0.1 = -0.1
 exactly                       1 * -0.16 = -0.16
 laughs                        1 * -0.51 = -0.51
 doesn't                       1 * -0.52 = -0.52
-=== the plan to make enough into ‘an inspiring tale of survival wrapped in the heart-pounding suspense of a stylish psychological thriller' has flopped as surely as a soufflé gone wrong .
+=== the plan to make enough into ï¿½an inspiring tale of survival wrapped in the heart-pounding suspense of a stylish psychological thriller' has flopped as surely as a soufflï¿½ gone wrong .
 Truth: -1, Prediction: -1 [CORRECT]
 psychological                 1 * 0.36 = 0.36
 make                          1 * 0.35 = 0.35
@@ -72375,9 +72375,9 @@ survival                      1 * 0.02 = 0.02
 inspiring                     1 * 0.01 = 0.01
 flopped                       1 * 0 = 0
 thriller'                     1 * 0 = 0
-soufflé                       1 * 0 = 0
+soufflï¿½                       1 * 0 = 0
 plan                          1 * 0 = 0
-‘an                           1 * 0 = 0
+ï¿½an                           1 * 0 = 0
 heart-pounding                1 * 0 = 0
 .                             1 * -0.03 = -0.03
 in                            1 * -0.05 = -0.05
@@ -72600,7 +72600,7 @@ which                         1 * -0.16 = -0.16
 complete                      1 * -0.2 = -0.2
 thing                         1 * -0.24 = -0.24
 minutes                       1 * -0.3 = -0.3
-=== the delicious trimmings…arrive early and stay late , filling nearly every minute…with a lighthearted glow , some impudent snickers , and a glorious dose of humankind's liberating ability to triumph over a scrooge or two .
+=== the delicious trimmingsï¿½arrive early and stay late , filling nearly every minuteï¿½with a lighthearted glow , some impudent snickers , and a glorious dose of humankind's liberating ability to triumph over a scrooge or two .
 Truth: 1, Prediction: -1 [WRONG]
 triumph                       1 * 0.61 = 0.61
 ability                       1 * 0.39 = 0.39
@@ -72613,8 +72613,8 @@ glow                          1 * 0.02 = 0.02
 glorious                      1 * 0.01 = 0.01
 humankind's                   1 * 0 = 0
 delicious                     1 * 0 = 0
-minute…with                   1 * 0 = 0
-trimmings…arrive              1 * 0 = 0
+minuteï¿½with                   1 * 0 = 0
+trimmingsï¿½arrive              1 * 0 = 0
 snickers                      1 * 0 = 0
 impudent                      1 * 0 = 0
 two                           1 * -0.02 = -0.02
@@ -73630,7 +73630,7 @@ watch                         1 * -0.15 = -0.15
 more                          1 * -0.19 = -0.19
 as                            2 * -0.22 = -0.44
 only                          1 * -0.57 = -0.57
-=== unexpected moments of authentically impulsive humor are the hallmark of this bittersweet , uncommonly sincere movie that portrays the frank humanity of…emotional recovery .
+=== unexpected moments of authentically impulsive humor are the hallmark of this bittersweet , uncommonly sincere movie that portrays the frank humanity ofï¿½emotional recovery .
 Truth: 1, Prediction: 1 [CORRECT]
 unexpected                    1 * 0.6 = 0.6
 are                           1 * 0.22 = 0.22
@@ -73641,7 +73641,7 @@ recovery                      1 * 0.06 = 0.06
 uncommonly                    1 * 0.03 = 0.03
 ,                             1 * 0.03 = 0.03
 impulsive                     1 * 0.02 = 0.02
-of…emotional                  1 * 0 = 0
+ofï¿½emotional                  1 * 0 = 0
 bittersweet                   1 * -0.01 = -0.01
 .                             1 * -0.03 = -0.03
 hallmark                      1 * -0.05 = -0.05
@@ -73815,7 +73815,7 @@ sketch                        1 * -0.35 = -0.35
 reason                        1 * -0.4 = -0.4
 plays                         1 * -0.51 = -0.51
 neither                       1 * -0.74 = -0.74
-=== a movie that harps on media-constructed 'issues' like whether compromise is the death of self… this orgasm [won't be an] exceedingly memorable one for most people .
+=== a movie that harps on media-constructed 'issues' like whether compromise is the death of selfï¿½ this orgasm [won't be an] exceedingly memorable one for most people .
 Truth: -1, Prediction: -1 [CORRECT]
 most                          1 * 0.24 = 0.24
 exceedingly                   1 * 0.2 = 0.2
@@ -73827,7 +73827,7 @@ media-constructed             1 * 0 = 0
 'issues'                      1 * 0 = 0
 compromise                    1 * 0 = 0
 an]                           1 * 0 = 0
-self…                         1 * 0 = 0
+selfï¿½                         1 * 0 = 0
 [won't                        1 * 0 = 0
 harps                         1 * 0 = 0
 for                           1 * -0.01 = -0.01
@@ -74680,7 +74680,7 @@ the                           3 * -0.08 = -0.24
 another                       1 * -0.27 = -0.27
 find                          1 * -0.55 = -0.55
 or                            2 * -0.33 = -0.66
-=== …a big , baggy , sprawling carnival of a movie , stretching out before us with little rhyme or reason .
+=== ï¿½a big , baggy , sprawling carnival of a movie , stretching out before us with little rhyme or reason .
 Truth: -1, Prediction: -1 [CORRECT]
 us                            1 * 0.19 = 0.19
 with                          1 * 0.15 = 0.15
@@ -74689,7 +74689,7 @@ of                            1 * 0.11 = 0.11
 sprawling                     1 * 0 = 0
 carnival                      1 * 0 = 0
 stretching                    1 * 0 = 0
-…a                            1 * 0 = 0
+ï¿½a                            1 * 0 = 0
 baggy                         1 * 0 = 0
 rhyme                         1 * 0 = 0
 a                             1 * -0.03 = -0.03

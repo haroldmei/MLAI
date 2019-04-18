@@ -55,7 +55,7 @@ class VowelInsertionProblem(util.SearchProblem):
 
     def startState(self):
         # BEGIN_YOUR_CODE (our solution is 1 line of code, but don't worry if you deviate from this)
-        return (wordsegUtil.SENTENCE_BEGIN, self.queryWords)
+        return (wordsegUtil.SENTENCE_BEGIN, ' '.join(self.queryWords))
         # END_YOUR_CODE
 
     def isEnd(self, state):
@@ -74,7 +74,7 @@ class VowelInsertionProblem(util.SearchProblem):
             next_state = state[1][index+1:]
             current_token = state[1][:index]
             
-        possibilities = possibleFills(current_token)
+        possibilities = self.possibleFills(current_token)
         for i in possibilities:
             cost = self.bigramCost(state[0], i)
             result.append((i, (i, next_state), cost))
@@ -125,10 +125,10 @@ def segmentAndInsert(query, bigramCost, possibleFills):
 ############################################################
 
 if __name__ == '__main__':
-    #shell.main()
-    corpus = '.\leo-will.txt'
+    shell.main()
+    #corpus = '.\leo-will.txt'
     #unigramCost, bigramCost = wordsegUtil.makeLanguageModels(corpus)
     #segmentWords("whatisyourname", unigramCost)
-    unigramCost, bigramCost = wordsegUtil.makeLanguageModels(corpus)
-    possibleFills = wordsegUtil.makeInverseRemovalDictionary(corpus, 'aeiou')
-    insertVowels("thts m n th crnr", bigramCost, possibleFills)
+    #unigramCost, bigramCost = wordsegUtil.makeLanguageModels(corpus)
+    #possibleFills = wordsegUtil.makeInverseRemovalDictionary(corpus, 'aeiou')
+    #insertVowels("thts m n th crnr", bigramCost, possibleFills)

@@ -12,17 +12,20 @@ class SegmentationProblem(util.SearchProblem):
 
     def startState(self):
         # BEGIN_YOUR_CODE (our solution is 3 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        return self.query
         # END_YOUR_CODE
 
     def isEnd(self, state):
         # BEGIN_YOUR_CODE (our solution is 4 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        return state == ''
         # END_YOUR_CODE
 
     def succAndCost(self, state):
         # BEGIN_YOUR_CODE (our solution is 12 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        result = []
+        for i in range(1, len(state)+1):
+            result.append((i, state[i:], self.unigramCost(state[:i])))
+        return result
         # END_YOUR_CODE
 
 def segmentWords(query, unigramCost):
@@ -33,7 +36,12 @@ def segmentWords(query, unigramCost):
     ucs.solve(SegmentationProblem(query, unigramCost))
 
     # BEGIN_YOUR_CODE (our solution is 10 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    words = []
+    for i in ucs.actions:
+        words.append(query[:i])
+        query = query[i:]
+    
+    return ' '.join(words)
     # END_YOUR_CODE
 
 ############################################################
@@ -101,3 +109,6 @@ def segmentAndInsert(query, bigramCost, possibleFills):
 
 if __name__ == '__main__':
     shell.main()
+    #corpus = '.\leo-will.txt'
+    #unigramCost, bigramCost = wordsegUtil.makeLanguageModels(corpus)
+    #segmentWords("whatisyourname", unigramCost)

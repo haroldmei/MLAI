@@ -32,7 +32,7 @@ def segmentWords(query, unigramCost):
     if len(query) == 0:
         return ''
 
-    ucs = util.UniformCostSearch(verbose=3)
+    ucs = util.UniformCostSearch(verbose=0)
     ucs.solve(SegmentationProblem(query, unigramCost))
 
     # BEGIN_YOUR_CODE (our solution is 10 lines of code, but don't worry if you deviate from this)
@@ -41,27 +41,6 @@ def segmentWords(query, unigramCost):
         words.append(query[:i])
         query = query[i:]
     
-    return ' '.join(words)
-    # END_YOUR_CODE
-
-
-def segmentWordsGreedy(query, unigramCost):
-    if len(query) == 0:
-        return ''
-
-    problem = SegmentationProblem(query, unigramCost)
-    state = query
-    words = []
-    while not problem.isEnd(state):
-        frontier = util.PriorityQueue()
-        for action, newState, cost in problem.succAndCost(state):
-            frontier.update(newState, cost)
-        
-        s,p = frontier.removeMin()
-        print state[:len(state)-len(s)], p
-        words.append(state[:len(state)-len(s)])
-        state = state[len(state)-len(s):]
-    # BEGIN_YOUR_CODE (our solution is 10 lines of code, but don't worry if you deviate from this)    
     return ' '.join(words)
     # END_YOUR_CODE
 
@@ -101,27 +80,10 @@ class VowelInsertionProblem(util.SearchProblem):
 
 def insertVowels(queryWords, bigramCost, possibleFills):
     # BEGIN_YOUR_CODE (our solution is 3 lines of code, but don't worry if you deviate from this)
-    ucs = util.UniformCostSearch(verbose=3)
+    ucs = util.UniformCostSearch(verbose=0)
     ucs.solve(VowelInsertionProblem(queryWords, bigramCost, possibleFills))
     words = []
     for i in ucs.actions: words.append(i)
-    return ' '.join(words)
-    # END_YOUR_CODE
-
-def insertVowelsGreedy(queryWords, bigramCost, possibleFills):
-    # BEGIN_YOUR_CODE (our solution is 3 lines of code, but don't worry if you deviate from this)
-    problem = VowelInsertionProblem(queryWords, bigramCost, possibleFills)
-    state = (wordsegUtil.SENTENCE_BEGIN, 0)
-    words = []
-    while not problem.isEnd(state):
-        frontier = util.PriorityQueue()
-        for action, newState, cost in problem.succAndCost(state):
-            frontier.update(newState, cost)
-        s,p = frontier.removeMin()
-        print s[0], p
-        words.append(s[0])
-        state = s #(s[0], s[1]+1)
-
     return ' '.join(words)
     # END_YOUR_CODE
 
@@ -162,7 +124,7 @@ def segmentAndInsert(query, bigramCost, possibleFills):
         return ''
 
     # BEGIN_YOUR_CODE (our solution is 11 lines of code, but don't worry if you deviate from this)
-    ucs = util.UniformCostSearch(verbose=1)
+    ucs = util.UniformCostSearch(verbose=0)
     ucs.solve(JointSegmentationInsertionProblem(query, bigramCost, possibleFills))
     words = []
     for i in ucs.actions: words.append(i)
@@ -172,25 +134,4 @@ def segmentAndInsert(query, bigramCost, possibleFills):
 ############################################################
 
 if __name__ == '__main__':
-    #shell.main()
-
-    corpus = '.\leo-will.txt'
-    unigramCost, bigramCost = wordsegUtil.makeLanguageModels(corpus)
-    #print segmentWordsGreedy("whatisyourname", unigramCost)
-    
-    #line = wordsegUtil.cleanLine('mounted their horses and rode on')
-    possibleFills = wordsegUtil.makeInverseRemovalDictionary(corpus, 'aeiou')
-    print insertVowelsGreedy(['ths', 'ppl', 'wrkd', 'hpply'], bigramCost, possibleFills)
-    print insertVowels(['ths', 'ppl', 'wrkd', 'hpply'], bigramCost, possibleFills)
-
-
-    #smoothCost = wordsegUtil.smoothUnigramAndBigram(unigramCost, bigramCost, 0.2)
-    #segmentAndInsert('mntdthrhrssndrdn', smoothCost, possibleFills)
-#
-    #parts = [wordsegUtil.removeAll(w, 'aeiou') for w in wordsegUtil.words(line)]
-#
-    #possibleFills = wordsegUtil.makeInverseRemovalDictionary(corpus, 'aeiou')
-    #print '  ' + ' '.join(
-    #    segmentAndInsert(part, smoothCost, possibleFills)
-    #    for part in parts
-    #)
+    shell.main()

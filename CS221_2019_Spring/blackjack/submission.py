@@ -11,13 +11,13 @@ class CounterexampleMDP(util.MDP):
     # Return a value of any type capturing the start state of the MDP.
     def startState(self):
         # BEGIN_YOUR_CODE (our solution is 1 line of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        return 0
         # END_YOUR_CODE
 
     # Return a list of strings representing actions possible from |state|.
     def actions(self, state):
         # BEGIN_YOUR_CODE (our solution is 1 line of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        return [-1, 1]
         # END_YOUR_CODE
 
     # Given a |state| and |action|, return a list of (newState, prob, reward) tuples
@@ -25,13 +25,19 @@ class CounterexampleMDP(util.MDP):
     # Remember that if |state| is an end state, you should return an empty list [].
     def succAndProbReward(self, state, action):
         # BEGIN_YOUR_CODE (our solution is 1 line of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        T = [0.3, 0.7]
+        result = []
+        result.append((min(max(state + action, -3), 3), T[0], state))   # .3 go to next state with a reward;
+        # .7 stayput without reword. Staying put will reduce the value of current state by \lambda, the more likely it stays unchaged, the smaller the final state value.
+        # the modified version will reduce the likelihood of staying unchanged, hence improve the value of the state.
+        result.append((state, T[1], 0))     
+        return result
         # END_YOUR_CODE
 
     # Set the discount factor (float or integer) for your counterexample MDP.
     def discount(self):
         # BEGIN_YOUR_CODE (our solution is 1 line of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+		return 0.9
         # END_YOUR_CODE
 
 ############################################################
@@ -79,7 +85,49 @@ class BlackjackMDP(util.MDP):
     #   don't include that state in the list returned by succAndProbReward.
     def succAndProbReward(self, state, action):
         # BEGIN_YOUR_CODE (our solution is 53 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        if state[2] is None:
+            return []
+
+        succ = []
+        peek = state[1]
+        totalCardValueInHand = state[0]
+        if action is 'Take':
+            if peek is None:
+                for i in range(len(self.cardValues)):
+                    deckCardCounts = list(state[2])
+                    if deckCardCounts[i] == 0:
+                        continue
+                    totalCards = sum(deckCardCounts)
+                    prob = float(deckCardCounts[i]) / totalCards
+                    deckCardCounts[i] -= 1
+                    if self.cardValues[i] + totalCardValueInHand > self.threshold:  # busted
+                        succ.append(((self.cardValues[i] + totalCardValueInHand, None, None), prob, 0))
+                    else:
+                        if totalCards == 1:  # run out of card end, reward
+                            succ.append(((self.cardValues[i] + totalCardValueInHand, None, None), prob, self.cardValues[i] + totalCardValueInHand))
+                        else:
+                            succ.append(((self.cardValues[i] + totalCardValueInHand, None, tuple(deckCardCounts)), prob, 0))
+                        
+            else:
+                deckCardCounts = list(state[2])
+                deckCardCounts[peek] -= 1
+                succ.append(((self.cardValues[peek], None, tuple(deckCardCounts)), 1, 0))
+
+        elif action is 'Peek':
+            for i in range(len(self.cardValues)):
+                deckCardCounts = list(state[2])
+                if deckCardCounts[i] == 0:
+                    continue
+                prob = float(deckCardCounts[i]) / sum(deckCardCounts)
+                succ.append(((0, i, tuple(deckCardCounts)), prob, -self.peekCost))
+
+        elif action is 'Quit':
+            succ.append(((0, None, None), 1, totalCardValueInHand))
+
+        else:
+            assert 'check your code!'
+        
+        return succ
         # END_YOUR_CODE
 
     def discount(self):
@@ -94,7 +142,8 @@ def peekingMDP():
     optimal action at least 10% of the time.
     """
     # BEGIN_YOUR_CODE (our solution is 2 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    mdp = BlackjackMDP(cardValues=[3, 4, 17], multiplicity=4, threshold=20, peekCost=1)
+    return mdp
     # END_YOUR_CODE
 
 ############################################################
@@ -142,7 +191,16 @@ class QLearningAlgorithm(util.RLAlgorithm):
     # self.getQ() to compute the current estimate of the parameters.
     def incorporateFeedback(self, state, action, reward, newState):
         # BEGIN_YOUR_CODE (our solution is 12 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        residual = 0
+        if newState is None:
+            residual = reward - self.getQ(state, action)
+        else:
+            residual = reward + \
+                self.discount * max([self.getQ(newState, newAction) for newAction in self.actions(state)]) - \
+                self.getQ(state, action)
+        features = self.featureExtractor(state, action) # list of (feature name, feature value)
+        for key, val in features:
+            self.weights[key] = self.weights[key]	+ self.getStepSize() * residual * val
         # END_YOUR_CODE
 
 # Return a single-element list containing a binary (indicator) feature
@@ -186,7 +244,15 @@ def blackjackFeatureExtractor(state, action):
     total, nextCard, counts = state
 
     # BEGIN_YOUR_CODE (our solution is 8 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    extractor = []
+    extractor.append(((total, action), 1))
+    if counts is not None:
+        presenceKey = (tuple(1 if c > 0 else 0 for c in counts), action)
+        extractor.append( (presenceKey, 1) )
+        for index, count in enumerate(counts):
+            # number of card per type and action
+            extractor.append( ((index, count, action), 1) )
+    return extractor
     # END_YOUR_CODE
 
 ############################################################

@@ -91,8 +91,8 @@ class BlackjackMDP(util.MDP):
         succ = []
         peek = state[1]
         totalCardValueInHand = state[0]
-        if action is 'Take':
-            if peek is None:
+        if action == 'Take':
+            if peek == None:
                 for i in range(len(self.cardValues)):
                     deckCardCounts = list(state[2])
                     if deckCardCounts[i] == 0:
@@ -111,18 +111,25 @@ class BlackjackMDP(util.MDP):
             else:
                 deckCardCounts = list(state[2])
                 deckCardCounts[peek] -= 1
-                succ.append(((self.cardValues[peek], None, tuple(deckCardCounts)), 1, 0))
+                totalCards = sum(deckCardCounts)
+                if self.cardValues[peek] + totalCardValueInHand > self.threshold:  # busted
+                    succ.append(((self.cardValues[peek] + totalCardValueInHand, None, None), 1, 0))
+                else:
+                    if totalCards > 0:
+                        succ.append(((self.cardValues[peek] + totalCardValueInHand, None, tuple(deckCardCounts)), 1, 0))
+                    else:
+                        succ.append(((self.cardValues[peek] + totalCardValueInHand, None, None), 1, self.cardValues[peek] + totalCardValueInHand))
 
-        elif action is 'Peek':
+        elif action == 'Peek' and peek == None:
+            deckCardCounts = list(state[2])
             for i in range(len(self.cardValues)):
-                deckCardCounts = list(state[2])
                 if deckCardCounts[i] == 0:
                     continue
                 prob = float(deckCardCounts[i]) / sum(deckCardCounts)
-                succ.append(((0, i, tuple(deckCardCounts)), prob, -self.peekCost))
+                succ.append(((totalCardValueInHand, i, tuple(deckCardCounts)), prob, -self.peekCost))
 
-        elif action is 'Quit':
-            succ.append(((0, None, None), 1, totalCardValueInHand))
+        elif action == 'Quit':
+            succ.append(((totalCardValueInHand, None, None), 1, totalCardValueInHand))
 
         else:
             assert 'check your code!'
@@ -191,16 +198,15 @@ class QLearningAlgorithm(util.RLAlgorithm):
     # self.getQ() to compute the current estimate of the parameters.
     def incorporateFeedback(self, state, action, reward, newState):
         # BEGIN_YOUR_CODE (our solution is 12 lines of code, but don't worry if you deviate from this)
-        residual = 0
-        if newState is None:
-            residual = reward - self.getQ(state, action)
-        else:
-            residual = reward + \
-                self.discount * max([self.getQ(newState, newAction) for newAction in self.actions(state)]) - \
-                self.getQ(state, action)
-        features = self.featureExtractor(state, action) # list of (feature name, feature value)
-        for key, val in features:
-            self.weights[key] = self.weights[key]	+ self.getStepSize() * residual * val
+        Q = self.getQ(state, action)
+        V = 0
+        if newState is not None:
+            V, _ = max((self.getQ(newState, action), action) for action in self.actions(newState))
+        stepSize = self.getStepSize()
+        discount = self.discount
+        features = self.featureExtractor(state, action)
+        for k,v in features:
+            self.weights[k] = self.weights[k] - stepSize * (Q - (reward + discount * V)) * v
         # END_YOUR_CODE
 
 # Return a single-element list containing a binary (indicator) feature
@@ -224,7 +230,25 @@ def simulate_QL_over_MDP(mdp, featureExtractor):
     # that you add a few lines of code here to run value iteration, simulate Q-learning on the MDP,
     # and then print some stats comparing the policies learned by these two approaches.
     # BEGIN_YOUR_CODE
-    pass
+    #pass
+    mdp.computeStates()
+    
+    rl = QLearningAlgorithm(mdp.actions, mdp.discount(), featureExtractor)
+    util.simulate(mdp, rl, 30000)
+    rl.explorationProb = 0
+
+    vi = util.ValueIteration()
+    vi.solve(mdp)
+
+    numdiff = 0
+    for s in mdp.states:
+        rl_act = rl.getAction(s)
+        #print s, rl_act, vi.pi[s]
+        if rl_act != vi.pi[s]:
+            numdiff += 1
+            #print s, rl_act, vi.pi[s]
+
+    print numdiff, len(mdp.states)
     # END_YOUR_CODE
 
 
@@ -241,18 +265,14 @@ def simulate_QL_over_MDP(mdp, featureExtractor):
 # -- Indicators for the action and the number of cards remaining with each face value (len(counts) features).
 #       Note: only add these features if the deck is not None.
 def blackjackFeatureExtractor(state, action):
-    total, nextCard, counts = state
-
+    m, _, nums = state
     # BEGIN_YOUR_CODE (our solution is 8 lines of code, but don't worry if you deviate from this)
-    extractor = []
-    extractor.append(((total, action), 1))
-    if counts is not None:
-        presenceKey = (tuple(1 if c > 0 else 0 for c in counts), action)
-        extractor.append( (presenceKey, 1) )
-        for index, count in enumerate(counts):
-            # number of card per type and action
-            extractor.append( ((index, count, action), 1) )
-    return extractor
+    result = []
+    result.append(((action, m), 1))
+    if nums is not None:
+        result.append(((action, tuple(1 if c > 0 else 0 for c in nums)), 1))
+        for i, c in enumerate(nums): result.append(((action, i, c), 1))
+    return result
     # END_YOUR_CODE
 
 ############################################################
@@ -270,6 +290,27 @@ def compare_changed_MDP(original_mdp, modified_mdp, featureExtractor):
     # Consider adding some code here to simulate two different policies over the modified MDP
     # and compare the rewards generated by each.
     # BEGIN_YOUR_CODE
-    pass
+    original_mdp.computeStates()
+    modified_mdp.computeStates()
+    
+    vi = util.ValueIteration()
+    vi.solve(original_mdp)
+
+    rl = util.FixedRLAlgorithm(vi.pi)
+    reward1 = util.simulate(original_mdp, rl, 30000)
+    print 'FixedRLAlgorithm originalMDP average reward = ', sum(reward1)/len(reward1)
+    reward2 = util.simulate(modified_mdp, rl, 30000)
+    print 'FixedRLAlgorithm modifiedMDP average reward = ', sum(reward2)/len(reward2)
+
+    rl1 = QLearningAlgorithm(original_mdp.actions, original_mdp.discount(), featureExtractor)
+    reward3 = util.simulate(original_mdp, rl1, 30000)
+    print 'QLearningAlgorithm originalMDP average reward = ', sum(reward3)/len(reward3)
+    rl1.explorationProb = 0.0
+    reward4 = util.simulate(modified_mdp, rl1, 30000)
+    print 'QLearningAlgorithm modifiedMDP average reward = ', sum(reward4)/len(reward4)
     # END_YOUR_CODE
 
+#simulate_QL_over_MDP(smallMDP, identityFeatureExtractor)
+#simulate_QL_over_MDP(largeMDP, identityFeatureExtractor)
+#simulate_QL_over_MDP(largeMDP, blackjackFeatureExtractor)
+#compare_changed_MDP(originalMDP, newThresholdMDP, identityFeatureExtractor)

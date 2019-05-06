@@ -163,18 +163,37 @@ class MinimaxAgent(MultiAgentSearchAgent):
     """
 
     # BEGIN_YOUR_CODE (our solution is 26 lines of code, but don't worry if you deviate from this)
-    # Collect legal moves and successor states
-    legalMoves = gameState.getLegalActions()
+    nAgents = gameState.getNumAgents()
+    def recurse(gameState, agent, depth):
+      if gameState.isWin() or gameState.isLose():
+        return (gameState.getScore(), None)
 
-    # Choose one of the best actions
-    scores = [self.evaluationFunction(gameState.generatePacmanSuccessor(action)) for action in legalMoves]
-    if self.index == 0:
-      bestScore = max(scores)
-    else:
-      bestScore = min(scores)
-    bestIndices = [index for index in range(len(scores)) if scores[index] == bestScore]
-    chosenIndex = random.choice(bestIndices) # Pick randomly among the best
-    return legalMoves[chosenIndex]
+      legalMoves = gameState.getLegalActions(agent)
+      if depth == 0:
+        # eval value directly with a None action;
+        return (self.evaluationFunction(gameState), None)
+      else:
+        nextDepth = depth
+        if agent != nAgents - 1:
+          nextAgent = agent + 1
+        else:
+          nextAgent = 0
+          nextDepth -= 1
+
+        succs = []
+        for action in legalMoves:
+          if action != Directions.STOP:
+            succs = succs + [(recurse(gameState.generateSuccessor(agent, action), nextAgent, nextDepth)[0], action)]
+            #print succs
+
+        if agent == self.index: # We're pacman
+          return max(succs)
+        else:
+          return min(succs)
+    
+    res = recurse(gameState, self.index, self.depth)
+    #print res[0]
+    return res[1]
     # END_YOUR_CODE
 
 ######################################################################################
@@ -191,7 +210,47 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
     """
 
     # BEGIN_YOUR_CODE (our solution is 49 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    nAgents = gameState.getNumAgents()
+
+    def recurse(gameState, agent, depth, alpha, beta):
+      if gameState.isWin() or gameState.isLose():
+        return (gameState.getScore(), None)
+
+      legalMoves = gameState.getLegalActions(agent)
+      if depth == 0:
+        # eval value directly with a None action;
+        return (self.evaluationFunction(gameState), None)
+      else:
+        nextDepth = depth
+        if agent != nAgents - 1:
+          nextAgent = agent + 1
+        else:
+          nextAgent = 0
+          nextDepth -= 1
+
+        succs = []
+        for action in legalMoves:
+          if action != Directions.STOP:
+            cur = recurse(gameState.generateSuccessor(agent, action), nextAgent, nextDepth, alpha, beta)[0]
+            if cur > alpha and agent == self.index: 
+              alpha = cur
+            elif cur < beta and agent != self.index:
+                beta = cur
+            if alpha > beta:
+              return (beta, action)
+
+            succs = succs + [(cur, action)]
+
+        if agent == self.index: # We're pacman
+          return max(succs)
+        else:
+          return min(succs)
+
+    alpha = float("-inf")
+    beta = float("inf")
+    res = recurse(gameState, self.index, self.depth, alpha, beta)
+    #print res[0]
+    return res[1]
     # END_YOUR_CODE
 
 ######################################################################################
@@ -211,7 +270,36 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
     """
 
     # BEGIN_YOUR_CODE (our solution is 25 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    nAgents = gameState.getNumAgents()
+    def recurse(gameState, agent, depth):
+      if gameState.isWin() or gameState.isLose():
+        return (gameState.getScore(), None)
+
+      legalMoves = gameState.getLegalActions(agent)
+      if depth == 0:
+        # eval value directly with a None action;
+        return (self.evaluationFunction(gameState), None)
+      else:
+        nextDepth = depth
+        if agent != nAgents - 1:
+          nextAgent = agent + 1
+        else:
+          nextAgent = 0
+          nextDepth -= 1
+
+        succs = []
+        for action in legalMoves:
+          if action != Directions.STOP:
+            succs = succs + [(recurse(gameState.generateSuccessor(agent, action), nextAgent, nextDepth)[0], action)]
+
+        if agent == self.index: # We're pacman
+          return max(succs)
+        else:
+          return (sum(t[0] for t in succs), random.choice(legalMoves))
+          
+    res = recurse(gameState, self.index, self.depth)
+    #print res[0]
+    return res[1]
     # END_YOUR_CODE
 
 ######################################################################################
@@ -225,7 +313,36 @@ def betterEvaluationFunction(currentGameState):
   """
 
   # BEGIN_YOUR_CODE (our solution is 15 lines of code, but don't worry if you deviate from this)
-  raise Exception("Not implemented yet")
+  offset = 4
+  actions = currentGameState.getLegalActions()
+  pacpos = currentGameState.getPacmanPosition()
+  ghostpos = currentGameState.getGhostPositions()
+  foodpos = currentGameState.getFood()
+  capsulepos = currentGameState.getCapsules()
+  #for action in actions:
+  #  successorGameState = currentGameState.generatePacmanSuccessor(action)
+  #  newPos = successorGameState.getPacmanPosition()
+  #  oldFood = currentGameState.getFood()
+  #  newGhostStates = successorGameState.getGhostStates()
+  #  newScaredTimes = [ghostState.scaredTimer for ghostState in newGhostStates]
+  score = currentGameState.getScore()
+  nActions = len(actions)
+  nCapsules = 0
+  for p in capsulepos:
+    if manhattanDistance(p,pacpos) < offset:
+      nCapsules += 1
+  
+  nGhost = 0
+  for p in ghostpos:
+    if manhattanDistance(p,pacpos) < offset:
+      nGhost += 1
+
+  nScaredTimes = sum(ghostState.scaredTimer for ghostState in currentGameState.getGhostStates())
+
+  left = 0 if pacpos[0] < offset else pacpos[0] - offset
+  top = 0 if pacpos[1] < offset else pacpos[1] - offset
+  nFood = sum(sum(a) for a in foodpos[left:pacpos[0]+offset][top:pacpos[1]+offset])
+  return score - 1.0/nActions + nCapsules - 1.0/(nFood + 1)
   # END_YOUR_CODE
 
 # Abbreviation

@@ -3,7 +3,7 @@ from game import Directions
 import random, util
 
 from game import Agent
-
+import math
 class ReflexAgent(Agent):
   """
     A reflex agent chooses an action at each choice point by examining
@@ -308,42 +308,40 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
 def betterEvaluationFunction(currentGameState):
   """
     Your extreme, unstoppable evaluation function (problem 4).
-
     DESCRIPTION: <write something here so we know what you did>
+    1. should go to places where there are more food
+    2. should avoid to be close to ghost
+    3. go to capsules doesn't always help?
   """
 
-  # BEGIN_YOUR_CODE (our solution is 15 lines of code, but don't worry if you deviate from this)
-  offset = 4
-  actions = currentGameState.getLegalActions()
-  pacpos = currentGameState.getPacmanPosition()
-  ghostpos = currentGameState.getGhostPositions()
-  foodpos = currentGameState.getFood()
-  capsulepos = currentGameState.getCapsules()
-  #for action in actions:
-  #  successorGameState = currentGameState.generatePacmanSuccessor(action)
-  #  newPos = successorGameState.getPacmanPosition()
-  #  oldFood = currentGameState.getFood()
-  #  newGhostStates = successorGameState.getGhostStates()
-  #  newScaredTimes = [ghostState.scaredTimer for ghostState in newGhostStates]
-  score = currentGameState.getScore()
-  nActions = len(actions)
-  nCapsules = 0
-  for p in capsulepos:
-    if manhattanDistance(p,pacpos) < offset:
-      nCapsules += 1
+  # BEGIN_YOUR_CODE (around 30 lines of code expected)
+  offset = 5
+  pacposition = currentGameState.getPacmanPosition() 
+  foodgrid = currentGameState.getFood()
+  foodreward = 0
+  for x in range( max(0, pacposition[0] - offset), min( foodgrid.width, pacposition[0] + offset)):
+      for y in range( max(0, pacposition[1] - offset), min(foodgrid.height, pacposition[1] + offset ) ):
+          if ( currentGameState.hasFood(x,y) ):
+              distance = manhattanDistance((x,y),pacposition)
+              foodreward += 15 / pow(2, distance)
   
-  nGhost = 0
-  for p in ghostpos:
-    if manhattanDistance(p,pacpos) < offset:
-      nGhost += 1
+  ghostStates = currentGameState.getGhostStates()
+  ghostcost = 0.0
+  capsulereward = 0.0
+  for s in ghostStates:
+    pos = s.getPosition()
+    distance = manhattanDistance(pos,pacposition)
+    if s.scaredTimer > 0:
+      ghostcost += 200 / distance
+    else:
+      ghostcost -= 20 / distance
 
-  nScaredTimes = sum(ghostState.scaredTimer for ghostState in currentGameState.getGhostStates())
-
-  left = 0 if pacpos[0] < offset else pacpos[0] - offset
-  top = 0 if pacpos[1] < offset else pacpos[1] - offset
-  nFood = sum(sum(a) for a in foodpos[left:pacpos[0]+offset][top:pacpos[1]+offset])
-  return score - 1.0/nActions + nCapsules - 1.0/(nFood + 1)
-  # END_YOUR_CODE
+  # this doesn't help
+  #capsulereward = 0
+  #for pos in currentGameState.getCapsules():
+  #  distance = manhattanDistance(pos,pacposition)
+  #  capsulereward += 10 / distance
+  return currentGameState.getScore() + foodreward + ghostcost + capsulereward
 
 # Abbreviation
 better = betterEvaluationFunction

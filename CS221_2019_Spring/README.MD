@@ -28,3 +28,34 @@ factor('oo','X1 X2 X3', function(x1, x2, x3){
   return (a1+a2+a3)<=1;
 })
 sumVariableElimination()
+
+    
+    
+// Evemt Scheduling
+// The sculpture/room demo
+// Create your own factor graph!
+// Call variable(), factor(), query() followed by an inference algorithm.
+variable('A', [0, 1, 2, 3])
+variable('B', [0, 1, 2, 3])
+variable('C', [0, 1, 2, 3])
+
+factor('e1', 'A', function(a) {
+  return a <= 1;
+})
+factor('e2', 'B', function(b) {
+  return b == 1;
+})
+factor('e3', 'C', function(c) {
+  return c >= 2;
+})
+factor('f1', 'A B', function(a, b) {
+  return a != b;
+})
+factor('f2', 'B C', function(b, c) {
+  return b != c;
+})
+factor('f3', 'A C', function(a, c) {
+  return a != c;
+})
+
+sumVariableElimination()

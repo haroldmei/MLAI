@@ -77,3 +77,60 @@ factor('b2', 'S2 S3', function(a, b) {
   return a || b;  
 })  
 sumVariableElimination()  
+
+
+### n queens in nxn grid
+variable('S1', [0,1,2,3,4,5])  
+variable('S2', [0,1,2,3,4,5])  
+variable('S3', [0,1,2,3,4,5])  
+variable('S4', [0,1,2,3,4,5])  
+variable('S5', [0,1,2,3,4,5])  
+variable('S6', [0,1,2,3,4,5])  
+
+factor('b1', 'S1 S2', function(a, b) {  
+  return a != b && Math.abs(a-b)!=1;  
+})  
+factor('b2', 'S2 S3', function(a, b) {  
+  return a != b && Math.abs(a-b)!=1;  
+})  
+factor('b3', 'S3 S4', function(a, b) {  
+  return a != b && Math.abs(a-b)!=1;  
+})  
+factor('b4', 'S4 S5', function(a, b) {  
+  return a != b && Math.abs(a-b)!=1;  
+})  
+factor('b5', 'S5 S6', function(a, b) {  
+  return a != b && Math.abs(a-b)!=1;  
+})  
+factor('c1', 'S1 S3', function(a, b) {  
+  return a != b && Math.abs(a-b)!=2;  
+})  
+factor('c2', 'S2 S4', function(a, b) {  
+  return a != b && Math.abs(a-b)!=2;  
+})  
+factor('c3', 'S3 S5', function(a, b) {  
+  return a != b && Math.abs(a-b)!=2;  
+})  
+factor('c4', 'S4 S6', function(a, b) {  
+  return a != b && Math.abs(a-b)!=2;  
+})  
+factor('d1', 'S1 S4', function(a, b) {  
+  return a != b && Math.abs(a-b)!=3;  
+})  
+factor('d2', 'S2 S5', function(a, b) {  
+  return a != b && Math.abs(a-b)!=3;  
+})  
+factor('d3', 'S3 S6', function(a, b) {  
+  return a != b && Math.abs(a-b)!=3;  
+})  
+factor('e1', 'S1 S5', function(a, b) {  
+  return a != b && Math.abs(a-b)!=4;  
+})  
+factor('e2', 'S2 S6', function(a, b) {  
+  return a != b && Math.abs(a-b)!=4;  
+})  
+factor('f1', 'S1 S6', function(a, b) {  
+  return a != b && Math.abs(a-b)!=5;  
+})  
+sumVariableElimination()  
+//backtrack()

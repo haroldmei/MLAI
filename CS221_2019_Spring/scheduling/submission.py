@@ -27,9 +27,7 @@ def create_nqueens_csp(n = 8):
     """
     Return an N-Queen problem on the board of size |n| * |n|.
     You should call csp.add_variable() and csp.add_binary_factor().
-
     @param n: number of queens, or the size of one dimension of the board.
-
     @return csp: A CSP problem with correctly configured factor tables
         such that it can be solved by a weighted CSP solver.
     """
@@ -100,14 +98,12 @@ class BacktrackingSearch():
         Given a CSP, a partial assignment, and a proposed new value for a variable,
         return the change of weights after assigning the variable with the proposed
         value.
-
         @param assignment: A dictionary of current assignment. Unassigned variables
             do not have entries, while an assigned variable has the assigned value
             as value in dictionary. e.g. if the domain of the variable A is [5,6],
             and 6 was assigned to it, then assignment[A] == 6.
         @param var: name of an unassigned variable.
         @param val: the proposed value.
-
         @return w: Change in weights as a result of the proposed assignment. This
             will be used as a multiplier on the current weight.
         """
@@ -129,7 +125,6 @@ class BacktrackingSearch():
         terminates when one solution is found, we want this function to find
         all possible assignments. The results are stored in the variables
         described in reset_result().
-
         @param csp: A weighted CSP.
         @param mcv: When enabled, Most Constrained Variable heuristics is used.
         @param ac3: When enabled, AC-3 will be used after each assignment of an
@@ -157,7 +152,6 @@ class BacktrackingSearch():
         """
         Perform the back-tracking algorithms to find all possible solutions to
         the CSP.
-
         @param assignment: A dictionary of current assignment. Unassigned variables
             do not have entries, while an assigned variable has the assigned value
             as value in dictionary. e.g. if the domain of the variable A is [5,6],
@@ -228,10 +222,8 @@ class BacktrackingSearch():
     def get_unassigned_variable(self, assignment):
         """
         Given a partial assignment, return a currently unassigned variable.
-
         @param assignment: A dictionary of current assignment. This is the same as
             what you've seen so far.
-
         @return var: a currently unassigned variable.
         """
 
@@ -268,7 +260,6 @@ class BacktrackingSearch():
         """
         Perform the AC-3 algorithm. The goal is to reduce the size of the
         domain values for the unassigned variables based on arc consistency.
-
         @param var: The variable whose value has just been set.
         """
         # Problem 1c
@@ -304,12 +295,9 @@ class BacktrackingSearch():
                     if removed:
                         localCopy[var2].remove(val2)
                         changed = 1
-
                 if changed == 1:
                     q.append(var2)
                     self.domains[var2] = localCopy[var2]
-        
-        #self.domains[var2] = localCopy[var2]
         # END_YOUR_CODE
 
 
@@ -322,7 +310,6 @@ def get_sum_variable(csp, name, variables, maxSum):
     returns the name of a new variable with domain range(0, maxSum+1), such that
     it's consistent with the value |n| iff the assignments for |variables|
     sums to |n|.
-
     @param name: Prefix of all the variables that are going to be added.
         Can be any hashable objects. For every variable |var| added in this
         function, it's recommended to use a naming strategy such as
@@ -331,7 +318,6 @@ def get_sum_variable(csp, name, variables, maxSum):
         have non-negative integer values as its domain.
     @param maxSum: An integer indicating the maximum sum value allowed. You
         can use it to get the auxiliary variables' domain
-
     @return result: The name of a newly created variable with domain range
         [0, maxSum] such that it's consistent with an assignment of |n|
         iff the assignment of |variables| sums to |n|.
@@ -340,23 +326,38 @@ def get_sum_variable(csp, name, variables, maxSum):
     result = ('sum', name, 'aggregated')
     csp.add_variable(result, range(maxSum + 1))
     if len(variables) == 0:
-        csp.add_unary_potential(result, lambda val: not val)
+        csp.add_unary_factor(result, lambda val: not val)
         return result
 
-    domain = [(i, j) for i in range(maxSum + 1) for j in range(i, maxSum + 1)]
-    def potential(a, x):
-        return (a[0] + x) == a[1]
-    def consistency(a_i, a_j):
-        return a_i[1] == a_j[0]
-    for index, var in enumerate(variables):
-        a_i = ('sum', name, index)
-        csp.add_variable(a_i, domain)
-        if index == 0:
-            csp.add_unary_factor(a_i, lambda x: x[0] == 0)
-            csp.add_binary_factor(a_i, var, potential)
+    # Let the input be n variables X0, X1, ..., Xn.
+    # After adding auxiliary variables, the factor graph will look like this:
+    #
+    # ^--A0 --*-- A1 --*-- ... --*-- An --*-- result--^^
+    #    |        |                  |
+    #    *        *                  *
+    #    |        |                  |
+    #    X0       X1                 Xn
+    #
+    # where each "--*--" is a binary constraint and "--^" and "--^^" are unary
+    # constraints. The "--^^" constraint will be added by the caller
+    
+    #unary and binary factors
+    f = lambda a,x: (a[0] + x) == a[1]
+    c = lambda a_i, a_j: a_i[1] == a_j[0]
+
+    # domain values for A_i:
+    # - [(prev, curr)]: prev: sum of X_0 ... X_{i-1}; curr: sum of X_0 ... X_i; prev <= curr
+    d = [(i, j) for i in range(maxSum + 1) for j in range(i, maxSum + 1)]
+    for i in range(len(variables)):
+        var = variables[i]
+        a_i = ('sum', name, i)
+        csp.add_variable(a_i, d)
+        if i == 0:
+            csp.add_unary_factor(a_i, lambda x: x[0] == 0)  # the first factor is [x[0] == 0]
+            csp.add_binary_factor(a_i, var, f)              # binary factor [(a[0] + x) == a[1]]
         else:
-            csp.add_binary_factor(('sum', name, index), var, potential)
-            csp.add_binary_factor(('sum', name, index - 1), a_i, consistency)
+            csp.add_binary_factor(('sum', name, i), var, f)     # binary factor [(a[0] + x) == a[1]]
+            csp.add_binary_factor(('sum', name, i - 1), a_i, c) # consistency factor [a_i[1] == a_j[0]]
     csp.add_binary_factor(a_i, result, lambda x, y: x[1] == y)
     return result
     # END_YOUR_CODE
@@ -374,7 +375,6 @@ class SchedulingCSPConstructor():
     def __init__(self, bulletin, profile):
         """
         Saves the necessary data.
-
         @param bulletin: Stanford Bulletin that provides a list of courses
         @param profile: A student's profile and requests
         """
@@ -390,7 +390,6 @@ class SchedulingCSPConstructor():
         ['CS221', 'CS246', None]. Conceptually, if var is assigned 'CS221'
         then it means we are taking 'CS221' in 'Aut2013'. If it's None, then
         we not taking either of them in 'Aut2013'.
-
         @param csp: The CSP where the additional constraints will be added to.
         """
         for request in self.profile.requests:
@@ -401,7 +400,6 @@ class SchedulingCSPConstructor():
         """
         Add the constraints that a course can only be taken if it's offered in
         that quarter.
-
         @param csp: The CSP where the additional constraints will be added to.
         """
         for request in self.profile.requests:
@@ -415,7 +413,6 @@ class SchedulingCSPConstructor():
         No course can be repeated. Coupling with our problem's constraint that
         only one of a group of requested course can be taken, this implies that
         every request can only be satisfied in at most one quarter.
-
         @param csp: The CSP where the additional constraints will be added to.
         """
         for request in self.profile.requests:
@@ -430,7 +427,6 @@ class SchedulingCSPConstructor():
         Return a CSP that only enforces the basic constraints that a course can
         only be taken when it's offered and that a request can only be satisfied
         in at most one quarter.
-
         @return csp: A CSP where basic variables and constraints are added.
         """
         csp = util.CSP()
@@ -445,16 +441,15 @@ class SchedulingCSPConstructor():
         quarters, e.g. Aut2013, then add constraints to not allow that request to
         be satisfied in any other quarter. If a request doesn't specify the 
         quarter(s), do nothing.
-
         @param csp: The CSP where the additional constraints will be added to.
         """
         # Problem 3a
         # BEGIN_YOUR_CODE (our solution is 5 lines of code, but don't worry if you deviate from this)
-        for req in self.profile.requests:
-            for quarter in self.profile.quarters:
-                if req.quarters != []:
-                    csp.add_unary_factor((req, quarter), lambda cid: cid is None\
-                            or quarter in req.quarters)
+        for q in self.profile.quarters:
+            for r in self.profile.requests:
+                if r.quarters != []:
+                    f = lambda a: a is None or q in r.quarters
+                    csp.add_unary_factor((r, q), f)
         # END_YOUR_CODE
 
     def add_request_weights(self, csp):
@@ -463,7 +458,6 @@ class SchedulingCSPConstructor():
         value of 1 (already configured in Request). You should only use the
         weight when one of the requested course is in the solution. A
         unsatisfied request should also have a weight value of 1.
-
         @param csp: The CSP where the additional constraints will be added to.
         """
         for request in self.profile.requests:
@@ -484,7 +478,6 @@ class SchedulingCSPConstructor():
         not count as satisfying the prerequisite of C. You cannot take a course
         in a quarter unless all of its prerequisites have been taken *before* that
         quarter. You should take advantage of get_or_variable().
-
         @param csp: The CSP where the additional constraints will be added to.
         """
         # Iterate over all request courses
@@ -518,7 +511,6 @@ class SchedulingCSPConstructor():
         a variable named (courseId, quarter) (e.g. ('CS221', 'Aut2013')) and
         its assigned value is the number of units.
         You should take advantage of get_sum_variable().
-
         @param csp: The CSP where the additional constraints will be added to.
         """
         # Problem 3b
@@ -532,35 +524,29 @@ class SchedulingCSPConstructor():
         # Hint 5: remember that range(a, b) includes a but excludes b
 
         # BEGIN_YOUR_CODE (our solution is 16 lines of code, but don't worry if you deviate from this)
-        pMin = self.profile.minUnits
-        pMax = self.profile.maxUnits
-        bull = self.bulletin
-        for quarter in self.profile.quarters:
-            coursesThisQuarter = []
-            for req in self.profile.requests:
-                for cid in req.cids:
-                    cMin = bull.courses[cid].minUnits
-                    cMax = bull.courses[cid].maxUnits
-                    cidVar = (cid, quarter)
-                    minMax = range(cMin, cMax + 1)
-                    courseDomain = [0] + minMax
-                    csp.add_variable(cidVar, courseDomain)
-                    # If we're not requesting a class this quarter or the cid isn't
-                    # in this requested quarter we'll require 0 units be used y==0.
-                    # Otherwise y has to fall in the appropriate (non-zero-containing)
-                    # range.
-                    csp.add_binary_factor((req, quarter), cidVar, lambda x, y:\
-                            y == 0 if x is None or cid not in x else y in minMax)
-                    coursesThisQuarter.append(cidVar)
-            name = 'sum-for-quarter-' + quarter
-            sumForQuarter = get_sum_variable(csp, name, coursesThisQuarter, pMax)
-            csp.add_unary_factor(sumForQuarter, lambda n: pMin <= n and n <= pMax)
+        for q in self.profile.quarters:
+            couses = []
+            for r in self.profile.requests:
+                for courseId in r.cids:
+                    course = self.bulletin.courses[courseId]
+                    units = range(course.minUnits, course.maxUnits + 1)
+                    domain = [0] + units
+                    csp.add_variable((courseId, q), domain)
+                    # [u = 0]: no course requested this quarter, or the requested course isn't in the requested quarter
+                    # [u = [u in units]] otherwise require u to be in the unit list
+                    f = lambda r, u: u == 0 if r is None or courseId not in r else u in units
+                    csp.add_binary_factor((r, q), (courseId, q), f)
+                    couses.append((courseId, q))
+
+            # the sum of all courses needs to be in range.
+            name = 'units-in-quarter-' + q
+            s = lambda n: self.profile.minUnits <= n and n <= self.profile.maxUnits
+            csp.add_unary_factor(get_sum_variable(csp, name, couses, self.profile.maxUnits), s)
         # END_YOUR_CODE
 
     def add_all_additional_constraints(self, csp):
         """
         Add all additional constraints to the CSP.
-
         @param csp: The CSP where the additional constraints will be added to.
         """
         self.add_quarter_constraints(csp)

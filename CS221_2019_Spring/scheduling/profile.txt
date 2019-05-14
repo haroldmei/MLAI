@@ -1,0 +1,22 @@
+# Unit limit per quarter. You can ignore this for the first
+# few questions in problem 2.
+minUnits 0
+maxUnits 3
+
+# These are the quarters that I need to fill out.
+# It is assumed that the quarters are sorted in chronological order.
+register Aut2018
+register Win2019
+register Spr2019
+register Aut2019
+
+# Courses I've already taken
+taken CS229
+taken CS221
+taken CS145
+taken CS109
+taken CS107
+taken CS124
+
+# Courses that I'm requesting
+request CS246 

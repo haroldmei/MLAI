@@ -46,7 +46,17 @@ class ExactInference(object):
 
     def observe(self, agentX, agentY, observedDist):
         # BEGIN_YOUR_CODE (our solution is 6 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        # for all different values of C_t, the sensor distance D_t follows Gaussian distribution with mean C_t - a_t, 
+        # so the local conditional probability p(c|d) is just util.pdf((C_t-a_t), STD, D_t); and the current belief
+        # of C_t is tracked in self.belief, each grid has a different belief (probability).
+        for r in range(self.belief.numRows):
+            for c in range(self.belief.numCols):
+                d = ((agentX - util.colToX(c))**2 + (agentY - util.rowToY(r))**2)**0.5
+                prob = util.pdf(d, Const.SONAR_STD, observedDist)   # p(c|d) <why did I comment this??>
+                p = self.belief.getProb(r,c)
+                self.belief.setProb(r,c, p * prob)
+
+        self.belief.normalize()
         # END_YOUR_CODE
 
     ##################################################################################
@@ -70,7 +80,21 @@ class ExactInference(object):
     def elapseTime(self):
         if self.skipElapse: return ### ONLY FOR THE GRADER TO USE IN Problem 2
         # BEGIN_YOUR_CODE (our solution is 7 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        # sum up probabilities from all other possible nodes to this node
+        newBelief = {}
+        for (oldTile, newTile) in self.transProb:
+            old = self.belief.getProb(oldTile[0], oldTile[1])
+            ptrans = self.transProb[(oldTile, newTile)]
+            if newTile not in newBelief:
+                newBelief[newTile] = 0.0
+            newBelief[newTile] = old * ptrans + newBelief[newTile]
+
+        # zero all out first. sometimes you have to guess a little bit...
+        self.belief = util.Belief(self.belief.numRows, self.belief.numCols, 0.0)
+        for newTile in newBelief:
+            self.belief.setProb(newTile[0], newTile[1], newBelief[newTile])
+
+        self.belief.normalize()
         # END_YOUR_CODE
 
     # Function: Get Belief
@@ -165,7 +189,28 @@ class ParticleFilter(object):
     ##################################################################################
     def observe(self, agentX, agentY, observedDist):
         # BEGIN_YOUR_CODE (our solution is 23 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        # In lecture, a 'particle' is a partial assignment 'x_1,x_2,x_3'. But in reality, only the last 'x_3' is meanful 
+        # in the algorithm, so self.particles simply records the count of 'x_3'.
+        #print self.NUM_PARTICLES, self.particles
+        total = 0.0
+        probs = collections.defaultdict(int)
+        for (r,c) in self.particles:
+            d = ((agentX - util.colToX(c))**2 + (agentY - util.rowToY(r))**2)**0.5
+            prob = util.pdf(d, Const.SONAR_STD, observedDist)   # p(c|d)
+            prob = prob * self.particles[(r,c)]
+            probs[(r,c)] = prob
+            total = total + prob
+            
+        for (r,c) in probs:
+            probs[(r,c)] = probs[(r,c)] / total
+        
+        particles = collections.defaultdict(int)
+        for i in range(self.NUM_PARTICLES):
+            tile = util.weightedRandomChoice(probs)
+            if tile not in particles:
+                particles[tile] = 0
+            particles[tile] += 1
+        self.particles = particles
         # END_YOUR_CODE
 
         self.updateBelief()
@@ -195,7 +240,18 @@ class ParticleFilter(object):
     ##################################################################################
     def elapseTime(self):
         # BEGIN_YOUR_CODE (our solution is 6 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        particles = collections.defaultdict(int)
+        #for (oldTile, newTile) in self.transProb:
+        for oldTile in self.particles:
+            if oldTile not in self.transProbDict:
+                continue
+            weights = self.transProbDict[oldTile]
+            count = self.particles[oldTile]
+            for i in range(count):
+                newTile = util.weightedRandomChoice(weights)
+                particles[newTile] += 1
+        
+        self.particles = particles
         # END_YOUR_CODE
 
     # Function: Get Belief

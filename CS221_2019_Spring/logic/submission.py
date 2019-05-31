@@ -190,31 +190,24 @@ def createRule1():
     # Return a GrammarRule for 'every $Noun $Verb some $Noun'
     # Note: universal quantification should be outside existential quantification.
     # BEGIN_YOUR_CODE (our solution is 3 lines of code, but don't worry if you deviate from this)
-    return GrammarRule('$Clause', ['every', '$Noun', '$Verb', 'some', '$Noun'],
-        #lambda args: Forall('$x', Implies(Atom(args[0].title(), '$x'), Atom(args[1].title(), '$x')))
-        lambda args: Forall('$x', Exists('$y', 
-            AndList([Atom(args[0].title(), '$x'), 
-            Atom(args[2].title(), '$y'), 
-            Atom(args[1].title(), 
-            args[0].lower(), '$y')])))  # why is there a 'lower'?
+    return GrammarRule('$Clause', ['every', '$Noun', '$Verb', 'some', '$Noun'], \
+        lambda args: Forall('$x', Exists('$y', And(Atom(args[2].title(), '$y'),  \
+            Implies(Atom(args[0].title(), '$x'), Atom(args[1].title(), '$x', '$y')))))
         )
     # END_YOUR_CODE
 
 def createRule2():
     # Return a GrammarRule for 'there is some $Noun that every $Noun $Verb'
     # BEGIN_YOUR_CODE (our solution is 3 lines of code, but don't worry if you deviate from this)
-    return GrammarRule('$Clause', ['there', 'is', 'some', '$Noun', 'that', 'every', '$Noun', '$Verb'],
-        #lambda args: Forall('$x', Implies(Atom(args[0].title(), '$x'), Atom(args[1].title(), '$x')))
-        lambda args: Forall('$y', Exists('$x', 
-            AndList([Atom(args[0].title(), '$x'), 
-            Atom(args[1].title(), '$y'), 
-            Atom(args[2].title(), 
-            args[0].lower(), '$x')])))  # why is there a 'lower'?
-        )
+    return GrammarRule('$Clause', ['there', 'is', 'some', '$Noun', 'that', 'every', '$Noun', '$Verb'], \
+        lambda args: Forall('$x', Exists('$y', And(Atom(args[0].title(), '$y'),  \
+            Implies(Atom(args[0].title(), '$y'), Atom(args[2].title(), '$x', '$y' ))))))
     # END_YOUR_CODE
 
 def createRule3():
     # Return a GrammarRule for 'if a $Noun $Verb a $Noun then the former $Verb the latter'
     # BEGIN_YOUR_CODE (our solution is 4 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    return GrammarRule('$Clause', ['if', 'a', '$Noun', '$Verb', 'a', '$Noun', 'then', 'the', 'former', '$Verb', 'the', 'latter'], \
+        lambda args: Forall('$x1', Forall('$x2', Implies(AndList([Atom(args[0].title(), '$x1'),  Atom(args[2].title(), '$x2'),  \
+            Atom(args[1].title(), '$x1', '$x2')]),  Atom(args[3].title(), '$x1', '$x2')))))
     # END_YOUR_CODE

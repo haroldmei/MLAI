@@ -161,7 +161,7 @@ def ints():
     formulas.append(Forall('$x', Exists('$y',   #0
         And(And(Successor('$x', '$y'), Not(Equals('$x', '$y'))),    # successor, not equal
             Forall('$z', Equiv(                                     # uniqueless
-                And(Successor('$x', '$y'), Not(Equals('$x', '$y'))), # if '$z' is a unequal successor
+                And(Successor('$x', '$z'), Not(Equals('$x', '$z'))), # if '$z' is a unequal successor
                 Equals('$y', '$z')))))))                             # then it must be equal to '$y'
 
     formulas.append(Forall('$x', Equiv(Not(Odd('$x')), Even('$x'))))    #1

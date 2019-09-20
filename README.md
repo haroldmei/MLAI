@@ -1,5 +1,3 @@
-# Stanford AI Courses
-
 ## CS229 2017 2018;
 Stanford CS229 Machine Learning Problem set answers  
 Collection of CS229 problem set

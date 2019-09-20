@@ -1,3 +1,5 @@
+Note: this repo is for personal use only and has changed to be not crawled by search engine.   
+
 ## CS229 2017 2018;
 
 ## CS221 2019 Spring;

@@ -1,4 +1,4 @@
-Note: this repo is for personal use only and has changed to be not crawled by search engine.   
+Note: this repo is for private use only and has been changed to be not crawled by search engine.   
 
 ## CS229 2017 2018;
 

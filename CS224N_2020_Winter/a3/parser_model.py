@@ -70,10 +70,17 @@ class ParserModel(nn.Module):
         ###     nn.Parameter: https://pytorch.org/docs/stable/nn.html#parameters
         ###     Initialization: https://pytorch.org/docs/stable/nn.init.html
         ###     Dropout: https://pytorch.org/docs/stable/nn.html#dropout-layers
+        self.embed_to_hidden_weight = nn.Parameter(torch.empty(self.n_features * self.embed_size, self.hidden_size))
+        nn.init.xavier_uniform_(self.embed_to_hidden_weight)
+        self.embed_to_hidden_bias = nn.Parameter(torch.empty(self.hidden_size))
+        nn.init.uniform_(self.embed_to_hidden_bias)
 
+        self.dropout = nn.Dropout(self.dropout_prob)
 
-
-
+        self.hidden_to_logits_weight = nn.Parameter(torch.empty(self.hidden_size, self.n_classes))
+        nn.init.xavier_uniform_(self.hidden_to_logits_weight)
+        self.hidden_to_logits_bias = nn.Parameter(torch.empty(self.n_classes))
+        nn.init.uniform_(self.hidden_to_logits_bias)
         ### END YOUR CODE
 
     def embedding_lookup(self, w):
@@ -104,8 +111,8 @@ class ParserModel(nn.Module):
         ###     Gather: https://pytorch.org/docs/stable/torch.html#torch.gather
         ###     View: https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view
 
-
-
+        x = self.embeddings[w]
+        x = x.view(x.size()[0], -1)
         ### END YOUR CODE
         return x
 
@@ -124,9 +131,7 @@ class ParserModel(nn.Module):
                         output = model(w) # this calls the forward function
                 - For more details checkout: https://pytorch.org/docs/stable/nn.html#torch.nn.Module.forward
 
-        @param w (Tensor): input tensor of tokens (batch_size, n_features)
-
-        @return logits (Tensor): tensor of predictions (output after applying the layers of the network)
+        print(logits)the layers of the network)
                                  without applying softmax (batch_size, n_classes)
         """
         ### YOUR CODE HERE (~3-5 lines)
@@ -141,6 +146,10 @@ class ParserModel(nn.Module):
         ###     Matrix product: https://pytorch.org/docs/stable/torch.html#torch.matmul
         ###     ReLU: https://pytorch.org/docs/stable/nn.html?highlight=relu#torch.nn.functional.relu
 
+        embeddings = self.embedding_lookup(w)
+        h = torch.mm(embeddings, self.embed_to_hidden_weight)  + self.embed_to_hidden_bias
+        h_dropout = self.dropout(nn.functional.relu_(h))
+        logits = torch.mm(h_dropout, self.hidden_to_logits_weight) + self.hidden_to_logits_bias
 
         ### END YOUR CODE
         return logits

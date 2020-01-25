@@ -119,19 +119,19 @@ def minibatch_parse(sentences, model, batch_size):
     ###             contains references to the same objects. Thus, you should NOT use the `del` operator
     ###             to remove objects from the `unfinished_parses` list. This will free the underlying memory that
     ###             is being accessed by `partial_parses` and may cause your code to crash.
-    
+
     partial_parses = [PartialParse(s) for s in sentences]
-    unfinished_parses = list(range(len(sentences)))
+    unfinished_parses = list(range(len(sentences))) # Instead of making a shallow copy of partial_parses, use an array to denote the unfinished parses.
     dependencies = [None] * len(sentences)
     while len(unfinished_parses) > 0:
-        lenunfinish = len(unfinished_parses)        # number of unfinished sentenses
-        sindex = unfinished_parses[:min(lenunfinish, batch_size)] # sample a batch
-        transitions = model.predict(partial_parses[sindex]) # apply model to get transitions
-        for i in sindex:
-            dependencies[unfinished_parses[i]] = partial_parses[unfinished_parses[i]].parse([transitions[ii]])
+        sz_batch = range(min(len(unfinished_parses), batch_size))      # number of unfinished sentenses
+        batch_partial_parses = [partial_parses[unfinished_parses[i]] for i in sz_batch]
+        transitions = model.predict(batch_partial_parses) # apply model to get transitions
+        for i in sz_batch:
+            dependencies[unfinished_parses[i]] = partial_parses[unfinished_parses[i]].parse([transitions[i]])
             if len(partial_parses[unfinished_parses[i]].stack) == 1 and len(partial_parses[unfinished_parses[i]].buffer) == 0:
                 del unfinished_parses[i]
-                break   # just for simplicity temporarily, is to be optimized
+                break
 
     ### END YOUR CODE
 
@@ -248,7 +248,6 @@ def test_minibatch_parse():
                       (('ROOT', 'is'), ('dependency', 'interleaving'),
                       ('dependency', 'test'), ('is', 'dependency'), ('is', 'this')))
     print("minibatch_parse test passed!")
-
 
 if __name__ == '__main__':
     args = sys.argv

@@ -31,7 +31,10 @@ class PartialParse(object):
         ###
         ### Note: The root token should be represented with the string "ROOT"
         ###
-
+	
+        self.stack = ['ROOT']
+        self.buffer = list(sentence)
+        self.dependencies = []
 
         ### END YOUR CODE
 
@@ -51,6 +54,21 @@ class PartialParse(object):
         ###         2. Left Arc
         ###         3. Right Arc
 
+        if transition == 'S' and len(self.buffer) > 0:
+            curr = self.buffer[0]
+            self.stack.append(curr)
+            self.buffer.remove(curr)
+
+        elif transition == 'LA' and len(self.stack) > 1:
+            dependent = self.stack.pop(len(self.stack) - 2)
+            self.dependencies.append((self.stack[len(self.stack) - 1], dependent))
+
+        elif transition == 'RA' and len(self.stack) > 1:
+            dependent = self.stack.pop()
+            self.dependencies.append((self.stack[len(self.stack) - 1], dependent))
+
+        else:
+            assert("Not possible!")
 
         ### END YOUR CODE
 
@@ -101,7 +119,19 @@ def minibatch_parse(sentences, model, batch_size):
     ###             contains references to the same objects. Thus, you should NOT use the `del` operator
     ###             to remove objects from the `unfinished_parses` list. This will free the underlying memory that
     ###             is being accessed by `partial_parses` and may cause your code to crash.
-
+    
+    partial_parses = [PartialParse(s) for s in sentences]
+    unfinished_parses = list(range(len(sentences)))
+    dependencies = [None] * len(sentences)
+    while len(unfinished_parses) > 0:
+        lenunfinish = len(unfinished_parses)        # number of unfinished sentenses
+        sindex = unfinished_parses[:min(lenunfinish, batch_size)] # sample a batch
+        transitions = model.predict(partial_parses[sindex]) # apply model to get transitions
+        for i in sindex:
+            dependencies[unfinished_parses[i]] = partial_parses[unfinished_parses[i]].parse([transitions[ii]])
+            if len(partial_parses[unfinished_parses[i]].stack) == 1 and len(partial_parses[unfinished_parses[i]].buffer) == 0:
+                del unfinished_parses[i]
+                break   # just for simplicity temporarily, is to be optimized
 
     ### END YOUR CODE
 

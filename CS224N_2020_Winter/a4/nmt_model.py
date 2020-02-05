@@ -77,7 +77,7 @@ class NMT(nn.Module):
         ###     Dropout Layer:
         ###         https://pytorch.org/docs/stable/nn.html#torch.nn.Dropout
         
-        self.encoder                    = nn.LSTM(embed_size, hidden_size, bidirectional=True, bias=True, dropout=self.dropout_rate)   # Dropout ?
+        self.encoder                    = nn.LSTM(embed_size, hidden_size, bidirectional=True, bias=True) #, dropout=self.dropout_rate)   # Dropout ?
         self.decoder                    = nn.LSTMCell(embed_size + self.hidden_size, self.hidden_size, bias=True)  # LSTM is an RNN, LSTMCell is only one step in the RNN. Can we change it to LSTM as well?
         self.h_projection               = nn.Linear(self.hidden_size*2, self.hidden_size, bias=False)
         self.c_projection               = nn.Linear(self.hidden_size*2, self.hidden_size, bias=False)
@@ -259,7 +259,6 @@ class NMT(nn.Module):
             Y_t = torch.squeeze(Y_t)
             Ybar_t = torch.cat((Y_t, o_prev), dim=1)    # Why can't it be (o_prev, Y_t) ?
             dec_state, o_t, _ = self.step(Ybar_t, dec_state, enc_hiddens, enc_hiddens_proj, enc_masks)
-            print(enc_masks.shape)
             combined_outputs.append(o_t)
             o_prev = o_t
         combined_outputs = torch.stack(combined_outputs)

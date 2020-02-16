@@ -24,3 +24,4 @@ CS224N_2020_Winter/a3/results
 CS224N_2020_Winter/a4/sanity_check_en_es_data
 model.bin
 model.bin.optim
+__pycache__

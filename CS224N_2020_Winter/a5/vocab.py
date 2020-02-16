@@ -161,7 +161,7 @@ class VocabEntry(object):
 
         sents = self.words2charindices(sents)
         sents = pad_sents_char(sents, self.char_pad)
-        sents = torch.LongTensor(sents)
+        sents = torch.tensor(sents, dtype=torch.long, device=device) #torch.LongTensor(sents, device=device)
         # (sent_len, batch, embedding)
         sents = torch.transpose(sents, 0, 1)
         return sents

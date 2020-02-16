@@ -27,9 +27,9 @@ class CNN(nn.Module):
             nn.Sequential(
                 # input: batch * emb_char * max_words
                 # output: batch * emb_word * (max_words - kernel + 1)
-                nn.Conv1d(self.emb_char, self.emb_word, self.kernel, bias=True),
+                nn.Conv1d(self.emb_char, self.emb_word, self.kernel, bias=True, padding=1),
                 nn.ReLU(),
-                nn.MaxPool1d(self.max_words - self.kernel + 1)
+                #nn.MaxPool1d(self.max_words - self.kernel + 1)
             )
 
     def forward(self, input):
@@ -38,7 +38,9 @@ class CNN(nn.Module):
         input: a batch of words with shape (batch, emb_char, max_words)
         output: (batch, emb_word)
         """
-        word_emb = self.Conv1d(input).squeeze(2)
+        
+        word_emb = self.Conv1d(input)#.squeeze(2)
+        word_emb = torch.max(word_emb, dim=2)[0]
         return word_emb
 
 

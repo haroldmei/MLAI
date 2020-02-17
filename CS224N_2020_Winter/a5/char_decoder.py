@@ -93,7 +93,8 @@ class CharDecoder(nn.Module):
         s_idx = self.target_vocab.start_of_word
         e_idx   = self.target_vocab.end_of_word
         dec_hidden = initialStates
-        curr = torch.LongTensor([[s_idx] * b])
+        #curr = torch.LongTensor([[s_idx] * b])
+        curr = torch.tensor([[s_idx] * b], dtype=torch.long, device=device)
         words = [""]*b
         done = []
         for _ in range(max_length):

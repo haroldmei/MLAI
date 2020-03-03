@@ -27,3 +27,4 @@ CS224N_2020_Winter/a5/char-word-embedding/
 model.bin
 model.bin.optim
 __pycache__
+CS224N_2020_Winter/proj/.data/
